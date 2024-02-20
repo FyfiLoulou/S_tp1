@@ -88,7 +88,7 @@ namespace S_tp1 {
 
         public override string ToString()
         {
-            return $"Name: {this.GetNom()}, Type: {this.type}, Cote: {this.cote}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
+            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.cote}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
         }
 
     }
