@@ -13,6 +13,7 @@ namespace S_tp1
         {
             RAP, POP, JAZZ, ROCK, ELECTRO, COUNTRY, RELAXATION, INSTRUMENTAL, CONCEPTUALSYNTH, PARTY, CLASSIQUE, OST
         };
+
         private string? identifiantMedia;
         private Types? type;
         private byte? cote;
