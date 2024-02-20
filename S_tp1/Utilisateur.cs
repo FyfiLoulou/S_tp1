@@ -8,5 +8,4 @@ public class Utilisateur
     //constructor
     public Utilisateur(){
 
-    }
 }

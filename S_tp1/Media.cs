@@ -1,6 +1,10 @@
 ﻿using System;
-
-public class Media
+namespace S_tp1
 {
+    public class Media
+    {
 
+    }
 }
+
+
