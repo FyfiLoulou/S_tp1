@@ -1,8 +1,6 @@
 ﻿using System;
-
-public class Class1
+namespace S_tp1;
+public class Catalogue
 {
-	public Class1()
-	{
-	}
+	
 }
