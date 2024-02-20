@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace S_tp1 {
-    public class Evaluation {
+    public class Evaluation {//
 
         private string identifiantUtilisateur;
         private string identifiantMedia;

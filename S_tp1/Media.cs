@@ -3,10 +3,14 @@ using System.Numerics;
 using static S_tp1.Evaluation;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace S_tp1 {
-    public class Media {
+namespace S_tp1
+{
+    public class Media
+    {
 
-        public enum Types {
+        //Types de musiques
+        public enum Types
+        {
             RAP, POP, JAZZ, ROCK, ELECTRO, COUNTRY, RELAXATION, INSTRUMENTAL, CONCEPTUALSYNTH, PARTY, CLASSIQUE, OST
         };
         private string? identifiantMedia;
@@ -22,15 +26,18 @@ namespace S_tp1 {
         private string? image;
 
 
-        public Media() {
+        public Media()
+        {
 
         }
 
-        public Media(string identifiantMedia) {
+        public Media(string identifiantMedia)
+        {
             this.identifiantMedia = identifiantMedia;
         }
 
-        public Media(string identifiantMedia, Types type, byte cote, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image) {
+        public Media(string identifiantMedia, Types type, byte cote, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        {
             this.identifiantMedia = identifiantMedia;
             this.type = type;
             this.cote = cote;
@@ -57,34 +64,35 @@ namespace S_tp1 {
             return base.GetHashCode();
         }
 
+        // redéfinition des opérateurs
         public static bool operator ==(Media m1, Media m2) => m1.Equals(m2);
 
         public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
 
         //getters
-        public string? GetIdentifiantMedia(){return this.identifiantMedia;}
-        public Types? GetType(){ return this.type; }
-        public byte? GetCote(){ return this.cote; }
-        public List<Evaluation>? GetEvaluations() {return this.evaluations;}
+        public string? GetIdentifiantMedia() { return this.identifiantMedia; }
+        public Types? GetType() { return this.type; }
+        public byte? GetCote() { return this.cote; }
+        public List<Evaluation>? GetEvaluations() { return this.evaluations; }
         public long? GetDateRealisation() { return this.dateRealisation; }
         public int? GetDuree() { return this.duree; }
-        public string? GetAuteur() {return this.auteur; }
-        public string? GetProducteur() {return this.producteur; }
-        public string? GetExtrait() {return this.extrait; }
-        public string? GetComplet() {return this.complet; }
-        public string? GetImage() {return this.image; }
+        public string? GetAuteur() { return this.auteur; }
+        public string? GetProducteur() { return this.producteur; }
+        public string? GetExtrait() { return this.extrait; }
+        public string? GetComplet() { return this.complet; }
+        public string? GetImage() { return this.image; }
         public string? GetNom() { return this.identifiantMedia?.Split("_")[0]; }
 
         //setters
-        public void SetType(Types type) { this.type = type;}
-        public void SetByte(byte cote) {  this.cote = cote; }
+        public void SetType(Types type) { this.type = type; }
+        public void SetByte(byte cote) { this.cote = cote; }
         public void SetDateRealisation(long dateRealisation) { this.dateRealisation = dateRealisation; }
         public void SetDuree(int duree) { this.duree = duree; }
-        public void SetAuteur(string auteur) {this.auteur = auteur;}
-        public void SetProducteur(string producteur) { this.producteur = producteur;}
-        public void SetExtrait(string extrait) { this.extrait = extrait;}
+        public void SetAuteur(string auteur) { this.auteur = auteur; }
+        public void SetProducteur(string producteur) { this.producteur = producteur; }
+        public void SetExtrait(string extrait) { this.extrait = extrait; }
         public void SetComplet(string complet) { this.complet = complet; }
-        public void SetImage(string image) { this.image = image;}
+        public void SetImage(string image) { this.image = image; }
 
         public override string ToString()
         {
@@ -93,5 +101,3 @@ namespace S_tp1 {
 
     }
 }
-
-
