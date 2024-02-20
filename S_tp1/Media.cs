@@ -7,7 +7,7 @@ namespace S_tp1 {
     public class Media {
 
         public enum Types {
-            test
+            RAP, POP, JAZZ, ROCK, ELECTRO, COUNTRY, RELAXATION, INSTRUMENTAL, CONCEPTUALSYNTH, PARTY, CLASSIQUE, OST
         };
         private string? identifiantMedia;
         private Types? type;
@@ -43,6 +43,53 @@ namespace S_tp1 {
             this.image = image;
         }
 
+        //overrides
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || !(obj is Media))
+                return false;
+            else
+                return this.identifiantMedia == ((Media)obj).identifiantMedia;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public static bool operator ==(Media m1, Media m2) => m1.Equals(m2);
+
+        public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
+
+        //getters
+        public string? GetIdentifiantMedia(){return this.identifiantMedia;}
+        public Types? GetType(){ return this.type; }
+        public byte? GetCote(){ return this.cote; }
+        public List<Evaluation>? GetEvaluations() {return this.evaluations;}
+        public long? GetDateRealisation() { return this.dateRealisation; }
+        public int? GetDuree() { return this.duree; }
+        public string? GetAuteur() {return this.auteur; }
+        public string? GetProducteur() {return this.producteur; }
+        public string? GetExtrait() {return this.extrait; }
+        public string? GetComplet() {return this.complet; }
+        public string? GetImage() {return this.image; }
+        public string? GetNom() { return this.identifiantMedia?.Split("_")[0]; }
+
+        //setters
+        public void SetType(Types type) { this.type = type;}
+        public void SetByte(byte cote) {  this.cote = cote; }
+        public void SetDateRealisation(long dateRealisation) { this.dateRealisation = dateRealisation; }
+        public void SetDuree(int duree) { this.duree = duree; }
+        public void SetAuteur(string auteur) {this.auteur = auteur;}
+        public void SetProducteur(string producteur) { this.producteur = producteur;}
+        public void SetExtrait(string extrait) { this.extrait = extrait;}
+        public void SetComplet(string complet) { this.complet = complet; }
+        public void SetImage(string image) { this.image = image;}
+
+        public override string ToString()
+        {
+            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.cote}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
+        }
 
     }
 }
