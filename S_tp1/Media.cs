@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Numerics;
-using static S_tp1.Evaluation;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace S_tp1
 {
@@ -16,7 +14,6 @@ namespace S_tp1
 
         private string? identifiantMedia;
         private Types? type;
-        private byte? cote;
         private List<Evaluation>? evaluations;
         private long? dateRealisation;
         private int? duree;
@@ -37,11 +34,10 @@ namespace S_tp1
             this.identifiantMedia = identifiantMedia;
         }
 
-        public Media(string identifiantMedia, Types type, byte cote, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
             this.identifiantMedia = identifiantMedia;
             this.type = type;
-            this.cote = cote;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
             this.auteur = auteur;
@@ -73,7 +69,7 @@ namespace S_tp1
         //getters
         public string? GetIdentifiantMedia() { return this.identifiantMedia; }
         public Types? GetType() { return this.type; }
-        public byte? GetCote() { return this.cote; }
+        public byte? GetCote() { return 1; }// TODO
         public List<Evaluation>? GetEvaluations() { return this.evaluations; }
         public long? GetDateRealisation() { return this.dateRealisation; }
         public int? GetDuree() { return this.duree; }
@@ -86,7 +82,6 @@ namespace S_tp1
 
         //setters
         public void SetType(Types type) { this.type = type; }
-        public void SetByte(byte cote) { this.cote = cote; }
         public void SetDateRealisation(long dateRealisation) { this.dateRealisation = dateRealisation; }
         public void SetDuree(int duree) { this.duree = duree; }
         public void SetAuteur(string auteur) { this.auteur = auteur; }
@@ -97,7 +92,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.cote}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
+            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
         }
 
     }
