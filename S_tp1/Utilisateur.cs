@@ -11,8 +11,9 @@ namespace S_tp1
         private String nom;
         private String prenom;
         private Enum role;
-        private List<String> favoris;
+        private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
+        
 
 
         /*
@@ -46,12 +47,12 @@ namespace S_tp1
 
         /*
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
-         * @return la validation de si l'ajout dans favoris a fonctionné
+         * @return la liste de favoris actualisée
          */
-        public bool AjouterFavori(String identifiantMedia)
-        {
-
-            return false;
+        public List<Media> AjouterFavori(Media media) {
+            //MediaExisteDansCatalogue
+            favoris.Add(media);
+            return this.favoris;
         }
 
 

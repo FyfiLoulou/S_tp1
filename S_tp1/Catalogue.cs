@@ -13,7 +13,7 @@
 
 
         // Constructeur par défaut
-        public Catalogue() 
+        public Catalogue()
         {
             catalogue = new List<Media>();
         }
@@ -24,30 +24,51 @@
          * @param identifiantMedia -> l'identifiant unique du media à ajouter
          * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
          */
-        public bool Ajouter(string identifiantMedia)
+        // TODO -> check si autre message à retourner
+        // TODO -> faire ajouter avec param fichier JSON
+        public string Ajouter(Media media)
         {
-            return true;
+            string messageRetour;
+            if (!(MediaExisteDansCatalogue(media)))
+            {
+                catalogue.Add(media);
+                messageRetour = $"Le media {media.GetNom()} a bel et bien ajouté dans le catalogue";
+            }
+            else if (MediaExisteDansCatalogue(media))
+            {
+                messageRetour = $"Le media {media.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté";
+            }
+            else
+            {
+                messageRetour = $"Le media {media.GetNom()} n'a pas pu être ajouté dans le catalogue";
+            }
+            return messageRetour;
         }
 
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param identifiantMediaToAdd -> l'identifiant unique du media à ajouter
-         * @param identifiantMediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> media à ajouter
+         * @param mediaToRemove -> media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(string identifiantMediaToAdd, string identifiantMediaToRemove)
+        public string Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            return true;
+            string messageRetour = "";
+            if (MediaExisteDansCatalogue(mediaToAdd))
+            {
+                messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté";
+            }
+            return messageRetour;
         }
 
         /*
          * supprime le media passé en paramètre du catalogue
          * 
-         * @param identifiantMedia -> l'identifiant unique du media à supprimer
+         * @param media -> l'identifiant unique du media à supprimer
          * @return -> retourne vrai si le media a bel et bien supprimé
          */
-        public bool Supprimer(string identifiantMedia) { return true; }
+        public bool Supprimer(Media media) { return true; }
 
         /*
          * supprime le catalogue au complet
@@ -59,18 +80,34 @@
         /*
          * sauvegarde le catalogue et le sérialise dans un fichier JSON
          * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde
+         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public void Sauvegarder(string nomFichierSauvegarde)
+        public void Sauvegarder(Media media)
         {
-            
-        }
-        
-        public override string ToString()
-        {
-            return "singe :)";
+
         }
 
+        // Méthode Override
+        public override string ToString()
+        {
+            return ":)";
+        }
+
+
+        // Méthodes ajoutées
+
+        public bool MediaExisteDansCatalogue(Media media)
+        {
+            bool retVal = !true; // GÉNIE!
+            foreach (Media m in catalogue)
+            {
+                if (m.Equals(media))
+                {
+                    retVal = true;
+                }
+            }
+            return retVal;
+        }
     }
 }
 
