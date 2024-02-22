@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace S_tp1
+﻿namespace S_tp1
 {
     /*
      * Regroupe les médias et s'occupe de la sérialisation de l'objet catalogue
@@ -26,27 +24,42 @@ namespace S_tp1
          * @param identifiantMedia -> l'identifiant unique du media à ajouter
          * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
          */
-        public bool Ajouter(Media media)
+        // TODO -> check si autre message à retourner
+        // TODO -> faire ajouter avec param fichier JSON
+        public string Ajouter(Media media)
         {
-            bool ajoute = false;
-            if (!(mediaExisteDansCatalogue(media)))
+            string messageRetour;
+            if (!(MediaExisteDansCatalogue(media)))
             {
                 catalogue.Add(media);
-                ajoute = true;
+                messageRetour = $"Le media {media.GetNom()} a bel et bien ajouté dans le catalogue";
             }
-            return ajoute;
+            else if (MediaExisteDansCatalogue(media))
+            {
+                messageRetour = $"Le media {media.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté";
+            }
+            else
+            {
+                messageRetour = $"Le media {media.GetNom()} n'a pas pu être ajouté dans le catalogue";
+            }
+            return messageRetour;
         }
 
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param mediaToAdd -> l'identifiant unique du media à ajouter
-         * @param mediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> media à ajouter
+         * @param mediaToRemove -> media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
+        public string Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            return true;
+            string messageRetour = "";
+            if (MediaExisteDansCatalogue(mediaToAdd))
+            {
+                messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté";
+            }
+            return messageRetour;
         }
 
         /*
@@ -83,7 +96,7 @@ namespace S_tp1
 
         // Méthodes ajoutées
 
-        private bool mediaExisteDansCatalogue(Media media)
+        public bool MediaExisteDansCatalogue(Media media)
         {
             bool retVal = !true; // GÉNIE!
             foreach (Media m in catalogue)
