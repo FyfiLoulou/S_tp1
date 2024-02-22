@@ -24,7 +24,7 @@
          * @param identifiantMedia -> l'identifiant unique du media à ajouter
          * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
          */
-        public bool Ajouter(string identifiantMedia)
+        public bool Ajouter(Media media)
         {
             return true;
         }
@@ -32,11 +32,11 @@
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param identifiantMediaToAdd -> l'identifiant unique du media à ajouter
-         * @param identifiantMediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> l'identifiant unique du media à ajouter
+         * @param mediaToRemove -> l'identifiant unique du media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(Media media, Media media)
+        public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
             return true;
         }
@@ -44,7 +44,7 @@
         /*
          * supprime le media passé en paramètre du catalogue
          * 
-         * @param identifiantMedia -> l'identifiant unique du media à supprimer
+         * @param media -> l'identifiant unique du media à supprimer
          * @return -> retourne vrai si le media a bel et bien supprimé
          */
         public bool Supprimer(Media media) { return true; }
@@ -59,7 +59,7 @@
         /*
          * sauvegarde le catalogue et le sérialise dans un fichier JSON
          * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde
+         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
         public void Sauvegarder(Media media)
         {
