@@ -1,4 +1,4 @@
-using static S_tp1.Catalogue;
+using static S_tp1.;
 
 namespace TestTP1
 {
