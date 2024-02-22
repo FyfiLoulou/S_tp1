@@ -13,7 +13,7 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
-        */
+        
 
 
         /*
@@ -50,7 +50,7 @@ namespace S_tp1
          * @return la liste de favoris actualisée
          */
         public List<Media> AjouterFavori(Media media) {
-            
+            //MediaExisteDansCatalogue
             favoris.Add(media);
             return this.favoris;
         }

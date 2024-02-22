@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("TP1 d'application webasd");
+            Console.WriteLine("TP1 d'application web");
+
+            Catalogue catalogue = new Catalogue();
+
+            
+
+
         }
     }
 }
