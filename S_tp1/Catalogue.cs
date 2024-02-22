@@ -56,7 +56,7 @@ namespace S_tp1
          */
         public string Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            string messageRetour = "Un événement inattendu s'est produit!";
+            string messageRetour;
             if (!(MediaExisteDansCatalogue(mediaToAdd)) && MediaExisteDansCatalogue(mediaToRemove))
             {
                 messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
@@ -71,6 +71,7 @@ namespace S_tp1
             {
                 messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et ne peut donc pas être ajouté!";
             }
+            else messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
             return messageRetour;
         }
 
