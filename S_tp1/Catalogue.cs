@@ -40,8 +40,8 @@ namespace S_tp1
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param mediaToAdd -> l'identifiant unique du media à ajouter
-         * @param mediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> media à ajouter
+         * @param mediaToRemove -> media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
         public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
