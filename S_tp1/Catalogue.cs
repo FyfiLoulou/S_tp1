@@ -8,11 +8,11 @@ namespace S_tp1
     public class Catalogue
     {
         //TODO: 20-02-2024 -> définir le path du fichier de sauvegarde
-        private const string PATH_FICHIER_SAUVEGARDE = "path du fichier";
 
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
 
+        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName+ "\\cereales\\test.json";
 
         // Constructeur par défaut
         public Catalogue()
@@ -56,7 +56,7 @@ namespace S_tp1
          */
         public string Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            string messageRetour = "Un événement inattendu s'est produit!";
+            string messageRetour;
             if (!(MediaExisteDansCatalogue(mediaToAdd)) && MediaExisteDansCatalogue(mediaToRemove))
             {
                 messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
@@ -71,6 +71,7 @@ namespace S_tp1
             {
                 messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et ne peut donc pas être ajouté!";
             }
+            else messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
             return messageRetour;
         }
 
@@ -94,32 +95,27 @@ namespace S_tp1
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public void Sauvegarder(Media media)
-        {
+        public void Sauvegarder() {
+            string test = JsonConvert.SerializeObject(catalogue);
+            File.WriteAllText(@PATH_FICHIER_SAUVEGARDE, test);
 
         }
 
         // Méthode Override
         public override string ToString()
         {
-            return ":)";
+            return "(☞ﾟヮﾟ)☞";
         }
 
 
         // Méthodes ajoutées
 
-        public bool MediaExisteDansCatalogue(Media media)
-        {
-            bool retVal = !true; // GÉNIE!
-            foreach (Media m in catalogue)
-            {
-                if (m.Equals(media))
-                {
-                    retVal = true;
-                }
-            }
-            return retVal;
+        public bool MediaExisteDansCatalogue(Media media) {
+            return catalogue.Contains(media);
         }
+
+        //get catalogue
+        public List<Media>? getCatalogue() { return catalogue; }
     }
 }
 
