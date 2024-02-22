@@ -12,6 +12,10 @@
 
             catalogue.Ajouter(test);
 
+            Console.WriteLine(Environment.CurrentDirectory);
+            Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName);
+            Console.WriteLine(catalogue.getCatalogue().Count);
+
             catalogue.Sauvegarder();
 
 

@@ -8,11 +8,11 @@ namespace S_tp1
     public class Catalogue
     {
         //TODO: 20-02-2024 -> définir le path du fichier de sauvegarde
-        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName+"/test.json";
 
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
 
+        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName+ "\\cereales\\test.json";
 
         // Constructeur par défaut
         public Catalogue()
@@ -113,6 +113,9 @@ namespace S_tp1
         public bool MediaExisteDansCatalogue(Media media) {
             return catalogue.Contains(media);
         }
+
+        //get catalogue
+        public List<Media>? getCatalogue() { return catalogue; }
     }
 }
 
