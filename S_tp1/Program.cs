@@ -8,7 +8,12 @@
 
             Catalogue catalogue = new Catalogue();
 
-            
+            Media test = new Media("testLOL");
+
+            catalogue.Ajouter(test);
+
+            catalogue.Sauvegarder();
+
 
 
         }

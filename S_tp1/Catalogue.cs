@@ -8,7 +8,7 @@ namespace S_tp1
     public class Catalogue
     {
         //TODO: 20-02-2024 -> définir le path du fichier de sauvegarde
-        private const string PATH_FICHIER_SAUVEGARDE = "path du fichier";
+        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName+"/test.json";
 
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
@@ -94,31 +94,23 @@ namespace S_tp1
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public void Sauvegarder(Media media)
-        {
+        public void Sauvegarder() {
+            string test = JsonConvert.SerializeObject(catalogue);
+            File.WriteAllText(@PATH_FICHIER_SAUVEGARDE, test);
 
         }
 
         // Méthode Override
         public override string ToString()
         {
-            return ":)";
+            return "(☞ﾟヮﾟ)☞";
         }
 
 
         // Méthodes ajoutées
 
-        public bool MediaExisteDansCatalogue(Media media)
-        {
-            bool retVal = !true; // GÉNIE!
-            foreach (Media m in catalogue)
-            {
-                if (m.Equals(media))
-                {
-                    retVal = true;
-                }
-            }
-            return retVal;
+        public bool MediaExisteDansCatalogue(Media media) {
+            return catalogue.Contains(media);
         }
     }
 }
