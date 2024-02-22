@@ -36,7 +36,7 @@
          * @param identifiantMediaToRemove -> l'identifiant unique du media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(string identifiantMediaToAdd, string identifiantMediaToRemove)
+        public bool Remplacer(Media media, Media media)
         {
             return true;
         }
@@ -47,7 +47,7 @@
          * @param identifiantMedia -> l'identifiant unique du media à supprimer
          * @return -> retourne vrai si le media a bel et bien supprimé
          */
-        public bool Supprimer(string identifiantMedia) { return true; }
+        public bool Supprimer(Media media) { return true; }
 
         /*
          * supprime le catalogue au complet
@@ -61,7 +61,7 @@
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde
          */
-        public void Sauvegarder(string nomFichierSauvegarde)
+        public void Sauvegarder(Media media)
         {
             
         }

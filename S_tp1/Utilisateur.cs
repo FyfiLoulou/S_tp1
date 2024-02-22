@@ -48,7 +48,7 @@ namespace S_tp1
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la validation de si l'ajout dans favoris a fonctionné
          */
-        public bool AjouterFavori(String identifiantMedia)
+        public bool AjouterFavori(Media media)
         {
 
             return false;
