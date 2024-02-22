@@ -55,10 +55,15 @@
         public string Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
             string messageRetour = "";
-            if (MediaExisteDansCatalogue(mediaToAdd))
+            if (!(MediaExisteDansCatalogue(mediaToAdd)) && MediaExisteDansCatalogue(mediaToRemove))
             {
-                messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté";
+                messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
             }
+            else if (!(MediaExisteDansCatalogue(mediaToRemove)))
+            {
+                messageRetour = $"Le media {mediaToRemove.GetNom()} n'existe pas dans le catalogue et ne peut donc pas être supprimé";
+            }
+            else if ()
             return messageRetour;
         }
 
