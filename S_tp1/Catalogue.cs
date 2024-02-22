@@ -1,4 +1,6 @@
-﻿namespace S_tp1
+﻿using System.Net.Http.Headers;
+
+namespace S_tp1
 {
     /*
      * Regroupe les médias et s'occupe de la sérialisation de l'objet catalogue
@@ -13,7 +15,7 @@
 
 
         // Constructeur par défaut
-        public Catalogue() 
+        public Catalogue()
         {
             catalogue = new List<Media>();
         }
@@ -24,9 +26,15 @@
          * @param identifiantMedia -> l'identifiant unique du media à ajouter
          * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
          */
-        public bool Ajouter(string identifiantMedia)
+        public bool Ajouter(Media media)
         {
-            return true;
+            bool ajoute = false;
+            if (!(mediaExisteDansCatalogue(media)))
+            {
+                catalogue.Add(media);
+                ajoute = true;
+            }
+            return ajoute;
         }
 
         /*
@@ -36,7 +44,7 @@
          * @param identifiantMediaToRemove -> l'identifiant unique du media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(string identifiantMediaToAdd, string identifiantMediaToRemove)
+        public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
             return true;
         }
@@ -47,7 +55,7 @@
          * @param identifiantMedia -> l'identifiant unique du media à supprimer
          * @return -> retourne vrai si le media a bel et bien supprimé
          */
-        public bool Supprimer(string identifiantMedia) { return true; }
+        public bool Supprimer(Media media) { return true; }
 
         /*
          * supprime le catalogue au complet
@@ -63,14 +71,30 @@
          */
         public void Sauvegarder(string nomFichierSauvegarde)
         {
-            
-        }
-        
-        public override string ToString()
-        {
-            return "singe :)";
+
         }
 
+        // Méthode Override
+        public override string ToString()
+        {
+            return ":)";
+        }
+
+
+        // Méthodes ajoutées
+
+        private bool mediaExisteDansCatalogue(Media media)
+        {
+            bool retVal = !true; // GÉNIE!
+            foreach (Media m in catalogue)
+            {
+                if (m.Equals(media))
+                {
+                    retVal = true;
+                }
+            }
+            return retVal;
+        }
     }
 }
 
