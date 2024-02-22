@@ -1,4 +1,6 @@
-﻿namespace S_tp1
+﻿using System.Net.Http.Headers;
+
+namespace S_tp1
 {
     /*
      * Regroupe les médias et s'occupe de la sérialisation de l'objet catalogue
@@ -13,7 +15,7 @@
 
 
         // Constructeur par défaut
-        public Catalogue() 
+        public Catalogue()
         {
             catalogue = new List<Media>();
         }
@@ -24,19 +26,25 @@
          * @param identifiantMedia -> l'identifiant unique du media à ajouter
          * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
          */
-        public bool Ajouter(string identifiantMedia)
+        public bool Ajouter(Media media)
         {
-            return true;
+            bool ajoute = false;
+            if (!(mediaExisteDansCatalogue(media)))
+            {
+                catalogue.Add(media);
+                ajoute = true;
+            }
+            return ajoute;
         }
 
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param identifiantMediaToAdd -> l'identifiant unique du media à ajouter
-         * @param identifiantMediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> l'identifiant unique du media à ajouter
+         * @param mediaToRemove -> l'identifiant unique du media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
-        public bool Remplacer(string identifiantMediaToAdd, string identifiantMediaToRemove)
+        public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
             return true;
         }
@@ -44,10 +52,10 @@
         /*
          * supprime le media passé en paramètre du catalogue
          * 
-         * @param identifiantMedia -> l'identifiant unique du media à supprimer
+         * @param media -> l'identifiant unique du media à supprimer
          * @return -> retourne vrai si le media a bel et bien supprimé
          */
-        public bool Supprimer(string identifiantMedia) { return true; }
+        public bool Supprimer(Media media) { return true; }
 
         /*
          * supprime le catalogue au complet
@@ -59,18 +67,34 @@
         /*
          * sauvegarde le catalogue et le sérialise dans un fichier JSON
          * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde
+         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public void Sauvegarder(string nomFichierSauvegarde)
+        public void Sauvegarder(Media media)
         {
-            
-        }
-        
-        public override string ToString()
-        {
-            return "singe :)";
+
         }
 
+        // Méthode Override
+        public override string ToString()
+        {
+            return ":)";
+        }
+
+
+        // Méthodes ajoutées
+
+        private bool mediaExisteDansCatalogue(Media media)
+        {
+            bool retVal = !true; // GÉNIE!
+            foreach (Media m in catalogue)
+            {
+                if (m.Equals(media))
+                {
+                    retVal = true;
+                }
+            }
+            return retVal;
+        }
     }
 }
 

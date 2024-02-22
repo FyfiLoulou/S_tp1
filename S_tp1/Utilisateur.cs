@@ -50,7 +50,7 @@ namespace S_tp1
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la validation de si l'ajout dans favoris a fonctionné
          */
-        public bool AjouterFavori(String identifiantMedia)
+        public bool AjouterFavori(Media media)
         {
 
             return false;
@@ -58,12 +58,15 @@ namespace S_tp1
 
 
         /*
-         * @param identifiantMedia -> l'idantifiant du media que l'on veut ajouter à nos favoris
+         * @param media -> media que l'on veut ajouter à nos favoris
          * @param cote -> la cote que l'on veux ajouter au media que l'on veut
          * @return la validation de si l'ajout d'une evaluation a fonctionné
          */
-        public bool AjouterEvaluation(String identifiantMedia, byte cote)
+        public bool AjouterEvaluation(Media media, byte cote)
         {
+
+            
+
             return false;
         }
 
