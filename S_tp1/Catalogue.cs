@@ -1,4 +1,6 @@
-﻿namespace S_tp1
+﻿using System.Net.Http.Headers;
+
+namespace S_tp1
 {
     /*
      * Regroupe les médias et s'occupe de la sérialisation de l'objet catalogue
@@ -13,7 +15,7 @@
 
 
         // Constructeur par défaut
-        public Catalogue() 
+        public Catalogue()
         {
             catalogue = new List<Media>();
         }
@@ -26,7 +28,13 @@
          */
         public bool Ajouter(Media media)
         {
-            return true;
+            bool ajoute = false;
+            if (!(mediaExisteDansCatalogue(media)))
+            {
+                catalogue.Add(media);
+                ajoute = true;
+            }
+            return ajoute;
         }
 
         /*
@@ -63,14 +71,30 @@
          */
         public void Sauvegarder(Media media)
         {
-            
-        }
-        
-        public override string ToString()
-        {
-            return "singe :)";
+
         }
 
+        // Méthode Override
+        public override string ToString()
+        {
+            return ":)";
+        }
+
+
+        // Méthodes ajoutées
+
+        private bool mediaExisteDansCatalogue(Media media)
+        {
+            bool retVal = !true; // GÉNIE!
+            foreach (Media m in catalogue)
+            {
+                if (m.Equals(media))
+                {
+                    retVal = true;
+                }
+            }
+            return retVal;
+        }
     }
 }
 

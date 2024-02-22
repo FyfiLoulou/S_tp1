@@ -13,6 +13,7 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
+        */
 
 
         /*
