@@ -11,8 +11,10 @@ namespace S_tp1
         private String nom;
         private String prenom;
         private Enum role;
+        /*
         private List<String> favoris;
         private Dictionary<String, Evaluation> evaluations;
+        */
 
 
         /*
