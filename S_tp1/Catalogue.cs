@@ -1,4 +1,6 @@
-﻿namespace S_tp1
+﻿using Newtonsoft.Json;
+
+namespace S_tp1
 {
     /*
      * Regroupe les médias et s'occupe de la sérialisation de l'objet catalogue
@@ -48,8 +50,8 @@
         /*
          * remplace un media passé en paramètre par un autre aussi passé en paramètre
          * 
-         * @param mediaToAdd -> l'identifiant unique du media à ajouter
-         * @param mediaToRemove -> l'identifiant unique du media à remplacer
+         * @param mediaToAdd -> media à ajouter
+         * @param mediaToRemove -> media à remplacer
          * @return -> retourne vrai si le media a bel et bien été remplacé
          */
         public string Remplacer(Media mediaToAdd, Media mediaToRemove)
