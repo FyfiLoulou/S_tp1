@@ -1,24 +1,30 @@
-- media arranger les constructeurs
+nous 3 :
 - solution pour pour les N.N
-- enum dans autre fichier
-
-- GetCote() dans Media
-
 - vérifications dans utilisateurs
 
-- catalogue:
-	- Supprimer()
-	- Supprimer(Media media)
+LCB
 	- Sauvegarder()
-	- ToString()
 	- Ajouter() (déserialization)
+    - GetCote() dans Media
 
+
+FB
+	- ToString()
+    - Supprimer(Media media)
+    - media arranger les constructeurs
+
+ML
 - tests unitaires
+- getter setter utilisateur
+- enum dans autre fichier
 
 
 
 
-        public string IdentifiantMedia {
-            get { return identifiantMedia; }
-            set { identifiantMedia = value; }
-        }
+
+
+
+public string IdentifiantMedia {
+    get { return identifiantMedia; }
+    set { identifiantMedia = value; }
+}
