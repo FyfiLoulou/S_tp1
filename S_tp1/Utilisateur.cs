@@ -34,14 +34,16 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Catalogue catalogue)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Enum role, Catalogue catalogue)
         {
-            this.identifiantUnique = $"{this.pseudo = pseudo}_{++nombreIncremente}";
+            this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
-            this.role = Role.UTILISATEUR;
+            this.role = role;
             this.catalogue = catalogue;
+            this.favoris = new List<Media>();
+            this.evaluations = new Dictionary<String, Evaluation>();
         }
 
         /*
@@ -65,11 +67,14 @@ namespace S_tp1
         {
             //TODO
             //TODO - faut acceder au catalogue
-            new Evaluation(this, media, cote);
+            bool retVal;
+            if (retVal = catalogue.MediaExisteDansCatalogue(media)) {
+                Evaluation eval = new Evaluation(this, media, cote);
+                this.evaluations.Add(media.IdentifiantMedia, eval);
+                media.ajouterEvaluation(eval);
+            }
 
-
-
-            return false;
+            return retVal;
         }
 
         //getters & setters

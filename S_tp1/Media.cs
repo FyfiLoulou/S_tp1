@@ -47,6 +47,11 @@ namespace S_tp1
             this.evaluations = evaluations;
         }
 
+        // TODO DOC
+        public void ajouterEvaluation(Evaluation evaluation) {
+            this.evaluations.Add(evaluation);
+        }
+
         //overrides
         public override bool Equals(Object obj)
         {

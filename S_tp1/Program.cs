@@ -11,16 +11,24 @@ namespace S_tp1
             
 
             Catalogue catalogue = new Catalogue();
+            
+
+
 
             Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "/s/s/s//s", new List<Evaluation>(), "a/f/f/f/f", "1132sad");
             Media test2 = new Media("testLOL2");
             Media test3 = new Media("testLOL3");
+            Utilisateur johnyTest = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.UTILISATEUR, catalogue);
 
-            Console.WriteLine(test);
+            catalogue.Ajouter(test);
+            catalogue.Ajouter(test2);
+            catalogue.Ajouter(test3);
 
-            //catalogue.Ajouter(test);
-            //catalogue.Ajouter(test2);
-            //catalogue.Ajouter(test3);
+            johnyTest.AjouterEvaluation(test, 1);
+            johnyTest.AjouterEvaluation(test2, 3);
+
+            catalogue.Sauvegarder("test.json");
+
             Console.WriteLine(catalogue.getCatalogue().Count);
 
             //catalogue.Sauvegarder();
