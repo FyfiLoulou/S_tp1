@@ -13,7 +13,7 @@ namespace S_tp1
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
 
-        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/test.json";
+        private string PATH_SOURCE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
         // Constructeur par défaut
         public Catalogue()
@@ -45,8 +45,9 @@ namespace S_tp1
             }
             else
             {
-                ErrorMessage();
+                consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
+                consoleState(false);
             }
             Console.WriteLine(messageRetour);
             return isAjouter;
@@ -88,8 +89,9 @@ namespace S_tp1
             }
             else
             {
-                ErrorMessage();
+                consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
+                consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
@@ -120,8 +122,9 @@ namespace S_tp1
             if (catalogue.Count != 0)
             {
                 isSupprime = false;
-                ErrorMessage();
+                consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
+                consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
@@ -133,12 +136,20 @@ namespace S_tp1
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public void Sauvegarder()
-        {
-            string test = JsonConvert.SerializeObject(catalogue, Formatting.Indented);
-            File.WriteAllText(@PATH_FICHIER_SAUVEGARDE, test);
-            Console.WriteLine(test);
-
+        public bool Sauvegarder(string nomFichierSauvegarde) {
+            bool isSauvegarde = true;
+            try {
+                File.WriteAllText(@$"(PATH_SOURCE/{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
+            } catch (DirectoryNotFoundException err) {
+                consoleState(true);
+                Console.WriteLine("Dossier existe pas");
+                consoleState(isSauvegarde = false);
+            } catch (Exception err) {
+                consoleState(true);
+                Console.WriteLine("Erreur autre: "+err.Message);
+                consoleState(isSauvegarde = false);
+            }
+            return isSauvegarde;
         }
 
         // Méthode Override
@@ -160,9 +171,9 @@ namespace S_tp1
         public List<Media>? getCatalogue() { return catalogue; }
 
 
-        private void ErrorMessage()
+        private void consoleState(bool isError)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
         }
     }
 
