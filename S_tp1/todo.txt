@@ -4,6 +4,8 @@
 
 - GetCote() dans Media
 
+- vérifications dans utilisateurs
+
 - catalogue:
 - Supprimer()
 - Supprimer(Media media)
