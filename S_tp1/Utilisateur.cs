@@ -17,10 +17,16 @@ namespace S_tp1
         
 
 
-        /*
-         * énumération des rôles qu'un utilisateur pourrait être
-         */
-        
+//Constructeur par défaut
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        {
+
+        }
+
+//Constructeur Login et mdp
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek") {
+            this.identifiantUnique =$"{pseudo}#{nombreIncremente}";
+        }
 
 
         /*
@@ -68,11 +74,11 @@ namespace S_tp1
         public string IdentifiantUnique
         {
             get { return identifiantUnique; }
-            set 
+            set
             {
                 String[] tab = identifiantUnique.Split("#");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = value + "#" + nb; 
+                identifiantUnique = value + "#" + nb;
             }
         }
 
