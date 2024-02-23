@@ -14,13 +14,18 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
-        
 
 
-        /*
-         * énumération des rôles qu'un utilisateur pourrait être
-         */
-        
+//Constructeur par défaut
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        {
+
+        }
+
+//Constructeur Login et mdp
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek") {
+            this.identifiantUnique =$"{pseudo}#{nombreIncremente}";
+        }
 
 
         /*
@@ -45,7 +50,8 @@ namespace S_tp1
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la liste de favoris actualisée
          */
-        public List<Media> AjouterFavori(Media media) {
+        public List<Media> AjouterFavori(Media media)
+        {
             //TODO - faut acceder au catalogue
             //MediaExisteDansCatalogue
             favoris.Add(media);
@@ -71,11 +77,11 @@ namespace S_tp1
         public string IdentifiantUnique
         {
             get { return identifiantUnique; }
-            set 
+            set
             {
                 String[] tab = identifiantUnique.Split("#");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = value + "#" + nb; 
+                identifiantUnique = value + "#" + nb;
             }
         }
 
