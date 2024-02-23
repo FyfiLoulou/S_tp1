@@ -2,7 +2,7 @@
   {
     "IdentifiantMedia": "testLOL",
     "Type": 1,
-    "Evaluations": [],
+    "Evaluations": [eval, eval, eval],
     "DateRealisation": 1001032,
     "Duree": 10,
     "Auteur": "ads",

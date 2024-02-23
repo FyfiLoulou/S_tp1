@@ -1,11 +1,12 @@
 ﻿using static S_tp1.Evaluation;
+using Newtonsoft.Json;
 namespace S_tp1
 {
     public class Utilisateur
     {
         //attributs
         private String identifiantUnique;
-        private static int nombreIncremente = 1;
+        private static int nombreIncremente = 0;
         private String pseudo;
         private String motDePasse;
         private String nom;
@@ -13,6 +14,9 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
+
+        [JsonIgnore]
+        private Catalogue catalogue;
         
 
 
@@ -34,15 +38,14 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Catalogue catalogue)
         {
-            this.identifiantUnique = pseudo + "#" + nombreIncremente;
-            this.pseudo = pseudo;
+            this.identifiantUnique = $"{this.pseudo = pseudo}_{++nombreIncremente}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
             this.role = Role.UTILISATEUR;
-            nombreIncremente++;
+            this.catalogue = catalogue;
         }
 
         /*
@@ -50,9 +53,9 @@ namespace S_tp1
          * @return la liste de favoris actualisée
          */
         public List<Media> AjouterFavori(Media media) {
-            //TODO - faut acceder au catalogue
-            //MediaExisteDansCatalogue
-            favoris.Add(media);
+            if (catalogue.MediaExisteDansCatalogue(media)) {
+                favoris.Add(media);
+            }
             return this.favoris;
         }
 
@@ -66,6 +69,8 @@ namespace S_tp1
         {
             //TODO
             //TODO - faut acceder au catalogue
+            new Evaluation(this, media, cote);
+
 
 
             return false;
