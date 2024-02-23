@@ -21,7 +21,7 @@ namespace S_tp1
         
 
 //Constructeur par défaut
-        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek" , )
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
         {
 
         }
