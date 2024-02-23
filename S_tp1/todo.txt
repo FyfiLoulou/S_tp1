@@ -20,3 +20,17 @@
 
 public string service {get; set;}
 public string description {get; set;}
+
+public int X
+        {
+            get { return x; }
+            set
+            {
+                //Validation selon le cas
+                if (value < 100)
+                {
+                    x = value;
+                }
+            }
+
+        }
