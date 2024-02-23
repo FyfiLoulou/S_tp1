@@ -1,4 +1,5 @@
 ﻿using System;
+//using static S_tp1.Types;
 
 
 namespace S_tp1
@@ -6,11 +7,24 @@ namespace S_tp1
     public class Media
     {
 
-        //Types de musiques
         public enum Types
         {
-            RAP, POP, JAZZ, ROCK, ELECTRO, COUNTRY, RELAXATION, INSTRUMENTAL, CONCEPTUALSYNTH, PARTY, CLASSIQUE, OST
-        };
+            RAP,
+            POP,
+            JAZZ,
+            ROCK,
+            ELECTRO,
+            COUNTRY,
+            RELAXATION,
+            INSTRUMENTAL,
+            CONCEPTUALSYNTH,
+            PARTY,
+            CLASSIQUE,
+            OST
+        }
+
+        //Types de musiques
+
 
         private static int nombreIncremente = 0;
 
