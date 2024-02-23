@@ -13,7 +13,7 @@ namespace S_tp1
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
 
-        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\cereales\\test.json";
+        private string PATH_FICHIER_SAUVEGARDE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/test.json";
 
         // Constructeur par défaut
         public Catalogue()
@@ -125,6 +125,7 @@ namespace S_tp1
         {
             string test = JsonConvert.SerializeObject(catalogue);
             File.WriteAllText(@PATH_FICHIER_SAUVEGARDE, test);
+            Console.WriteLine(test);
 
         }
 
