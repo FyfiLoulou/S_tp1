@@ -2,6 +2,8 @@
 - solution pour pour les N.N
 - enum dans autre fichier
 
+- GetCote() dans Media
+
 - catalogue:
 - Supprimer()
 - Supprimer(Media media)
