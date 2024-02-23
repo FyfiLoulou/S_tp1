@@ -12,6 +12,8 @@ namespace S_tp1
             RAP, POP, JAZZ, ROCK, ELECTRO, COUNTRY, RELAXATION, INSTRUMENTAL, CONCEPTUALSYNTH, PARTY, CLASSIQUE, OST
         };
 
+        private static int nombreIncremente = 0;
+
         private string? identifiantMedia;
         private Types? type;
         private List<Evaluation>? evaluations;
@@ -24,19 +26,19 @@ namespace S_tp1
         private string? image;
 
 
-        public Media()
+        public Media() : this("1", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
         }
 
-        public Media(string identifiantMedia)
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
-            this.identifiantMedia = identifiantMedia;
+            this.identifiantMedia = identifiantMedia + nombreIncremente++;
         }
 
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
-            this.identifiantMedia = identifiantMedia;
+            this.identifiantMedia =$"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -68,12 +70,13 @@ namespace S_tp1
         public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
 
         //getters setter
-        public string IdentifiantMedia {
+        public string IdentifiantMedia
+        {
             get { return identifiantMedia; }
             set { }
         }
 
-        public Types? Type
+        public Types? Type() 
         {
             get { return type; }
             set { this.type = value; }

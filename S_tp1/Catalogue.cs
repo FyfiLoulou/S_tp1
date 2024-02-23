@@ -165,10 +165,15 @@ namespace S_tp1
         }
 
         // Méthode Override
-        //TODO
+
         public override string ToString()
         {
-            return "(☞ﾟヮﾟ)☞";
+            string retVal = "";
+            foreach (Media media in catalogue)
+            {
+                retVal += $"{media.ToString()} ";
+            }
+            return retVal;
         }
 
 
@@ -187,6 +192,7 @@ namespace S_tp1
         {
             Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
         }
+
     }
 
 
