@@ -2,11 +2,23 @@
 - solution pour pour les N.N
 - enum dans autre fichier
 
+- GetCote() dans Media
+
+- vérifications dans utilisateurs
+
 - catalogue:
-- Supprimer()
-- Supprimer(Media media)
-- Sauvegarder()
-- ToString()
-- Ajouter() (déserialization)
+	- Supprimer()
+	- Supprimer(Media media)
+	- Sauvegarder()
+	- ToString()
+	- Ajouter() (déserialization)
 
 - tests unitaires
+
+
+
+
+        public string IdentifiantMedia {
+            get { return identifiantMedia; }
+            set { identifiantMedia = value; }
+        }

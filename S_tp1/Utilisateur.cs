@@ -50,6 +50,7 @@ namespace S_tp1
          * @return la liste de favoris actualisée
          */
         public List<Media> AjouterFavori(Media media) {
+            //TODO - faut acceder au catalogue
             //MediaExisteDansCatalogue
             favoris.Add(media);
             return this.favoris;
@@ -63,11 +64,24 @@ namespace S_tp1
          */
         public bool AjouterEvaluation(Media media, byte cote)
         {
+            //TODO
+            //TODO - faut acceder au catalogue
 
-            
 
             return false;
         }
+
+        //getters
+        public String getIdentifiantUnique() {return identifiantUnique;}
+        public String getPseudo() {return pseudo;}
+        public String getMotDePasse() { return motDePasse; }
+        public String getNom() { return nom;}
+        public String getPrenom() { return prenom;}
+        
+
+
+        //setters
+
 
 
         /*
@@ -82,6 +96,7 @@ namespace S_tp1
                 + "\nPrenom : " + prenom
                 + "\nRôle : " + role;
         }
+
     }
 }
 
