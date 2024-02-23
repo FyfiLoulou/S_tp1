@@ -4,6 +4,10 @@ nous 3 :
 
 documentations
 
+Voici les essentiels, pour l’utilisateur. Ici on va valider le mot de passe et le "login" ou pseudo de l’utilisateur. Pour
+les autres champs, proposez des valeurs limites raisonnables (exemple : le nom ne doit pas être vide (réf. votre
+document d’analyse)
+
 
 LCB
 	✔- Sauvegarder()
