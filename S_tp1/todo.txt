@@ -7,11 +7,11 @@
 - vérifications dans utilisateurs
 
 - catalogue:
-- Supprimer()
-- Supprimer(Media media)
-- Sauvegarder()
-- ToString()
-- Ajouter() (déserialization)
+	- Supprimer()
+	- Supprimer(Media media)
+	- Sauvegarder()
+	- ToString()
+	- Ajouter() (déserialization)
 
 - tests unitaires
 
