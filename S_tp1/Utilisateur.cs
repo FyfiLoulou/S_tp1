@@ -1,11 +1,13 @@
 ﻿using static S_tp1.Evaluation;
+using Newtonsoft.Json;
+using static S_tp1.Role;
 namespace S_tp1
 {
     public class Utilisateur
     {
         //attributs
         private String identifiantUnique;
-        private static int nombreIncremente = 1;
+        private static int nombreIncremente = 0;
         private String pseudo;
         private String motDePasse;
         private String nom;
@@ -13,18 +15,16 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
+
+        [JsonIgnore]
+        private Catalogue catalogue;
         
 
 
         /*
          * énumération des rôles qu'un utilisateur pourrait être
          */
-        enum Role
-        {
-            UTILISATEUR,
-            TECHNICIEN,
-            ADMIN
-        }
+        
 
 
         /*
@@ -34,15 +34,14 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Catalogue catalogue)
         {
-            this.identifiantUnique = pseudo + "#" + nombreIncremente;
-            this.pseudo = pseudo;
+            this.identifiantUnique = $"{this.pseudo = pseudo}_{++nombreIncremente}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
             this.role = Role.UTILISATEUR;
-            nombreIncremente++;
+            this.catalogue = catalogue;
         }
 
         /*
@@ -50,9 +49,9 @@ namespace S_tp1
          * @return la liste de favoris actualisée
          */
         public List<Media> AjouterFavori(Media media) {
-            //TODO - faut acceder au catalogue
-            //MediaExisteDansCatalogue
-            favoris.Add(media);
+            if (catalogue.MediaExisteDansCatalogue(media)) {
+                favoris.Add(media);
+            }
             return this.favoris;
         }
 
@@ -66,22 +65,54 @@ namespace S_tp1
         {
             //TODO
             //TODO - faut acceder au catalogue
+            new Evaluation(this, media, cote);
+
 
 
             return false;
         }
 
-        //getters
-        public String getIdentifiantUnique() {return identifiantUnique;}
-        public String getPseudo() {return pseudo;}
-        public String getMotDePasse() { return motDePasse; }
-        public String getNom() { return nom;}
-        public String getPrenom() { return prenom;}
-        
+        //getters & setters
+        public string IdentifiantUnique
+        {
+            get { return identifiantUnique; }
+            set 
+            {
+                String[] tab = identifiantUnique.Split("#");
+                String nb = tab[tab.Length - 1];
+                identifiantUnique = value + "#" + nb; 
+            }
+        }
 
 
-        //setters
+        public string Pseudo
+        {
+            get { return pseudo; }
+            set { pseudo = value; }
+        }
 
+        public string MotDePasse
+        {
+            get { return motDePasse; }
+            set { motDePasse = value; }
+        }
+        public string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
+        public string Prenom
+        {
+            get { return prenom; }
+            set { prenom = value; }
+        }
+
+        public Enum RoleGetSet
+        {
+            get { return role; }
+            set { role = value; }
+        }
 
 
         /*

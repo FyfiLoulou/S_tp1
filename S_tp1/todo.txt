@@ -10,11 +10,15 @@ document d’analyse)
 
 
 LCB
+	✔- Sauvegarder()
+	✔- Ajouter() (déserialization)
     - GetCote() dans Media
 
 
 FB
+	✔- ToString()
     - Supprimer(Media media)
+    ✔- media arranger les constructeurs
 
 ML
 - tests unitaires
