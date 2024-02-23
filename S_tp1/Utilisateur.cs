@@ -1,4 +1,5 @@
 ﻿using static S_tp1.Evaluation;
+using Newtonsoft.Json;
 using static S_tp1.Role;
 namespace S_tp1
 {
@@ -6,7 +7,7 @@ namespace S_tp1
     {
         //attributs
         private String identifiantUnique;
-        private static int nombreIncremente = 1;
+        private static int nombreIncremente = 0;
         private String pseudo;
         private String motDePasse;
         private String nom;
@@ -15,9 +16,12 @@ namespace S_tp1
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
 
+        [JsonIgnore]
+        private Catalogue catalogue;
+        
 
 //Constructeur par défaut
-        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek" , )
         {
 
         }
@@ -35,23 +39,21 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Catalogue catalogue)
         {
-            this.identifiantUnique = pseudo + "#" + nombreIncremente;
-            this.pseudo = pseudo;
+            this.identifiantUnique = $"{this.pseudo = pseudo}_{++nombreIncremente}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
             this.role = Role.UTILISATEUR;
-            nombreIncremente++;
+            this.catalogue = catalogue;
         }
 
         /*
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la liste de favoris actualisée
          */
-        public List<Media> AjouterFavori(Media media)
-        {
+        public List<Media> AjouterFavori(Media media) {
             //TODO - faut acceder au catalogue
             //MediaExisteDansCatalogue
             favoris.Add(media);
@@ -68,6 +70,8 @@ namespace S_tp1
         {
             //TODO
             //TODO - faut acceder au catalogue
+            new Evaluation(this, media, cote);
+
 
 
             return false;
