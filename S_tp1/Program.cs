@@ -12,18 +12,20 @@ namespace S_tp1
 
             Catalogue catalogue = new Catalogue();
 
-            Media test = new Media("testLOL", Media.Types.POP, 1001032, 10, "ads", "asddsa", "/s/s/s//s", new List<Evaluation>(), "a/f/f/f/f", "1132sad");
+            Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "/s/s/s//s", new List<Evaluation>(), "a/f/f/f/f", "1132sad");
             Media test2 = new Media("testLOL2");
             Media test3 = new Media("testLOL3");
+
+            Console.WriteLine(test);
 
             //catalogue.Ajouter(test);
             //catalogue.Ajouter(test2);
             //catalogue.Ajouter(test3);
             Console.WriteLine(catalogue.getCatalogue().Count);
 
-            catalogue.Sauvegarder();
-            */
-
+            //catalogue.Sauvegarder();
+            
+            /*
             Utilisateur johnyTest = new Utilisateur("JohnyX", "abc123", "Test", "Johny");
             Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob");
             Utilisateur singe = new Utilisateur("singe", "singe", "singe", "singe");
@@ -38,7 +40,7 @@ namespace S_tp1
 
 
             Console.WriteLine(catalogue.ToString());
-
+            */
         }
     }
 }

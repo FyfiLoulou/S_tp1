@@ -8,17 +8,17 @@ namespace S_tp1
 {
     internal enum Types
     {
-        rap, 
-        pop,
-        jazz,
-        rock,
-        electro,
-        country,
-        relaxation,
-        instrumental,
-        conceptualSynth,
-        party,
-        classique,
-        ost
+        RAP,
+        POP,
+        JAZZ,
+        ROCK,
+        ELECTRO,
+        COUNTRY,
+        RELAXATION,
+        INSTRUMENTAL,
+        CONCEPTUALSYNTH,
+        PARTY,
+        CLASSIQUE,
+        OST
     }
 }
