@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Xml;
+
 
 namespace S_tp1
 {
@@ -73,67 +73,67 @@ namespace S_tp1
         public string IdentifiantMedia
         {
             get { return identifiantMedia; }
-            set;
+            set { }
         }
 
-        public Type Type()
+        public Types? Type() 
         {
             get { return type; }
-            set { this.type = value; };
+            set { this.type = value; }
         }
 
-        public List<Evaluation> Evaluations()
+        public List<Evaluation>? Evaluations
         {
             get { return evaluations; }
-            set { this.evaluations = value; };
+            set { this.evaluations = value; }
         }
 
-        public long DateRealisation()
+        public long? DateRealisation
         {
             get { return dateRealisation; }
-            set { this.dateRealisation = value; };
+            set { this.dateRealisation = value; }
         }
 
-        public int Duree()
+        public int? Duree
         {
             get { return duree; }
-            set { this.duree = value; };
+            set { this.duree = value; }
         }
 
 
-        public string Auteur()
+        public string? Auteur
         {
             get { return auteur; }
-            set { this.auteur = value; };
+            set { this.auteur = value; }
         }
 
-        public string Producteur()
+        public string? Producteur
         {
             get { return producteur; }
-            set { this.producteur = value; };
+            set { this.producteur = value; }
         }
 
-        public string Extrait()
+        public string? Extrait
         {
             get { return extrait; }
-            set { this.extrait = value; };
+            set { this.extrait = value; }
         }
 
-        public string Complet()
+        public string? Complet
         {
             get { return complet; }
-            set { this.complet = value; };
+            set { this.complet = value; }
         }
 
-        public string Image()
+        public string? Image
         {
             get { return image; }
-            set { this.image = value; };
+            set { this.image = value; }
         }
 
 
-        public byte? GetCote() { return 1; }// TODO
-        public string? GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
+        public byte GetCote() { return 1; }// TODO
+        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
 
         public override string ToString()
         {

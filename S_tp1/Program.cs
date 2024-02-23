@@ -18,15 +18,9 @@ namespace S_tp1
             catalogue.Ajouter(test);
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
-            Console.WriteLine(test.ToString());
-
-            string json = JsonConvert.SerializeObject(test2, Formatting.Indented);
-            Console.WriteLine(json);
-
-            //Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName);
             Console.WriteLine(catalogue.getCatalogue().Count);
 
-            catalogue.Sauvegarder();
+            catalogue.Sauvegarder("test.json");
             
 
         }
