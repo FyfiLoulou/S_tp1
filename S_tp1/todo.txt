@@ -2,21 +2,18 @@ nous 3 :
 - solution pour pour les N.N
 - vérifications dans utilisateurs
 
+documentations
+
+
 LCB
-	- Sauvegarder()
-	- Ajouter() (déserialization)
     - GetCote() dans Media
 
 
 FB
-	- ToString()
     - Supprimer(Media media)
-    - media arranger les constructeurs
 
 ML
 - tests unitaires
-- getter setter utilisateur
-- enum dans autre fichier
 
 
 
