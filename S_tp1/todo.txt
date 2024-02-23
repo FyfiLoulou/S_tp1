@@ -2,6 +2,9 @@ nous 3 :
 - solution pour pour les N.N
 - vérifications dans utilisateurs
 
+documentations
+
+
 LCB
 	✔- Sauvegarder()
 	✔- Ajouter() (déserialization)
@@ -15,8 +18,6 @@ FB
 
 ML
 - tests unitaires
-- getter setter utilisateur
-- enum dans autre fichier
 
 
 
