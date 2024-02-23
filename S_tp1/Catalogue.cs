@@ -31,7 +31,7 @@ namespace S_tp1
         public string Ajouter(Media media)
         {
             string messageRetour;
-            if (!(MediaExisteDansCatalogue(media)))
+            if (!MediaExisteDansCatalogue(media))
             {
                 catalogue.Add(media);
                 messageRetour = $"Le media {media.GetNom()} a bel et bien ajouté dans le catalogue";

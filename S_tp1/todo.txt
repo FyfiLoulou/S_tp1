@@ -1,0 +1,10 @@
+- media arranger les constructeurs
+- solution pour pour les N.N
+- enum dans autre fichier
+
+- catalogue:
+- Supprimer()
+- Supprimer(Media media)
+- Sauvegarder()
+- ToString()
+- Ajouter() (déserialization)
