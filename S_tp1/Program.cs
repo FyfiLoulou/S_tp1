@@ -28,6 +28,8 @@ namespace S_tp1
 
             Console.WriteLine(catalogue.getCatalogue().Count);
 
+            Console.WriteLine(catalogue.ToString());
+
         }
     }
 }

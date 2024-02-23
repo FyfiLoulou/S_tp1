@@ -76,7 +76,7 @@ namespace S_tp1
             set { }
         }
 
-        public Types? Type() 
+        public Types? Type
         {
             get { return type; }
             set { this.type = value; }
