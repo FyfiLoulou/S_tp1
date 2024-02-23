@@ -1,6 +1,6 @@
 ﻿using static S_tp1.Evaluation;
-using static S_tp1.Role;
 using Newtonsoft.Json;
+using static S_tp1.Role;
 namespace S_tp1
 {
     public class Utilisateur
