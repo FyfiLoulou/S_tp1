@@ -26,6 +26,8 @@ namespace S_tp1
         //Types de musiques
 
 
+        private static int nombreIncremente = 0;
+
         private string? identifiantMedia;
         private Types? type;
         private List<Evaluation>? evaluations;
@@ -38,19 +40,19 @@ namespace S_tp1
         private string? image;
 
 
-        public Media()
+        public Media() : this("1", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
         }
 
-        public Media(string identifiantMedia)
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
-            this.identifiantMedia = identifiantMedia;
+            this.identifiantMedia = identifiantMedia + nombreIncremente++;
         }
 
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
-            this.identifiantMedia = identifiantMedia;
+            this.identifiantMedia =$"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -59,6 +61,7 @@ namespace S_tp1
             this.complet = complet;
             this.extrait = extrait;
             this.image = image;
+            this.evaluations = evaluations;
         }
 
         //overrides
@@ -80,29 +83,71 @@ namespace S_tp1
 
         public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
 
-        //getters
-        public string? GetIdentifiantMedia() { return this.identifiantMedia; }
-        public Types? GetType() { return this.type; }
-        public byte? GetCote() { return 1; }// TODO
-        public List<Evaluation>? GetEvaluations() { return this.evaluations; }
-        public long? GetDateRealisation() { return this.dateRealisation; }
-        public int? GetDuree() { return this.duree; }
-        public string? GetAuteur() { return this.auteur; }
-        public string? GetProducteur() { return this.producteur; }
-        public string? GetExtrait() { return this.extrait; }
-        public string? GetComplet() { return this.complet; }
-        public string? GetImage() { return this.image; }
-        public string? GetNom() { return this.identifiantMedia?.Split("_")[0]; }
+        //getters setter
+        public string IdentifiantMedia
+        {
+            get { return identifiantMedia; }
+            set { }
+        }
 
-        //setters
-        public void SetType(Types type) { this.type = type; }
-        public void SetDateRealisation(long dateRealisation) { this.dateRealisation = dateRealisation; }
-        public void SetDuree(int duree) { this.duree = duree; }
-        public void SetAuteur(string auteur) { this.auteur = auteur; }
-        public void SetProducteur(string producteur) { this.producteur = producteur; }
-        public void SetExtrait(string extrait) { this.extrait = extrait; }
-        public void SetComplet(string complet) { this.complet = complet; }
-        public void SetImage(string image) { this.image = image; }
+        public Types? Type() 
+        {
+            get { return type; }
+            set { this.type = value; }
+        }
+
+        public List<Evaluation>? Evaluations
+        {
+            get { return evaluations; }
+            set { this.evaluations = value; }
+        }
+
+        public long? DateRealisation
+        {
+            get { return dateRealisation; }
+            set { this.dateRealisation = value; }
+        }
+
+        public int? Duree
+        {
+            get { return duree; }
+            set { this.duree = value; }
+        }
+
+
+        public string? Auteur
+        {
+            get { return auteur; }
+            set { this.auteur = value; }
+        }
+
+        public string? Producteur
+        {
+            get { return producteur; }
+            set { this.producteur = value; }
+        }
+
+        public string? Extrait
+        {
+            get { return extrait; }
+            set { this.extrait = value; }
+        }
+
+        public string? Complet
+        {
+            get { return complet; }
+            set { this.complet = value; }
+        }
+
+        public string? Image
+        {
+            get { return image; }
+            set { this.image = value; }
+        }
+
+
+        public byte GetCote() { return 1; }// TODO
+        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
 
         public override string ToString()
         {
