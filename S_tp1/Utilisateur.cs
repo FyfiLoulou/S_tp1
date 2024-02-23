@@ -1,4 +1,5 @@
 ﻿using static S_tp1.Evaluation;
+using static S_tp1.Role;
 using Newtonsoft.Json;
 namespace S_tp1
 {
@@ -23,12 +24,7 @@ namespace S_tp1
         /*
          * énumération des rôles qu'un utilisateur pourrait être
          */
-        enum Role
-        {
-            UTILISATEUR,
-            TECHNICIEN,
-            ADMIN
-        }
+        
 
 
         /*
@@ -76,17 +72,47 @@ namespace S_tp1
             return false;
         }
 
-        //getters
-        public String getIdentifiantUnique() {return identifiantUnique;}
-        public String getPseudo() {return pseudo;}
-        public String getMotDePasse() { return motDePasse; }
-        public String getNom() { return nom;}
-        public String getPrenom() { return prenom;}
-        
+        //getters & setters
+        public string IdentifiantUnique
+        {
+            get { return identifiantUnique; }
+            set 
+            {
+                String[] tab = identifiantUnique.Split("#");
+                String nb = tab[tab.Length - 1];
+                identifiantUnique = value + "#" + nb; 
+            }
+        }
 
 
-        //setters
+        public string Pseudo
+        {
+            get { return pseudo; }
+            set { pseudo = value; }
+        }
 
+        public string MotDePasse
+        {
+            get { return motDePasse; }
+            set { motDePasse = value; }
+        }
+        public string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
+        public string Prenom
+        {
+            get { return prenom; }
+            set { prenom = value; }
+        }
+
+        public Enum RoleGetSet
+        {
+            get { return role; }
+            set { role = value; }
+        }
 
 
         /*
