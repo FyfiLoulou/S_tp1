@@ -68,7 +68,7 @@ namespace S_tp1
         public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
 
         //getters
-        public string asdsadsadsaIdentifiantMedia {
+        public string IdentifiantMedia {
             get { return identifiantMedia; }
             set { identifiantMedia = value; }
         }
