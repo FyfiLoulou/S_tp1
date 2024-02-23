@@ -45,6 +45,7 @@ namespace S_tp1
             this.complet = complet;
             this.extrait = extrait;
             this.image = image;
+            this.evaluations = evaluations;
         }
 
         //overrides
@@ -67,6 +68,11 @@ namespace S_tp1
         public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
 
         //getters
+        public string IdentifiantMedia {
+            get { return identifiantMedia; }
+            set { identifiantMedia = value; }
+        }
+
         public string? GetIdentifiantMedia() { return this.identifiantMedia; }
         public Types? GetType() { return this.type; }
         public byte? GetCote() { return 1; }// TODO
@@ -78,7 +84,7 @@ namespace S_tp1
         public string? GetExtrait() { return this.extrait; }
         public string? GetComplet() { return this.complet; }
         public string? GetImage() { return this.image; }
-        public string? GetNom() { return this.identifiantMedia?.Split("_")[0]; }
+        public string? GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
 
         //setters
         public void SetType(Types type) { this.type = type; }

@@ -135,7 +135,7 @@ namespace S_tp1
          */
         public void Sauvegarder()
         {
-            string test = JsonConvert.SerializeObject(catalogue);
+            string test = JsonConvert.SerializeObject(catalogue, Formatting.Indented);
             File.WriteAllText(@PATH_FICHIER_SAUVEGARDE, test);
             Console.WriteLine(test);
 
