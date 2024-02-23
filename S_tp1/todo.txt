@@ -3,15 +3,15 @@ nous 3 :
 - vérifications dans utilisateurs
 
 LCB
-	- Sauvegarder()
-	- Ajouter() (déserialization)
+	✔- Sauvegarder()
+	✔- Ajouter() (déserialization)
     - GetCote() dans Media
 
 
 FB
-	- ToString()
+	✔- ToString()
     - Supprimer(Media media)
-    - media arranger les constructeurs
+    ✔- media arranger les constructeurs
 
 ML
 - tests unitaires
