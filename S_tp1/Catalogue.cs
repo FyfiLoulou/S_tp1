@@ -29,12 +29,14 @@ namespace S_tp1
          */
         // TODO -> check si autre message à retourner
         // TODO -> faire ajouter avec param fichier JSON
-        public string Ajouter(Media media)
+        public bool Ajouter(Media media)
         {
+            bool isAjouter = false;
             string messageRetour;
             if (!MediaExisteDansCatalogue(media))
             {
                 catalogue.Add(media);
+                isAjouter = true;
                 messageRetour = $"Le media {media.GetNom()} a bel et bien ajouté dans le catalogue";
             }
             else if (MediaExisteDansCatalogue(media))
@@ -43,9 +45,19 @@ namespace S_tp1
             }
             else
             {
-                messageRetour = $"Le media {media.GetNom()} n'a pas pu être ajouté dans le catalogue";
+                ErrorMessage();
+                messageRetour = MESSAGE_ERREUR;
             }
-            return messageRetour;
+            Console.WriteLine(messageRetour);
+            return isAjouter;
+        }
+
+        /*
+         * TODO -> documentation
+         */
+        public bool Ajouter(string nomDuFichier)
+        {
+            return true;
         }
 
         /*
@@ -130,6 +142,7 @@ namespace S_tp1
         }
 
         // Méthode Override
+        //TODO
         public override string ToString()
         {
             return "(☞ﾟヮﾟ)☞";
@@ -145,6 +158,7 @@ namespace S_tp1
 
         //get catalogue
         public List<Media>? getCatalogue() { return catalogue; }
+
 
         private void ErrorMessage()
         {
