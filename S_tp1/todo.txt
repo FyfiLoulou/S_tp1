@@ -27,9 +27,5 @@ ML
 
 
 
-
-
-public string IdentifiantMedia {
-    get { return identifiantMedia; }
-    set { identifiantMedia = value; }
-}
+Probleme serialisation -> CatalogueEvaluation(Utilisateur -> getEvaluation(this.utilisateur), Media -> getEvaluation(this.media))
+3 fichiers sérialisé (1 par "catalogue")
