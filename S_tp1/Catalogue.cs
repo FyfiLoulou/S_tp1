@@ -120,9 +120,11 @@ namespace S_tp1
             return isSupprime;
         }
 
-         /*
-         * TODO -> documentation
-         */
+         /**
+          * Sérialise le catalogue dans un fichier JSON
+          * 
+          * @return -> retourne vrai si le catalogue est sérialisé
+          */
         public bool Ajouter(string nomFichierSauvegarde) {
             bool bienAjoute = true;
             try
@@ -178,16 +180,24 @@ namespace S_tp1
 
 
         // Méthodes ajoutées
-
+        /**
+         * Vérifie que le media en paramèter existe dans le catalogue
+         * 
+         * @return -> retourne vrai si le media existe dans le catalogue
+         */
         public bool MediaExisteDansCatalogue(Media media)
         {
             return catalogue.Contains(media);
         }
 
-        //get catalogue
+        /**
+         * @return -> retourne le catalogue
+         */
         public List<Media>? getCatalogue() { return catalogue; }
 
-
+        /**
+         * Change la couleur du message dans la console pour les erreurs
+         */
         private void consoleState(bool isError)
         {
             Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
