@@ -7,7 +7,6 @@ namespace S_tp1
     public class Media
     {
 
-        //Types de musiques
 
 
         private static int nombreIncremente = 0;
