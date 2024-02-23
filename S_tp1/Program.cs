@@ -37,6 +37,8 @@ namespace S_tp1
             Console.WriteLine(hugo2 + "\n\n");
 
 
+            Console.WriteLine(catalogue.ToString());
+
         }
     }
 }
