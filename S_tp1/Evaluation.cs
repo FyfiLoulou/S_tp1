@@ -17,19 +17,19 @@ namespace S_tp1 {
         public Utilisateur Utilisateur
         {
             get { return utilisateur; }
-            private set { this.utilisateur = value; }
+            set {}
         }
 
         public Media Media
         {
             get { return media; }
-            private set { this.media = value; }
+            set {}
         }
 
         public Byte Cote
         {
             get { return cote; }
-            set { this.cote = value; }
+            set {}
         }
 
     }

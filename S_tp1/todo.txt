@@ -10,15 +10,13 @@ document d’analyse)
 
 
 LCB
-	✔- Sauvegarder()
-	✔- Ajouter() (déserialization)
+
     - GetCote() dans Media
 
 
 FB
-	✔- ToString()
     - Supprimer(Media media)
-    ✔- media arranger les constructeurs
+    - fix constructeurs utilisateur
 
 ML
 - tests unitaires
@@ -26,6 +24,3 @@ ML
 
 
 
-
-Probleme serialisation -> CatalogueEvaluation(Utilisateur -> getEvaluation(this.utilisateur), Media -> getEvaluation(this.media))
-3 fichiers sérialisé (1 par "catalogue")
