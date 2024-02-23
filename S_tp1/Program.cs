@@ -15,19 +15,20 @@ namespace S_tp1
             Media test2 = new Media("testLOL2");
             Media test3 = new Media("testLOL3");
 
-            catalogue.Ajouter(test);
-            catalogue.Ajouter(test2);
-            catalogue.Ajouter(test3);
-            Console.WriteLine(test.ToString());
-
-            string json = JsonConvert.SerializeObject(test2, Formatting.Indented);
-            Console.WriteLine(json);
-
-            //Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName);
+            //catalogue.Ajouter(test);
+            //catalogue.Ajouter(test2);
+            //catalogue.Ajouter(test3);
             Console.WriteLine(catalogue.getCatalogue().Count);
 
-            catalogue.Sauvegarder();
-            
+            //catalogue.Sauvegarder("test.json");
+
+            catalogue.Ajouter("asdasd.json");
+
+            catalogue.Ajouter("test.json");
+
+            Console.WriteLine(catalogue.getCatalogue().Count);
+
+            Console.WriteLine(catalogue.ToString());
 
         }
     }
