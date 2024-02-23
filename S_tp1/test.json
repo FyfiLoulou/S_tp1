@@ -1,0 +1,38 @@
+[
+  {
+    "IdentifiantMedia": "testLOL",
+    "Type": 1,
+    "Evaluations": [],
+    "DateRealisation": 1001032,
+    "Duree": 10,
+    "Auteur": "ads",
+    "Producteur": "asddsa",
+    "Extrait": "/s/s/s//s",
+    "Complet": "a/f/f/f/f",
+    "Image": "1132sad"
+  },
+  {
+    "IdentifiantMedia": "testLOL2",
+    "Type": null,
+    "Evaluations": null,
+    "DateRealisation": null,
+    "Duree": null,
+    "Auteur": null,
+    "Producteur": null,
+    "Extrait": null,
+    "Complet": null,
+    "Image": null
+  },
+  {
+    "IdentifiantMedia": "testLOL3",
+    "Type": null,
+    "Evaluations": null,
+    "DateRealisation": null,
+    "Duree": null,
+    "Auteur": null,
+    "Producteur": null,
+    "Extrait": null,
+    "Complet": null,
+    "Image": null
+  }
+]
