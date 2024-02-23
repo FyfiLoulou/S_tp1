@@ -15,6 +15,9 @@ namespace S_tp1
 
 
 
+
+
+
             Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "/s/s/s//s", new List<Evaluation>(), "a/f/f/f/f", "1132sad");
             Media test2 = new Media("testLOL2");
             Media test3 = new Media("testLOL3");

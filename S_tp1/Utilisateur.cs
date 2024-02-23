@@ -1,5 +1,4 @@
 ﻿using static S_tp1.Evaluation;
-using Newtonsoft.Json;
 using static S_tp1.Role;
 namespace S_tp1
 {
@@ -15,9 +14,6 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
-
-        [JsonIgnore]
-        private Catalogue catalogue;
         
 
 
@@ -34,14 +30,13 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Enum role, Catalogue catalogue)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Enum role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
             this.role = role;
-            this.catalogue = catalogue;
             this.favoris = new List<Media>();
             this.evaluations = new Dictionary<String, Evaluation>();
         }
@@ -51,9 +46,7 @@ namespace S_tp1
          * @return la liste de favoris actualisée
          */
         public List<Media> AjouterFavori(Media media) {
-            if (catalogue.MediaExisteDansCatalogue(media)) {
-                favoris.Add(media);
-            }
+            favoris.Add(media);
             return this.favoris;
         }
 
@@ -63,18 +56,12 @@ namespace S_tp1
          * @param cote -> la cote que l'on veux ajouter au media que l'on veut
          * @return la validation de si l'ajout d'une evaluation a fonctionné
          */
-        public bool AjouterEvaluation(Media media, byte cote)
+        public void AjouterEvaluation(Media media, byte cote)
         {
             //TODO
-            //TODO - faut acceder au catalogue
-            bool retVal;
-            if (retVal = catalogue.MediaExisteDansCatalogue(media)) {
-                Evaluation eval = new Evaluation(this, media, cote);
-                this.evaluations.Add(media.IdentifiantMedia, eval);
-                media.ajouterEvaluation(eval);
-            }
-
-            return retVal;
+            Evaluation eval = new Evaluation(this, media, cote);
+            this.evaluations.Add(media.IdentifiantMedia, eval);
+            media.ajouterEvaluation(eval);
         }
 
         //getters & setters
