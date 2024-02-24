@@ -95,7 +95,25 @@ namespace S_tp1
          */
         public bool Supprimer(Media media)
         {
-            return true;
+            bool isSupprime = false;
+            if (MediaExisteDansCatalogue())
+            {
+                catalogue.Remove(media);
+                if (!MediaExisteDansCatalogue())
+                {
+                    Console.WriteLine($"Le media {media} a ete supprime!");
+                    isSupprime = true;
+                }
+                else
+                {
+                    Console.WriteLine(MESSAGE_ERREUR);
+                }
+            else
+                {
+                    Console.WriteLine(MESSAGE_ERREUR);
+                }
+            }
+            return isSupprime;
         }
 
         /*
@@ -120,17 +138,20 @@ namespace S_tp1
             return isSupprime;
         }
 
-         /*
-          * Sérialise le catalogue dans un fichier JSON
-          * 
-          * @return -> retourne vrai si le catalogue est sérialisé
-          */
-        public bool Ajouter(string nomFichierSauvegarde) {
+        /*
+         * Sérialise le catalogue dans un fichier JSON
+         * 
+         * @return -> retourne vrai si le catalogue est sérialisé
+         */
+        public bool Ajouter(string nomFichierSauvegarde)
+        {
             bool bienAjoute = true;
             try
             {
                 catalogue = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            } catch (FileNotFoundException err) {
+            }
+            catch (FileNotFoundException err)
+            {
                 consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
                 consoleState(bienAjoute = false);
@@ -150,17 +171,23 @@ namespace S_tp1
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public bool Sauvegarder(string nomFichierSauvegarde) {
+        public bool Sauvegarder(string nomFichierSauvegarde)
+        {
             bool isSauvegarde = true;
-            try {
+            try
+            {
                 File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
-            } catch (DirectoryNotFoundException err) {
+            }
+            catch (DirectoryNotFoundException err)
+            {
                 consoleState(true);
-                Console.WriteLine("Dossier existe pas: "+err.Message);
+                Console.WriteLine("Dossier existe pas: " + err.Message);
                 consoleState(isSauvegarde = false);
-            } catch (Exception err) {
+            }
+            catch (Exception err)
+            {
                 consoleState(true);
-                Console.WriteLine("Erreur autre: "+err.Message);
+                Console.WriteLine("Erreur autre: " + err.Message);
                 consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
