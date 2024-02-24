@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using S_tp1.Utilitaire;
 
 namespace S_tp1
 {
@@ -43,9 +44,9 @@ namespace S_tp1
             }
             else
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine(MESSAGE_ERREUR);
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
             return isAjouter;
         }
@@ -78,9 +79,9 @@ namespace S_tp1
             }
             else
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
@@ -106,11 +107,15 @@ namespace S_tp1
                 }
                 else
                 {
+                    Utilitaire.consoleState(true);
                     Console.WriteLine(MESSAGE_ERREUR);
+                    Utilitaire.consoleState(false);
                 }
             else
                 {
+                    Utilitaire.consoleState(true);
                     Console.WriteLine(MESSAGE_ERREUR);
+                    Utilitaire.consoleState(false);
                 }
             }
             return isSupprime;
@@ -129,9 +134,9 @@ namespace S_tp1
             if (catalogue.Count != 0)
             {
                 isSupprime = false;
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
@@ -152,15 +157,15 @@ namespace S_tp1
             }
             catch (FileNotFoundException err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                consoleState(bienAjoute = false);
+                Utilitaire.consoleState(bienAjoute = false);
             }
             catch (Exception err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                consoleState(bienAjoute = false);
+                Utilitaire.consoleState(bienAjoute = false);
             }
 
             return bienAjoute;
@@ -180,15 +185,15 @@ namespace S_tp1
             }
             catch (DirectoryNotFoundException err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Dossier existe pas: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             catch (Exception err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
         }
@@ -222,14 +227,6 @@ namespace S_tp1
          * @return -> retourne le catalogue
          */
         public List<Media>? getCatalogue() { return catalogue; }
-
-        /*
-         * Change la couleur du message dans la console pour les erreurs
-         */
-        private void consoleState(bool isError)
-        {
-            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
-        }
 
     }
 
