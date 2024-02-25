@@ -111,13 +111,14 @@ namespace S_tp1
                     Console.WriteLine(MESSAGE_ERREUR);
                     Utilitaire.consoleState(false);
                 }
-            else
-                {
-                    Utilitaire.consoleState(true);
-                    Console.WriteLine(MESSAGE_ERREUR);
-                    Utilitaire.consoleState(false);
-                }
             }
+            else
+            {
+                Utilitaire.consoleState(true);
+                Console.WriteLine(MESSAGE_ERREUR);
+                Utilitaire.consoleState(false);
+            }
+            
             return isSupprime;
         }
 
