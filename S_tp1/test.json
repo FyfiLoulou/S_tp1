@@ -2,9 +2,7 @@
   {
     "IdentifiantMedia": "testLOL_0",
     "Type": 1,
-    "Evaluations": [
-      {}
-    ],
+    "Evaluations": [],
     "DateRealisation": 1001032,
     "Duree": 10,
     "Auteur": "ads",
@@ -16,9 +14,7 @@
   {
     "IdentifiantMedia": "testLOL22",
     "Type": 4,
-    "Evaluations": [
-      {}
-    ],
+    "Evaluations": [],
     "DateRealisation": 1,
     "Duree": 1,
     "Auteur": "Félix Blanchette",

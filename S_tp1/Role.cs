@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S_tp1
 {
-    internal enum Role
+    public enum Role
     {
         UTILISATEUR,
         TECHNICIEN,

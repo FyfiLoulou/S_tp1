@@ -18,16 +18,16 @@ namespace S_tp1
 
 
 //Constructeur par défaut
-        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        /*public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
         {
 
-        }
+        }*/
 
 //Constructeur Login et mdp
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek") {
+        /*public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek") {
             this.identifiantUnique =$"{pseudo}#{nombreIncremente}";
         }
-
+        */
 
         /*
          * Constructeur de la classe utilisateur
@@ -67,7 +67,7 @@ namespace S_tp1
             //TODO
             Evaluation eval = new Evaluation(this, media, cote);
             this.evaluations.Add(media.IdentifiantMedia, eval);
-            media.ajouterEvaluation(eval);
+            //media.ajouterEvaluation(eval);
         }
 
         //getters & setters

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S_tp1
 {
-    internal enum Types
+    public enum Types
     {
         RAP,
         POP,
