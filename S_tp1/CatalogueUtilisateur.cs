@@ -11,7 +11,11 @@ namespace S_tp1
         private List<Utilisateur> listeUtilisateurs;
 
         public CatalogueUtilisateur() {
+            listeUtilisateurs = new List<Utilisateur>();
+        }
 
+        public void ajouterListe(Utilisateur utilisateur) {
+            listeUtilisateurs.Add(utilisateur);
         }
 
     public bool ajouter(string nomFichierSauvegarde) {

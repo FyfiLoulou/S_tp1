@@ -11,12 +11,12 @@ namespace S_tp1
 
         public CatalogueEvaluation()
         {
-            listeEvaluations = new List<Evaluation>;
+            listeEvaluations = new List<Evaluation>();
         }
 
         public bool ajouter(string nomFichierSauvegarde)
         {
-            bool isAjoute = true;
+            /*bool isAjoute = true;
             try
             {
                 listeEvaluations.JsonConvertDeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomDeFichierSauvegarde}"))
@@ -30,10 +30,10 @@ namespace S_tp1
             catch (Exception err)
             {
                 consoleState(true);
-                Console.WriteLine($"Erreur: {err.Message}")
+                Console.WriteLine($"Erreur: {err.Message}");
                 consoleState(isAjoute = false);
             }
-
+            */
             return true;
         }
         public bool sauvegarder(string nomFichierSauvegarde) {

@@ -21,7 +21,7 @@ namespace S_tp1
         public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
         {
 
-        }*/
+        }
 
         //Constructeur Login et mdp
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek")
@@ -30,7 +30,7 @@ namespace S_tp1
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
-        */
+        
 
         /*
          * Constructeur de la classe utilisateur
