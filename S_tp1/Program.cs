@@ -30,12 +30,12 @@ namespace S_tp1
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
 
-            catalogueUtilisateur.ajouterListe(j);
-            catalogueUtilisateur.ajouterListe(j2);
-            catalogueUtilisateur.ajouterListe(bob);
+            catalogueUtilisateur.AjouterListe(j);
+            catalogueUtilisateur.AjouterListe(j2);
+            catalogueUtilisateur.AjouterListe(bob);
 
-            catalogueEvaluation.ajouterList(ev1);
-            catalogueEvaluation.ajouterList(ev2);
+            catalogueEvaluation.AjouterList(ev1);
+            catalogueEvaluation.AjouterList(ev2);
 
 
             catalogue.Sauvegarder("test.json");

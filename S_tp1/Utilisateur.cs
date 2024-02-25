@@ -18,18 +18,18 @@ namespace S_tp1
 
 
         //Constructeur par défaut
-        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        /*public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
         {
 
-        }
+        }*/
 
         //Constructeur Login et mdp
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek")
+        /*public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek")
         {
             this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
-        }
+        }*/
         
 
         /*
@@ -123,7 +123,7 @@ namespace S_tp1
         public override string ToString()
         {
             return $"Identifiant unique : {identifiantUnique}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom}"
-                + $"\nPrenom : {prenom}\nRôle : {role};
+                + $"\nPrenom : {prenom}\nRôle : {role}";
         }
 
     }
