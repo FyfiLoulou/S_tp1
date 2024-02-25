@@ -30,25 +30,17 @@ namespace S_tp1
             }
             catch (DirectoryNotFoundException err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Dossier existe pas: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             catch (Exception err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
-        }
-
-        /*
-        * Change la couleur du message dans la console pour les erreurs
-        */
-        private void consoleState(bool isError)
-        {
-            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
         }
 
     }
