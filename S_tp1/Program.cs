@@ -19,27 +19,31 @@ namespace S_tp1
             Media test2 = new Media("testLOL2");
             Media test3 = new Media("testLOL3");
 
-            Utilisateur johnyTest = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.TECHNICIEN);
+            Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.TECHNICIEN);
             Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Role.ADMIN);
-            Utilisateur johnyTest2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Role.UTILISATEUR);
+            Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Role.UTILISATEUR);
+
+            Evaluation ev1 = new Evaluation(bob, test2, 100);
+            Evaluation ev2 = new Evaluation(j, test, 12);
 
             catalogue.Ajouter(test);
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
 
-            catalogueUtilisateur
+            catalogueUtilisateur.ajouterListe(j);
+            catalogueUtilisateur.ajouterListe(j2);
+            catalogueUtilisateur.ajouterListe(bob);
 
-            johnyTest.AjouterEvaluation(test, 1);
-            johnyTest.AjouterEvaluation(test2, 3);
+            catalogueEvaluation.ajouterList(ev1);
+            catalogueEvaluation.ajouterList(ev2);
+
 
             catalogue.Sauvegarder("test.json");
+            catalogueUtilisateur.Sauvegarder("testU.json");
+            catalogueEvaluation.Sauvegarder("testE.json");
 
-            Console.WriteLine(catalogue.getCatalogue().Count);
 
-            
-            
-            catalogue.Sauvegarder();
-            
+
         }
     }
 }

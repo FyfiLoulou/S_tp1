@@ -14,6 +14,10 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
 
+        public void ajouterList(Evaluation evaluation) {
+            listeEvaluations.Add(evaluation);
+        }
+
         public bool ajouter(string nomFichierSauvegarde)
         {
             /*bool isAjoute = true;
