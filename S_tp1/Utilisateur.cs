@@ -14,18 +14,21 @@ namespace S_tp1
         private Enum role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
-        
 
 
-//Constructeur par défaut
-        /*public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+
+        //Constructeur par défaut
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
         {
 
         }*/
 
-//Constructeur Login et mdp
-        /*public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek") {
-            this.identifiantUnique =$"{pseudo}#{nombreIncremente}";
+        //Constructeur Login et mdp
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek")
+        {
+            this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
+            this.pseudo = pseudo;
+            this.motDePasse = motDePasse;
         }
         */
 
@@ -51,7 +54,8 @@ namespace S_tp1
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la liste de favoris actualisée
          */
-        public List<Media> AjouterFavori(Media media) {
+        public List<Media> AjouterFavori(Media media)
+        {
             favoris.Add(media);
             return this.favoris;
         }
@@ -78,7 +82,7 @@ namespace S_tp1
             {
                 String[] tab = identifiantUnique.Split("#");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = value + "#" + nb;
+                identifiantUnique = $"{value} + # + {nb}";
             }
         }
 
@@ -118,12 +122,8 @@ namespace S_tp1
          */
         public override string ToString()
         {
-            return "Identifiant unique : " + identifiantUnique
-                + "\nPseudonyme : " + pseudo
-                + "\nMot de Passe : " + motDePasse
-                + "\nNom : " + nom
-                + "\nPrenom : " + prenom
-                + "\nRôle : " + role;
+            return $"Identifiant unique : {identifiantUnique}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom}"
+                + $"\nPrenom : {prenom}\nRôle : {role};
         }
 
     }

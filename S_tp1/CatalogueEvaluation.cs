@@ -9,13 +9,32 @@ namespace S_tp1
 
         private List<Evaluation> listeEvaluations;
 
-        public CatalogueEvaluation() {
-
+        public CatalogueEvaluation()
+        {
+            listeEvaluations = new List<Evaluation>;
         }
 
-        public bool ajouter(string nomFichierSauvegarde) {
+        public bool ajouter(string nomFichierSauvegarde)
+        {
+            bool isAjoute = true;
+            try
+            {
+                listeEvaluations.JsonConvertDeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomDeFichierSauvegarde}"))
+            }
+            catch (FileNotFoundException e)
+            {
+                consoleState(true);
+                Console.WriteLine($"Fichier existe pas: {err.Message}");
+                consoleState(isAjoute = false);
+            }
+            catch (Exception err)
+            {
+                consoleState(true);
+                Console.WriteLine($"Erreur: {err.Message}")
+                consoleState(isAjoute = false);
+            }
 
-        return true;
+            return true;
         }
         public bool sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;
@@ -40,13 +59,6 @@ namespace S_tp1
 
 
 
-        /*
-        * Change la couleur du message dans la console pour les erreurs
-        */
-        private void consoleState(bool isError)
-        {
-            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
-        }
 
     }
 }

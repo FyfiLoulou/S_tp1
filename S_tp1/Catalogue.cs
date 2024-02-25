@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using S_tp1.Utilitaire;
 
 namespace S_tp1
 {
@@ -43,9 +44,9 @@ namespace S_tp1
             }
             else
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine(MESSAGE_ERREUR);
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
             return isAjouter;
         }
@@ -78,9 +79,9 @@ namespace S_tp1
             }
             else
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
@@ -95,7 +96,29 @@ namespace S_tp1
          */
         public bool Supprimer(Media media)
         {
-            return true;
+            bool isSupprime = false;
+            if (MediaExisteDansCatalogue())
+            {
+                catalogue.Remove(media);
+                if (!MediaExisteDansCatalogue())
+                {
+                    Console.WriteLine($"Le media {media} a ete supprime!");
+                    isSupprime = true;
+                }
+                else
+                {
+                    Utilitaire.consoleState(true);
+                    Console.WriteLine(MESSAGE_ERREUR);
+                    Utilitaire.consoleState(false);
+                }
+            else
+                {
+                    Utilitaire.consoleState(true);
+                    Console.WriteLine(MESSAGE_ERREUR);
+                    Utilitaire.consoleState(false);
+                }
+            }
+            return isSupprime;
         }
 
         /*
@@ -111,35 +134,38 @@ namespace S_tp1
             if (catalogue.Count != 0)
             {
                 isSupprime = false;
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
-                consoleState(false);
+                Utilitaire.consoleState(false);
             }
 
             Console.WriteLine(messageRetour);
             return isSupprime;
         }
 
-         /*
-          * Sérialise le catalogue dans un fichier JSON
-          * 
-          * @return -> retourne vrai si le catalogue est sérialisé
-          */
-        public bool Ajouter(string nomFichierSauvegarde) {
+        /*
+         * Sérialise le catalogue dans un fichier JSON
+         * 
+         * @return -> retourne vrai si le catalogue est sérialisé
+         */
+        public bool Ajouter(string nomFichierSauvegarde)
+        {
             bool bienAjoute = true;
             try
             {
                 catalogue = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            } catch (FileNotFoundException err) {
-                consoleState(true);
+            }
+            catch (FileNotFoundException err)
+            {
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                consoleState(bienAjoute = false);
+                Utilitaire.consoleState(bienAjoute = false);
             }
             catch (Exception err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                consoleState(bienAjoute = false);
+                Utilitaire.consoleState(bienAjoute = false);
             }
 
             return bienAjoute;
@@ -150,18 +176,24 @@ namespace S_tp1
          * 
          * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
          */
-        public bool Sauvegarder(string nomFichierSauvegarde) {
+        public bool Sauvegarder(string nomFichierSauvegarde)
+        {
             bool isSauvegarde = true;
-            try {
+            try
+            {
                 File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
-            } catch (DirectoryNotFoundException err) {
-                consoleState(true);
-                Console.WriteLine("Dossier existe pas: "+err.Message);
-                consoleState(isSauvegarde = false);
-            } catch (Exception err) {
-                consoleState(true);
-                Console.WriteLine("Erreur autre: "+err.Message);
-                consoleState(isSauvegarde = false);
+            }
+            catch (DirectoryNotFoundException err)
+            {
+                Utilitaire.consoleState(true);
+                Console.WriteLine("Dossier existe pas: " + err.Message);
+                Utilitaire.consoleState(isSauvegarde = false);
+            }
+            catch (Exception err)
+            {
+                Utilitaire.consoleState(true);
+                Console.WriteLine("Erreur autre: " + err.Message);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
         }
@@ -195,14 +227,6 @@ namespace S_tp1
          * @return -> retourne le catalogue
          */
         public List<Media>? getCatalogue() { return catalogue; }
-
-        /*
-         * Change la couleur du message dans la console pour les erreurs
-         */
-        private void consoleState(bool isError)
-        {
-            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
-        }
 
     }
 
