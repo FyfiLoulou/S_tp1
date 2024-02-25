@@ -14,11 +14,11 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
 
-        public void ajouterList(Evaluation evaluation) {
+        public void AjouterList(Evaluation evaluation) {
             listeEvaluations.Add(evaluation);
         }
 
-        public bool ajouter(string nomFichierSauvegarde)
+        public bool Ajouter(string nomFichierSauvegarde)
         {
             /*bool isAjoute = true;
             try
@@ -40,7 +40,7 @@ namespace S_tp1
             */
             return true;
         }
-        public bool sauvegarder(string nomFichierSauvegarde) {
+        public bool Sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;
             try
             {

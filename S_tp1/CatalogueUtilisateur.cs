@@ -14,15 +14,15 @@ namespace S_tp1
             listeUtilisateurs = new List<Utilisateur>();
         }
 
-        public void ajouterListe(Utilisateur utilisateur) {
+        public void AjouterListe(Utilisateur utilisateur) {
             listeUtilisateurs.Add(utilisateur);
         }
 
-    public bool ajouter(string nomFichierSauvegarde) {
+    public bool Ajouter(string nomFichierSauvegarde) {
 
         return true;
     }
-    public bool sauvegarder(string nomFichierSauvegarde) {
+    public bool Sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;
             try
             {
