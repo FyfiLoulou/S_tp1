@@ -44,15 +44,15 @@ namespace S_tp1
             }
             catch (DirectoryNotFoundException err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Dossier existe pas: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             catch (Exception err)
             {
-                consoleState(true);
+                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                consoleState(isSauvegarde = false);
+                Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
         }
