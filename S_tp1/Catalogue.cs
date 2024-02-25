@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using S_tp1.Utilitaire;
+using static S_tp1.Utilitaire;
 
 namespace S_tp1
 {
@@ -97,10 +97,10 @@ namespace S_tp1
         public bool Supprimer(Media media)
         {
             bool isSupprime = false;
-            if (MediaExisteDansCatalogue())
+            if (MediaExisteDansCatalogue(media))
             {
                 catalogue.Remove(media);
-                if (!MediaExisteDansCatalogue())
+                if (!MediaExisteDansCatalogue(media))
                 {
                     Console.WriteLine($"Le media {media} a ete supprime!");
                     isSupprime = true;
