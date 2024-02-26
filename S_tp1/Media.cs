@@ -1,19 +1,31 @@
 ﻿using System;
-using static S_tp1.Types;
-
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace S_tp1
 {
     public class Media
-    {
-
-
-
+    {/*
+        public enum Types
+        {
+            RAP,
+            POP,
+            JAZZ,
+            ROCK,
+            ELECTRO,
+            COUNTRY,
+            RELAXATION,
+            INSTRUMENTAL,
+            CONCEPTUALSYNTH,
+            PARTY,
+            CLASSIQUE,
+            OST
+        }
+        */
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
-        private Enum? type;
-        private List<Evaluation>? evaluations;
+        private Types? type;
         private long? dateRealisation;
         private int? duree;
         private string? auteur;
@@ -21,21 +33,23 @@ namespace S_tp1
         private string? extrait;
         private string? complet;
         private string? image;
+        [JsonIgnore]
+        private List<Evaluation>? evaluations;
 
 
-        public Media() : this("1", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        /*public Media() : this($"media{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
-        }
+        }*/
 
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        /*public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
-            this.identifiantMedia = identifiantMedia + nombreIncremente++;
-        }
+            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+        }*/
 
-        public Media(string identifiantMedia, Enum type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
-            this.identifiantMedia =$"{identifiantMedia}_{nombreIncremente++}";
+            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -45,6 +59,11 @@ namespace S_tp1
             this.extrait = extrait;
             this.image = image;
             this.evaluations = evaluations;
+        }
+
+        public void AjouterEvaluation(Evaluation eval)
+        {
+            this.evaluations.Add(eval);
         }
 
         //overrides
@@ -73,7 +92,7 @@ namespace S_tp1
             set { }
         }
 
-        public Enum? Type
+        public Types? Type
         {
             get { return type; }
             set { this.type = value; }
@@ -130,11 +149,11 @@ namespace S_tp1
 
 
         public byte GetCote() { return 1; }// TODO
-        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
+        public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
         {
-            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
+            return $" Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }

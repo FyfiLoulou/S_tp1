@@ -9,19 +9,40 @@ namespace TestTP1
     public class Tests
     {
         Catalogue catalogue;
-        Media media;
+        Media mediaTest;
         Utilisateur johny;
+        Utilisateur lcb;
+        Utilisateur maek;
+        Utilisateur felix;
         Evaluation evaluation;
 
         [SetUp]
         public void Setup()
         {
             catalogue = new Catalogue();
-            media = new Media();
-            johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny");
-            evaluation = new Evaluation(johny, media, 3);
+            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
+            lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", RoleUtilisateur.UTILISATEUR);
+            maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR);
+            felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", RoleUtilisateur.UTILISATEUR);
+            evaluation = new Evaluation(johny, mediaTest, 3);
         }
 
+        //Utilisateurs=============================================================================
+        [TestCase(johny, "testeur", "testeur#1")]
+        [TestCase(maek, "test#eur", "test#eur#2")]
+        [TestCase(lcb, "testeur#", "testeur##3")]
+        [TestCase(felix, "testeur#1", "testeur#1#4")]
+        public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(Utilisateur user, String valeur, String resultat)
+        {
+            user.IdentifiantUnique = valeur;
+            String valRetournee = user.IdentifiantUnique;
+
+            Assert.That(valRetournee, Is.EqualTo(resultat));
+        }
+
+
+        /*
         [TestCase(media, "")]
         public void etantCatalogue_QuandAjouter_alorsReturnValidation(Media mediaParam, String resultat)
         {
@@ -30,29 +51,34 @@ namespace TestTP1
             Assert.That(message, Is.EqualTo();
 
         }
+        */
+
+
+
+
 
         [Test]
         public void Remplacer()
         {
-            
+
         }
 
         [Test]
         public void SupprimerUnMedia()
         {
-            
+
         }
 
         [Test]
         public void SupprimerLeCatalogue()
         {
-            
+
         }
 
         [Test]
         public void Sauvegarder()
         {
-            
+
         }
 
         [Test]
