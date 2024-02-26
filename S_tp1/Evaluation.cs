@@ -26,7 +26,7 @@ namespace S_tp1 {
             set {}
         }
 
-        public Byte Cote
+        public byte Cote
         {
             get { return cote; }
             set {}
