@@ -20,7 +20,24 @@ namespace S_tp1
 
         public bool Ajouter(string nomFichierSauvegarde)
         {
-
+            bool isAjoute = true;
+            try
+            {
+                listeEvaluations = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+            }
+            catch (FileNotFoundException e)
+            {
+                Utilitaire.consoleState(true);
+                Console.WriteLine($"Fichier existe pas: {e.Message}");
+                Utilitaire.consoleState(isAjoute = false);
+            }
+            catch (Exception err)
+            {
+                Utilitaire.consoleState(true);
+                Console.WriteLine($"Erreur: {err.Message}");
+                Utilitaire.consoleState(isAjoute = false);
+            }
+            
             return true;
         }
         public bool Sauvegarder(string nomFichierSauvegarde) {
