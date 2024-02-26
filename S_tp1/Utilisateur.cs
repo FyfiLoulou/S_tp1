@@ -24,18 +24,18 @@ namespace S_tp1
 
 
         //Constructeur par défaut
-        /*public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek")
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
 
-        }*/
+        }
 
         //Constructeur Login et mdp
-        /*public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek")
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
             this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
-        }*/
+        }
         
 
         /*
