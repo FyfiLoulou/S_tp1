@@ -29,10 +29,10 @@ namespace TestTP1
         }
 
         //Utilisateurs=============================================================================
-        [TestCase("testeur", "testeur#1")]
-        [TestCase("test#eur", "test#eur#2")]
-        [TestCase("testeur#", "testeur##3")]
-        [TestCase("testeur#1", "testeur#1#4")]
+        [TestCase("testeur", "testeur_0")]
+        [TestCase("test_eur", "test_eur_0")]
+        [TestCase("testeur_", "testeur__0")]
+        [TestCase("testeur_1", "testeur_1_0")]
         public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             johny.IdentifiantUnique = valeur;

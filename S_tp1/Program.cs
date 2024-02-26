@@ -26,6 +26,10 @@ namespace S_tp1
             Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Utilisateur.RoleUtilisateur.TECHNICIEN);
             Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Utilisateur.RoleUtilisateur.ADMIN);
             Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Utilisateur.RoleUtilisateur.UTILISATEUR);
+            Console.WriteLine(j);
+            j.IdentifiantUnique = "allo";
+            Console.WriteLine(j);
+            /*
 
             Evaluation ev1 = new Evaluation(bob, test2, 100);
             Evaluation ev2 = new Evaluation(j, test, 11);
@@ -52,7 +56,7 @@ namespace S_tp1
 
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
-
+            */
         }
     }
 }

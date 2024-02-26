@@ -86,9 +86,9 @@ namespace S_tp1
             get { return identifiantUnique; }
             set
             {
-                String[] tab = identifiantUnique.Split("#");
+                String[] tab = identifiantUnique.Split("_");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = $"{value} + # + {nb}";
+                identifiantUnique = $"{value}" + "_" + $"{nb}";
             }
         }
 
