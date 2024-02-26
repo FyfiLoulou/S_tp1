@@ -18,7 +18,7 @@ namespace TestTP1
         {
             catalogue = new Catalogue();
             media = new Media();
-            johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny");
+            johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
             evaluation = new Evaluation(johny, media, 3);
         }
 
