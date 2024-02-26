@@ -149,27 +149,28 @@ namespace S_tp1
          * 
          * @return -> retourne vrai si le catalogue est sérialisé
          */
-        public bool Ajouter(string nomFichierSauvegarde)
+        public List<Media> Ajouter(string nomFichierSauvegarde)
         {
-            bool bienAjoute = true;
+            List<Media> list = null;
             try
             {
-                catalogue = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                Console.WriteLine(list);
             }
             catch (FileNotFoundException err)
             {
                 Utilitaire.consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                Utilitaire.consoleState(bienAjoute = false);
+                Utilitaire.consoleState(false);
             }
             catch (Exception err)
             {
                 Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(bienAjoute = false);
+                Utilitaire.consoleState(false);
             }
 
-            return bienAjoute;
+            return list;
         }
 
         /*

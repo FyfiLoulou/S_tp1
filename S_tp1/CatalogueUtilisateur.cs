@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
 
 namespace S_tp1
 {
@@ -18,27 +20,27 @@ namespace S_tp1
             listeUtilisateurs.Add(utilisateur);
         }
 
-    public bool Ajouter(string nomFichierSauvegarde) {
-            bool bienAjoute = true;
+        public List<Utilisateur> Ajouter(string nomFichierSauvegarde) {
+            List<Utilisateur> list = null;
             try
             {
-                listeUtilisateurs = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                list = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
                 Console.WriteLine(listeUtilisateurs);
             }
             catch (FileNotFoundException err)
             {
                 Utilitaire.consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                Utilitaire.consoleState(bienAjoute = false);
+                Utilitaire.consoleState(false);
             }
             catch (Exception err)
             {
                 Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(bienAjoute = false);
+                Utilitaire.consoleState(false);
             }
 
-            return bienAjoute;
+            return list;
         }
     public bool Sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;

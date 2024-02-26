@@ -1,18 +1,29 @@
 ﻿using System;
-using static S_tp1.Types;
-
 
 namespace S_tp1
 {
     public class Media
     {
-
-
+        public enum Types
+        {
+            RAP,
+            POP,
+            JAZZ,
+            ROCK,
+            ELECTRO,
+            COUNTRY,
+            RELAXATION,
+            INSTRUMENTAL,
+            CONCEPTUALSYNTH,
+            PARTY,
+            CLASSIQUE,
+            OST
+        }
 
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
-        private Enum? type;
+        private Types? type;
         private List<Evaluation>? evaluations;
         private long? dateRealisation;
         private int? duree;
@@ -33,7 +44,7 @@ namespace S_tp1
             this.identifiantMedia = identifiantMedia + nombreIncremente++;
         }
 
-        public Media(string identifiantMedia, Enum type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
             this.identifiantMedia =$"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
@@ -73,7 +84,7 @@ namespace S_tp1
             set { }
         }
 
-        public Enum? Type
+        public Types? Type
         {
             get { return type; }
             set { this.type = value; }

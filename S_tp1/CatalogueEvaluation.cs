@@ -18,27 +18,28 @@ namespace S_tp1
             listeEvaluations.Add(evaluation);
         }
 
-        public bool Ajouter(string nomFichierSauvegarde)
+        public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
-            bool isAjoute = true;
+            List<Evaluation> list = null;
             try
             {
-                listeEvaluations = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                Console.WriteLine(listeEvaluations);
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException err)
             {
                 Utilitaire.consoleState(true);
-                Console.WriteLine($"Fichier existe pas: {e.Message}");
-                Utilitaire.consoleState(isAjoute = false);
+                Console.WriteLine("Fichier existe pas: " + err.Message);
+                Utilitaire.consoleState(false);
             }
             catch (Exception err)
             {
                 Utilitaire.consoleState(true);
-                Console.WriteLine($"Erreur: {err.Message}");
-                Utilitaire.consoleState(isAjoute = false);
+                Console.WriteLine("Erreur autre: " + err.Message);
+                Utilitaire.consoleState(false);
             }
-            
-            return true;
+
+            return list;
         }
         public bool Sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;

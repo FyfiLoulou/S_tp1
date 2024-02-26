@@ -5,7 +5,7 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "RoleGetSet": 1
+    "Role": 1
   },
   {
     "IdentifiantUnique": "JohnyX2_2",
@@ -13,7 +13,7 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "RoleGetSet": 0
+    "Role": 0
   },
   {
     "IdentifiantUnique": "bob_1",
@@ -21,6 +21,6 @@
     "MotDePasse": "bob",
     "Nom": "bob",
     "Prenom": "bob",
-    "RoleGetSet": 2
+    "Role": 2
   }
 ]

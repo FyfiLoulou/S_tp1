@@ -1,9 +1,15 @@
 ﻿using static S_tp1.Evaluation;
-using static S_tp1.Role;
 namespace S_tp1
 {
     public class Utilisateur
     {
+        public enum RoleUtilisateur
+        {
+            UTILISATEUR,
+            TECHNICIEN,
+            ADMIN
+        }
+
         //attributs
         private String identifiantUnique;
         private static int nombreIncremente = 0;
@@ -11,7 +17,7 @@ namespace S_tp1
         private String motDePasse;
         private String nom;
         private String prenom;
-        private Enum role;
+        private RoleUtilisateur role;
         private List<Media> favoris;
         private Dictionary<String, Evaluation> evaluations;
 
@@ -39,7 +45,7 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Enum role)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
             this.motDePasse = motDePasse;
@@ -110,7 +116,7 @@ namespace S_tp1
             set { prenom = value; }
         }
 
-        public Enum Role
+        public RoleUtilisateur Role
         {
             get { return role; }
             set { role = value; }
