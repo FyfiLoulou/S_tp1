@@ -1,0 +1,26 @@
+[
+  {
+    "IdentifiantUnique": "JohnyX_0",
+    "Pseudo": "JohnyX",
+    "MotDePasse": "abc123",
+    "Nom": "Test",
+    "Prenom": "Johny",
+    "RoleGetSet": 1
+  },
+  {
+    "IdentifiantUnique": "JohnyX2_2",
+    "Pseudo": "JohnyX2",
+    "MotDePasse": "abc123",
+    "Nom": "Test",
+    "Prenom": "Johny",
+    "RoleGetSet": 0
+  },
+  {
+    "IdentifiantUnique": "bob_1",
+    "Pseudo": "bob",
+    "MotDePasse": "bob",
+    "Nom": "bob",
+    "Prenom": "bob",
+    "RoleGetSet": 2
+  }
+]

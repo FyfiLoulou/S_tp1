@@ -1,0 +1,48 @@
+[
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "bob_1",
+      "Pseudo": "bob",
+      "MotDePasse": "bob",
+      "Nom": "bob",
+      "Prenom": "bob",
+      "RoleGetSet": 2
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL22",
+      "Type": 4,
+      "Evaluations": [],
+      "DateRealisation": 1,
+      "Duree": 1,
+      "Auteur": "Félix Blanchette",
+      "Producteur": "Louis-Charles Biron",
+      "Extrait": "",
+      "Complet": "",
+      "Image": ""
+    },
+    "Cote": 100
+  },
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "JohnyX_0",
+      "Pseudo": "JohnyX",
+      "MotDePasse": "abc123",
+      "Nom": "Test",
+      "Prenom": "Johny",
+      "RoleGetSet": 1
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL_0",
+      "Type": 1,
+      "Evaluations": [],
+      "DateRealisation": 1001032,
+      "Duree": 10,
+      "Auteur": "ads",
+      "Producteur": "asddsa",
+      "Extrait": "asd",
+      "Complet": "apap",
+      "Image": "1132sad"
+    },
+    "Cote": 12
+  }
+]

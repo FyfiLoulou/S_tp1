@@ -110,7 +110,7 @@ namespace S_tp1
             set { prenom = value; }
         }
 
-        public Enum RoleGetSet
+        public Enum Role
         {
             get { return role; }
             set { role = value; }
