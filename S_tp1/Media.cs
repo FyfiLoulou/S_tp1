@@ -48,7 +48,7 @@ namespace S_tp1
 
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
-            this.identifiantMedia =$"{identifiantMedia}_{nombreIncremente++}";
+            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -60,7 +60,8 @@ namespace S_tp1
             this.evaluations = evaluations;
         }
 
-        public void AjouterEvaluation(Evaluation eval) {
+        public void AjouterEvaluation(Evaluation eval)
+        {
             this.evaluations.Add(eval);
         }
 
@@ -146,8 +147,26 @@ namespace S_tp1
         }
 
 
-        public byte GetCote() { return 1; }// TODO
-        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
+        /// <summary>
+        /// Returns the average rating of the media.
+        /// </summary>
+        /// <returns>The average rating of the media.</returns>
+        public byte GetCote()
+        {
+            // TODO: Implement this method to calculate the average rating of the media.
+            return 1;
+        }
+
+
+        /// <summary>
+        /// Returns the name of the media without the media id.
+        /// </summary>
+        /// <returns>The name of the media without the media id.</returns>
+        public string GetNom()
+        {
+            // Split the media id from the name and return the name.
+            return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'";
+        }
 
         public override string ToString()
         {
