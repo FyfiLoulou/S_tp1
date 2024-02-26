@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace S_tp1
 {
@@ -24,7 +25,6 @@ namespace S_tp1
 
         private string? identifiantMedia;
         private Types? type;
-        private List<Evaluation>? evaluations;
         private long? dateRealisation;
         private int? duree;
         private string? auteur;
@@ -32,17 +32,19 @@ namespace S_tp1
         private string? extrait;
         private string? complet;
         private string? image;
+        [JsonIgnore]
+        private List<Evaluation>? evaluations;
 
 
-        public Media() : this($"media{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        /*public Media() : this($"media{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
-        }
+        }*/
 
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        /*public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
-            this.identifiantMedia = identifiantMedia + nombreIncremente++;
-        }
+            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+        }*/
 
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
@@ -56,6 +58,10 @@ namespace S_tp1
             this.extrait = extrait;
             this.image = image;
             this.evaluations = evaluations;
+        }
+
+        public void AjouterEvaluation(Evaluation eval) {
+            this.evaluations.Add(eval);
         }
 
         //overrides
@@ -145,7 +151,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $" Name: {this.GetNom()}, Type: {this.type}, Cote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}, Duree: {this.duree}, Auteur: {this.auteur}, Producteur: {this.producteur}, Path: {this.complet}";
+            return $" Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }

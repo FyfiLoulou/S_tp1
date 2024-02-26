@@ -1,0 +1,94 @@
+[
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "bob_1",
+      "Pseudo": "bob",
+      "MotDePasse": "bob",
+      "Nom": "bob",
+      "Prenom": "bob",
+      "Role": 2
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL23_1",
+      "Type": 8,
+      "Evaluations": [],
+      "DateRealisation": 11032,
+      "Duree": 120,
+      "Auteur": "adsdasdasdasdasdasd",
+      "Producteur": "asd12312dsa",
+      "Extrait": "asd",
+      "Complet": "ap123123ap",
+      "Image": "1132sad"
+    },
+    "Cote": 100
+  },
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "JohnyX_0",
+      "Pseudo": "JohnyX",
+      "MotDePasse": "abc123",
+      "Nom": "Test",
+      "Prenom": "Johny",
+      "Role": 1
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL_0",
+      "Type": 1,
+      "Evaluations": [],
+      "DateRealisation": 1001032,
+      "Duree": 10,
+      "Auteur": "ads",
+      "Producteur": "asddsa",
+      "Extrait": "asd",
+      "Complet": "apap",
+      "Image": "1132sad"
+    },
+    "Cote": 11
+  },
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "JohnyX_0",
+      "Pseudo": "JohnyX",
+      "MotDePasse": "abc123",
+      "Nom": "Test",
+      "Prenom": "Johny",
+      "Role": 1
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL123123_2",
+      "Type": 10,
+      "Evaluations": [],
+      "DateRealisation": 10,
+      "Duree": 1120,
+      "Auteur": "adsasdasd",
+      "Producteur": "asd1231231231231231dsa",
+      "Extrait": "asd",
+      "Complet": "apap",
+      "Image": "1132s31123123ad"
+    },
+    "Cote": 121
+  },
+  {
+    "Utilisateur": {
+      "IdentifiantUnique": "JohnyX2_2",
+      "Pseudo": "JohnyX2",
+      "MotDePasse": "abc123",
+      "Nom": "Test",
+      "Prenom": "Johny",
+      "Role": 0
+    },
+    "Media": {
+      "IdentifiantMedia": "testLOL_0",
+      "Type": 1,
+      "Evaluations": [],
+      "DateRealisation": 1001032,
+      "Duree": 10,
+      "Auteur": "ads",
+      "Producteur": "asddsa",
+      "Extrait": "asd",
+      "Complet": "apap",
+      "Image": "1132sad"
+    },
+    "Cote": 120
+  }
+]

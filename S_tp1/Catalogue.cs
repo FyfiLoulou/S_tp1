@@ -154,8 +154,7 @@ namespace S_tp1
             List<Media> list = null;
             try
             {
-                list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-                Console.WriteLine(list);
+                catalogue = list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             }
             catch (FileNotFoundException err)
             {
@@ -229,6 +228,11 @@ namespace S_tp1
          * @return -> retourne le catalogue
          */
         public List<Media>? getCatalogue() { return catalogue; }
+
+        public Media GetMedia(string id) {
+            Console.WriteLine(id);
+            return catalogue.Where(m => m.GetNom() == id).First();
+        }
 
     }
 

@@ -1,4 +1,5 @@
-﻿using static S_tp1.Evaluation;
+﻿using Newtonsoft.Json;
+using static S_tp1.Evaluation;
 namespace S_tp1
 {
     public class Utilisateur
@@ -19,7 +20,8 @@ namespace S_tp1
         private String prenom;
         private RoleUtilisateur role;
         private List<Media> favoris;
-        private Dictionary<String, Evaluation> evaluations;
+        [JsonIgnore]
+        private List<Evaluation> evaluations;
 
 
 
@@ -53,7 +55,7 @@ namespace S_tp1
             this.prenom = prenom;
             this.role = role;
             this.favoris = new List<Media>();
-            this.evaluations = new Dictionary<String, Evaluation>();
+            this.evaluations = new List<Evaluation>();
         }
 
         /*
@@ -72,12 +74,10 @@ namespace S_tp1
          * @param cote -> la cote que l'on veux ajouter au media que l'on veut
          * @return la validation de si l'ajout d'une evaluation a fonctionné
          */
-        public void AjouterEvaluation(Media media, byte cote)
+        public void AjouterEvaluation(Evaluation eval)
         {
             //TODO
-            Evaluation eval = new Evaluation(this, media, cote);
-            this.evaluations.Add(media.IdentifiantMedia, eval);
-            //media.ajouterEvaluation(eval);
+            this.evaluations.Add(eval);
         }
 
         //getters & setters
@@ -128,9 +128,9 @@ namespace S_tp1
          */
         public override string ToString()
         {
-            return $"Identifiant unique : {identifiantUnique}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom}"
-                + $"\nPrenom : {prenom}\nRôle : {role}";
+            return $"Identifiant unique : {identifiantUnique}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}\nEvalcount: {evaluations.Count}";
         }
+
 
     }
 }

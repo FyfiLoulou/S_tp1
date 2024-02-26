@@ -32,5 +32,9 @@ namespace S_tp1 {
             set {}
         }
 
+        public override string ToString() {
+            return $"utilisateur: {utilisateur.IdentifiantUnique}, media: {media.IdentifiantMedia}, cote: {cote}";
+        }
+
     }
 }

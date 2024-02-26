@@ -20,12 +20,13 @@ namespace S_tp1
             listeUtilisateurs.Add(utilisateur);
         }
 
+        public List<Utilisateur> GetUtilisateurs() { return listeUtilisateurs; }
+
         public List<Utilisateur> Ajouter(string nomFichierSauvegarde) {
             List<Utilisateur> list = null;
             try
             {
-                list = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-                Console.WriteLine(listeUtilisateurs);
+                listeUtilisateurs = list = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             }
             catch (FileNotFoundException err)
             {
@@ -61,6 +62,21 @@ namespace S_tp1
                 Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
+        }
+
+        public override string ToString()
+        {
+            string retVal = "";
+            foreach (Utilisateur u in listeUtilisateurs)
+            {
+                retVal += $"{u.ToString()} \n\n";
+            }
+            return retVal;
+        }
+
+        public Utilisateur GetUtilisateur(string id)
+        {
+            return listeUtilisateurs.Where(u => u.Pseudo == id).First();
         }
 
     }

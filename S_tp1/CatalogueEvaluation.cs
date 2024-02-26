@@ -18,13 +18,14 @@ namespace S_tp1
             listeEvaluations.Add(evaluation);
         }
 
+        public List<Evaluation> GetEvaluations() { return listeEvaluations; }
+
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
             try
             {
-                list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-                Console.WriteLine(listeEvaluations);
+                listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             }
             catch (FileNotFoundException err)
             {
@@ -62,7 +63,15 @@ namespace S_tp1
             return isSauvegarde;
         }
 
-
+        public override string ToString()
+        {
+            string retVal = "";
+            foreach (Evaluation evaluation in listeEvaluations)
+            {
+                retVal += $"{evaluation.ToString()} \n\n";
+            }
+            return retVal;
+        }
 
 
     }
