@@ -11,9 +11,9 @@ namespace TestTP1
         Catalogue catalogue;
         Media mediaTest;
         Utilisateur johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
-        Utilisateur lcb;
-        Utilisateur maek;
-        Utilisateur felix;
+        Utilisateur lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", RoleUtilisateur.UTILISATEUR);
+        Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR);
+        Utilisateur felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", RoleUtilisateur.UTILISATEUR);
         Evaluation evaluation;
 
         [SetUp]
@@ -21,10 +21,6 @@ namespace TestTP1
         {
             catalogue = new Catalogue();
             mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
-            
-            lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", RoleUtilisateur.UTILISATEUR);
-            maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR);
-            felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", RoleUtilisateur.UTILISATEUR);
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
 
@@ -44,6 +40,7 @@ namespace TestTP1
         [Test]
         public void constructeurUser()
         {
+
             
         }
 
@@ -91,7 +88,8 @@ namespace TestTP1
         [Test]
         public void ajouterEvaluation()
         {
-
+            johny.AjouterEvaluation(evaluation);
+            Assert.That();
         }
 
 
