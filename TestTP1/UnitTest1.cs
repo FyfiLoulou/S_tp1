@@ -29,14 +29,14 @@ namespace TestTP1
         }
 
         //Utilisateurs=============================================================================
-        [TestCase(johny, "testeur", "testeur#1")]
-        [TestCase(maek, "test#eur", "test#eur#2")]
-        [TestCase(lcb, "testeur#", "testeur##3")]
-        [TestCase(felix, "testeur#1", "testeur#1#4")]
-        public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(Utilisateur user, String valeur, String resultat)
+        [TestCase("testeur", "testeur#1")]
+        [TestCase("test#eur", "test#eur#2")]
+        [TestCase("testeur#", "testeur##3")]
+        [TestCase("testeur#1", "testeur#1#4")]
+        public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum( String valeur, String resultat)
         {
-            user.IdentifiantUnique = valeur;
-            String valRetournee = user.IdentifiantUnique;
+            johny.IdentifiantUnique = valeur;
+            String valRetournee = johny.IdentifiantUnique;
 
             Assert.That(valRetournee, Is.EqualTo(resultat));
         }
