@@ -10,7 +10,7 @@ namespace TestTP1
     {
         Catalogue catalogue;
         Media mediaTest;
-        Utilisateur johny;
+        Utilisateur johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
         Utilisateur lcb;
         Utilisateur maek;
         Utilisateur felix;
@@ -21,7 +21,7 @@ namespace TestTP1
         {
             catalogue = new Catalogue();
             mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
-            johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
+            
             lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", RoleUtilisateur.UTILISATEUR);
             maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR);
             felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", RoleUtilisateur.UTILISATEUR);
@@ -33,7 +33,7 @@ namespace TestTP1
         [TestCase("test#eur", "test#eur#2")]
         [TestCase("testeur#", "testeur##3")]
         [TestCase("testeur#1", "testeur#1#4")]
-        public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum( String valeur, String resultat)
+        public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             johny.IdentifiantUnique = valeur;
             String valRetournee = johny.IdentifiantUnique;
@@ -44,31 +44,42 @@ namespace TestTP1
         [Test]
         public void constructeurUser()
         {
-
+            
         }
 
         [Test]
         public void getPseudo()
         {
+            
+            String resultat = johny.Pseudo;
 
+            Assert.That(resultat, Is.EqualTo("JohnyX"));
         }
 
         [Test]
         public void setPseudo()
         {
+            johny.Pseudo = "TestUser";
+            String resultat = johny.Pseudo;
 
+            Assert.That(resultat, Is.EqualTo("TestUser"));
         }
 
         [Test]
         public void getMDP()
         {
+            String resultat = johny.MotDePasse;
 
+            Assert.That(resultat, Is.EqualTo("abc123"));
         }
 
         [Test]
         public void setMDP()
         {
+            johny.MotDePasse = "1212Test";
+            String resultat = johny.MotDePasse;
 
+            Assert.That(resultat, Is.EqualTo("1212Test"));
         }
 
         [Test]
