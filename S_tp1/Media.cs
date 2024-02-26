@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+using static S_tp1.Types;
 
 namespace S_tp1
 {
@@ -149,7 +148,7 @@ namespace S_tp1
 
 
         public byte GetCote() { return 1; }// TODO
-        public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
+        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
 
         public override string ToString()
         {

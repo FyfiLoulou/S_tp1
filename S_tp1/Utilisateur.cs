@@ -1,27 +1,44 @@
-﻿using static S_tp1.Evaluation;
-using static S_tp1.Role;
+﻿using Newtonsoft.Json;
+using static S_tp1.Evaluation;
 namespace S_tp1
 {
     public class Utilisateur
     {
+        public enum RoleUtilisateur
+        {
+            UTILISATEUR,
+            TECHNICIEN,
+            ADMIN
+        }
+
         //attributs
         private String identifiantUnique;
-        private static int nombreIncremente = 1;
+        private static int nombreIncremente = 0;
         private String pseudo;
         private String motDePasse;
         private String nom;
         private String prenom;
-        private Enum role;
+        private RoleUtilisateur role;
         private List<Media> favoris;
-        private Dictionary<String, Evaluation> evaluations;
+        [JsonIgnore]
+        private List<Evaluation> evaluations;
+
+
+
+        //Constructeur par défaut
+        public Utilisateur() : this($"Utilisateur{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        {
+
+        }
+
+        //Constructeur Login et mdp
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        {
+            this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
+            this.pseudo = pseudo;
+            this.motDePasse = motDePasse;
+        }
         
-
-
-        /*
-         * énumération des rôles qu'un utilisateur pourrait être
-         */
-        
-
 
         /*
          * Constructeur de la classe utilisateur
@@ -30,24 +47,23 @@ namespace S_tp1
          * @param nom -> le nom de famille de l'utilisateur
          * @param prenom -> le prénom de l'utilisateur
          */
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
-            this.identifiantUnique = pseudo + "#" + nombreIncremente;
-            this.pseudo = pseudo;
+            this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
-            this.role = Role.UTILISATEUR;
-            nombreIncremente++;
+            this.role = role;
+            this.favoris = new List<Media>();
+            this.evaluations = new List<Evaluation>();
         }
 
         /*
          * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
          * @return la liste de favoris actualisée
          */
-        public List<Media> AjouterFavori(Media media) {
-            //TODO - faut acceder au catalogue
-            //MediaExisteDansCatalogue
+        public List<Media> AjouterFavori(Media media)
+        {
             favoris.Add(media);
             return this.favoris;
         }
@@ -58,24 +74,21 @@ namespace S_tp1
          * @param cote -> la cote que l'on veux ajouter au media que l'on veut
          * @return la validation de si l'ajout d'une evaluation a fonctionné
          */
-        public bool AjouterEvaluation(Media media, byte cote)
+        public void AjouterEvaluation(Evaluation eval)
         {
             //TODO
-            //TODO - faut acceder au catalogue
-
-
-            return false;
+            this.evaluations.Add(eval);
         }
 
         //getters & setters
         public string IdentifiantUnique
         {
             get { return identifiantUnique; }
-            set 
+            set
             {
                 String[] tab = identifiantUnique.Split("#");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = value + "#" + nb; 
+                identifiantUnique = $"{value} + # + {nb}";
             }
         }
 
@@ -103,7 +116,7 @@ namespace S_tp1
             set { prenom = value; }
         }
 
-        public Enum RoleGetSet
+        public RoleUtilisateur Role
         {
             get { return role; }
             set { role = value; }
@@ -115,13 +128,9 @@ namespace S_tp1
          */
         public override string ToString()
         {
-            return "Identifiant unique : " + identifiantUnique
-                + "\nPseudonyme : " + pseudo
-                + "\nMot de Passe : " + motDePasse
-                + "\nNom : " + nom
-                + "\nPrenom : " + prenom
-                + "\nRôle : " + role;
+            return $"Identifiant unique : {identifiantUnique}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}\nEvalcount: {evaluations.Count}";
         }
+
 
     }
 }

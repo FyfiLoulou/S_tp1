@@ -41,6 +41,76 @@ namespace TestTP1
             Assert.That(valRetournee, Is.EqualTo(resultat));
         }
 
+        [Test]
+        public void constructeurUser()
+        {
+
+        }
+
+        [Test]
+        public void getPseudo()
+        {
+
+        }
+
+        [Test]
+        public void setPseudo()
+        {
+
+        }
+
+        [Test]
+        public void getMDP()
+        {
+
+        }
+
+        [Test]
+        public void setMDP()
+        {
+
+        }
+
+        [Test]
+        public void ajouterFavori()
+        {
+
+        }
+
+        [Test]
+        public void ajouterEvaluation()
+        {
+
+        }
+
+
+        //Media====================================================================================
+
+        [Test]
+        public void constructeurMedia()
+        {
+
+        }
+
+        [Test]
+        public void egalite()
+        {
+
+        }
+
+        [Test]
+        public void deuxChamps()
+        {
+
+        }
+
+        [Test]
+        public void toStringMedia()
+        {
+
+        }
+
+        //Catalogue================================================================================
 
         /*
         [TestCase(media, "")]
@@ -54,7 +124,11 @@ namespace TestTP1
         */
 
 
+        [Test]
+        public void constructeurCatalogue()
+        {
 
+        }
 
 
         [Test]
@@ -83,6 +157,12 @@ namespace TestTP1
 
         [Test]
         public void MediaExisteDansCatalogue()
+        {
+
+        }
+
+        [Test]
+        public void toStringCatalogue()
         {
 
         }

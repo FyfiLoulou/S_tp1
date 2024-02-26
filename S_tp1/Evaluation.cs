@@ -14,9 +14,27 @@ namespace S_tp1 {
             this.cote = cote;
         }
 
-        public Utilisateur getUtilisateur() { return utilisateur; }
-        public Media getIdentifiantMedia() {  return media; }
-        public byte getCote() {  return cote; }  
+        public Utilisateur Utilisateur
+        {
+            get { return utilisateur; }
+            set {}
+        }
+
+        public Media Media
+        {
+            get { return media; }
+            set {}
+        }
+
+        public byte Cote
+        {
+            get { return cote; }
+            set {}
+        }
+
+        public override string ToString() {
+            return $"utilisateur: {utilisateur.IdentifiantUnique}, media: {media.IdentifiantMedia}, cote: {cote}";
+        }
 
     }
 }

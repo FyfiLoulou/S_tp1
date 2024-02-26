@@ -1,32 +1,31 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json.Serialization;
 
 namespace S_tp1
 {
-    public class CatalogueUtilisateur
+    public class CatalogueEvaluation
     {
 
         private string PATH_SOURCE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
 
-        private List<Utilisateur> listeUtilisateurs;
+        private List<Evaluation> listeEvaluations;
 
-        public CatalogueUtilisateur() {
-            listeUtilisateurs = new List<Utilisateur>();
+        public CatalogueEvaluation()
+        {
+            listeEvaluations = new List<Evaluation>();
         }
 
-        public void AjouterListe(Utilisateur utilisateur) {
-            listeUtilisateurs.Add(utilisateur);
+        public void AjouterList(Evaluation evaluation) {
+            listeEvaluations.Add(evaluation);
         }
 
-        public List<Utilisateur> GetUtilisateurs() { return listeUtilisateurs; }
+        public List<Evaluation> GetEvaluations() { return listeEvaluations; }
 
-        public List<Utilisateur> Ajouter(string nomFichierSauvegarde) {
-            List<Utilisateur> list = null;
+        public List<Evaluation> Ajouter(string nomFichierSauvegarde)
+        {
+            List<Evaluation> list = null;
             try
             {
-                listeUtilisateurs = list = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             }
             catch (FileNotFoundException err)
             {
@@ -43,11 +42,11 @@ namespace S_tp1
 
             return list;
         }
-    public bool Sauvegarder(string nomFichierSauvegarde) {
+        public bool Sauvegarder(string nomFichierSauvegarde) {
             bool isSauvegarde = true;
             try
             {
-                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeUtilisateurs, Formatting.Indented));
+                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
             }
             catch (DirectoryNotFoundException err)
             {
@@ -67,17 +66,13 @@ namespace S_tp1
         public override string ToString()
         {
             string retVal = "";
-            foreach (Utilisateur u in listeUtilisateurs)
+            foreach (Evaluation evaluation in listeEvaluations)
             {
-                retVal += $"{u.ToString()} \n\n";
+                retVal += $"{evaluation.ToString()} \n\n";
             }
             return retVal;
         }
 
-        public Utilisateur GetUtilisateur(string id)
-        {
-            return listeUtilisateurs.Where(u => u.Pseudo == id).First();
-        }
 
     }
 }

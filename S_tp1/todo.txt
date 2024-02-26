@@ -4,28 +4,32 @@ nous 3 :
 
 documentations
 
+Voici les essentiels, pour l’utilisateur. Ici on va valider le mot de passe et le "login" ou pseudo de l’utilisateur. Pour
+les autres champs, proposez des valeurs limites raisonnables (exemple : le nom ne doit pas être vide (réf. votre
+document d’analyse)
+
 
 LCB
-	✔- Sauvegarder()
-	✔- Ajouter() (déserialization)
+
     - GetCote() dans Media
 
 
 FB
-	✔- ToString()
     - Supprimer(Media media)
-    ✔- media arranger les constructeurs
+    - fix constructeurs utilisateur
 
 ML
 - tests unitaires
+(
+evaluations :
+
+utilisateurs :
+
+
+)
 
 
 
+https://www.notion.so/invite/5ebaf9e0a0e3c9e6ee38527a148d9fdb68bc5449
 
 
-
-
-public string IdentifiantMedia {
-    get { return identifiantMedia; }
-    set { identifiantMedia = value; }
-}
