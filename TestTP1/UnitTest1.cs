@@ -20,10 +20,10 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            mediaTest = new Media("media", Media.Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
-
+        s
         //Utilisateurs=============================================================================
         [TestCase("testeur", "testeur_0")]
         [TestCase("test_eur", "test_eur_0")]
