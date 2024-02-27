@@ -14,7 +14,6 @@ namespace S_tp1
         }
 
 
-
         /*
          * Change la couleur du message dans la console pour les erreurs
          */
@@ -22,6 +21,8 @@ namespace S_tp1
         {
             Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
         }
+
+
 
         public void deserializer(string pathMedia, string pathUtilisateur, string pathEvaluation) {
             catalogue.Ajouter(pathMedia);

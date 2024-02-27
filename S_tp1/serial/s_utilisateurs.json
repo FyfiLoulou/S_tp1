@@ -15,9 +15,7 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "Role": 0,
-    "Evaluations": [],
-    "Favoris": []
+    "Role": 0
   },
   {
     "IdentifiantUnique": "bob_1",
@@ -25,8 +23,6 @@
     "MotDePasse": "bob",
     "Nom": "bob",
     "Prenom": "bob",
-    "Role": 2,
-    "Evaluations": [],
-    "Favoris": []
+    "Role": 2
   }
 ]

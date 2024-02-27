@@ -26,10 +26,6 @@ namespace S_tp1
             Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.TECHNICIEN);
             Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Role.ADMIN);
             Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Role.UTILISATEUR);
-            Console.WriteLine(j);
-            j.IdentifiantUnique = "allo";
-            Console.WriteLine(j);
-            
 
             Evaluation ev1 = new Evaluation(bob, test2, 100);
             Evaluation ev2 = new Evaluation(j, test, 11);

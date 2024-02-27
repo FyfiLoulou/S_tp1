@@ -122,6 +122,7 @@ namespace S_tp1
             set { role = value; }
         }
 
+        [JsonIgnore]
         public List<Evaluation> Evaluations
         {
             get { return evaluations; }

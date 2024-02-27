@@ -84,6 +84,7 @@ namespace S_tp1
             set { this.type = value; }
         }
 
+        [JsonIgnore]
         public List<Evaluation>? Evaluations
         {
             get { return evaluations; }
@@ -136,13 +137,13 @@ namespace S_tp1
 
         public byte GetCote()
         {
-            return evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a += b) / evaluations.Count)));
+            return evaluations.Count>0 ? (byte)Math.Floor((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a+=b) / evaluations.Count)) : (byte)0;
         }
         public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
         {
-            return $" Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation`{this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
+            return $" Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }
