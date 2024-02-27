@@ -1,12 +1,11 @@
 [
   {
-    "IdentifiantUnique": "allo_0",
+    "IdentifiantUnique": "JohnyX_0",
     "Pseudo": "JohnyX",
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
     "Role": 1,
-    "Evaluations": [],
     "Favoris": []
   },
   {
@@ -15,7 +14,8 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "Role": 0
+    "Role": 0,
+    "Favoris": []
   },
   {
     "IdentifiantUnique": "bob_1",
@@ -23,6 +23,7 @@
     "MotDePasse": "bob",
     "Nom": "bob",
     "Prenom": "bob",
-    "Role": 2
+    "Role": 2,
+    "Favoris": []
   }
 ]
