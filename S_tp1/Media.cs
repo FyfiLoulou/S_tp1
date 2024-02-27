@@ -145,9 +145,9 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// 
+        /// Récupère le nom de l'objet média à partir de son identifiant unique
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Le nom de l'objet média extrait de son identifiant. Si l'identitfant n'est pas défini, retourne "Nom non défini"</returns>
         public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
