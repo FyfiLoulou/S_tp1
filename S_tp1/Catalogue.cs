@@ -233,6 +233,11 @@ namespace S_tp1
         /// <returns>Le catalogue</returns>
         public List<Media>? getCatalogue() { return catalogue; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Media GetMedia(string id)
         {
             Console.WriteLine(id);
