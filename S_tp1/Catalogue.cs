@@ -227,9 +227,10 @@ namespace S_tp1
             return catalogue.Contains(media);
         }
 
-        /*
-         * @return -> retourne le catalogue
-         */
+        /// <summary>
+        /// permet l'accès au catalogue
+        /// </summary>
+        /// <returns>Le catalogue</returns>
         public List<Media>? getCatalogue() { return catalogue; }
 
         public Media GetMedia(string id)
