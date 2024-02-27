@@ -2,7 +2,6 @@
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using static S_tp1.Types;
-using static S_tp1.Role;
 
 namespace S_tp1
 {

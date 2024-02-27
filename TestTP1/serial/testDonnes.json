@@ -1,6 +1,6 @@
 [
   {
-    "IdentifiantMedia": "allo_16",
+    "IdentifiantMedia": "yo_1",
     "Type": 2,
     "DateRealisation": 1,
     "Duree": 1,
@@ -11,7 +11,7 @@
     "Image": null
   },
   {
-    "IdentifiantMedia": "bonjour_18",
+    "IdentifiantMedia": "asd_2",
     "Type": 2,
     "DateRealisation": 1,
     "Duree": 1,
@@ -22,7 +22,18 @@
     "Image": null
   },
   {
-    "IdentifiantMedia": "salut_20",
+    "IdentifiantMedia": "asdasd_3",
+    "Type": 2,
+    "DateRealisation": 1,
+    "Duree": 1,
+    "Auteur": "Auteur default",
+    "Producteur": "Prod default",
+    "Extrait": null,
+    "Complet": null,
+    "Image": null
+  },
+  {
+    "IdentifiantMedia": "asdasdOUIOUIUIUO_4",
     "Type": 2,
     "DateRealisation": 1,
     "Duree": 1,

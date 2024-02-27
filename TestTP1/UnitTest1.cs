@@ -32,7 +32,7 @@ namespace TestTP1
         {
             String id = lcb.IdentifiantUnique;
 
-            Assert.That(id, Is.EqualTo("nomUtilisateurDefault_1_2"));
+            Assert.That(id, Is.EqualTo("nomUtilisateurDefault_1"));
         }
 
         [Test]

@@ -6,7 +6,8 @@ namespace TestTP1
     public class TestCatalogue
     {
         Catalogue catalogue;
-        string NOM_DE_FICHIER = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial\s_test_catalogue.json";
+        const string NOM_DE_FICHIER = "s_test_catalogue.json",
+          AUTRE_NOM_FICHIER = "testDonnes.json";
 
 
 
@@ -44,8 +45,10 @@ namespace TestTP1
         {
             //Acteurs
 
+
             //Actions
-            catalogue.Ajouter(NOM_DE_FICHIER);
+            catalogue.Ajouter(AUTRE_NOM_FICHIER);
+
             //Assertions
             Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(4));
         }
