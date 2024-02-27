@@ -113,7 +113,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestToString()
+        public void etantDonneEcrireDansLaConsoleCatalogue_quandToString_alorsCatalogueEcritDansLaConsole()
         {
             //Acteurs
             String expected = "media: ";
