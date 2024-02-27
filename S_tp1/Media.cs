@@ -68,7 +68,7 @@ namespace S_tp1
         }
 
         //overrides
-        public override bool Equals(Object obj)
+        public override bool Equals(Object? obj)
         {
             if (obj == null || !(obj is Media))
                 return false;

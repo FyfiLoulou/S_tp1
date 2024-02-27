@@ -38,10 +38,13 @@ namespace S_tp1
             // Ajoute les utilisateurs à partir du fichier de sauvegarde
             catalogueUtilisateur.Ajouter(pathUtilisateur);
 
+            
             catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval)=>{
                 Media m = catalogue.GetMedia(eval.Media.IdentifiantMedia);
                 Utilisateur u = catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.IdentifiantUnique);
+                // Ajoute chaque évaluations associée à son média correspondant dans le catalogue média
                 if (m != null) m.AjouterEvaluation(eval);
+                // Ajoute chaque évaluations associée à son utilisateur correspondant dans le catalogue utilisateur
                 if (u != null) u.AjouterEvaluation(eval);
             });
 
