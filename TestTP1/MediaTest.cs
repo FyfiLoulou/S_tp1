@@ -95,13 +95,64 @@ namespace TestTP1
         {
             // acteurs
             media1 = new Media();
+            List<bool> res = new List<bool>();
 
             // action
-            media1.Duree = 100;
-            int dureeVal = (int)media1.Duree;
+            res.Add(media1.IdentifiantMedia == Media.ID_DEFAULT+"_0");
+            res.Add(media1.Type == Media.TYPE_DEFAULT);
+            res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
+            res.Add(media1.Duree == Media.DUREE_DEFAULT);
+            res.Add(media1.Auteur == Media.AUTEUR_DEFAULT);
+            res.Add(media1.Producteur == Media.PRODUCTEUR_DEFAULT);
+            res.Add(media1.Extrait == Media.EXTRAIT_DEFAULT);
+            res.Add(media1.Complet == Media.COMPLET_DEFAULT);
+            res.Add(media1.Image == Media.IMAGE_DEFAULT);
 
             // assertion
-            Assert.That(dureeVal, Is.EqualTo(100));
+            Assert.That(res.All(x=>x==true), Is.True);
+        }
+
+        [Test]
+        public void etantDonneConstructeurJusteIdentifiant_quandCreerMediaJusteIdentifiant_alorsRetourneMediaResteParDefaut()
+        {
+            // acteurs
+            media1 = new Media("ID_TETS");
+            List<bool> res = new List<bool>();
+
+            // action
+            res.Add(media1.Type == Media.TYPE_DEFAULT);
+            res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
+            res.Add(media1.Duree == Media.DUREE_DEFAULT);
+            res.Add(media1.Auteur == Media.AUTEUR_DEFAULT);
+            res.Add(media1.Producteur == Media.PRODUCTEUR_DEFAULT);
+            res.Add(media1.Extrait == Media.EXTRAIT_DEFAULT);
+            res.Add(media1.Complet == Media.COMPLET_DEFAULT);
+            res.Add(media1.Image == Media.IMAGE_DEFAULT);
+
+            // assertion
+            Assert.That(res.All(x => x == true), Is.True);
+        }
+
+        [Test]
+        public void etantDonneConstructeurPlein_quandCreerMedia_alorsRetourneMediaPlein()
+        {
+            // acteurs
+            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
+            List<bool> res = new List<bool>();
+
+            // action
+            res.Add(!string.IsNullOrEmpty(media1.IdentifiantMedia+"_0"));
+            res.Add(media1.Type != null);
+            res.Add(media1.DateRealisation != null);
+            res.Add(media1.Duree != null);
+            res.Add(!string.IsNullOrEmpty(media1.Auteur));
+            res.Add(!string.IsNullOrEmpty(media1.Producteur));
+            res.Add(!string.IsNullOrEmpty(media1.Extrait));
+            res.Add(!string.IsNullOrEmpty(media1.Complet));
+            res.Add(!string.IsNullOrEmpty(media1.Image));
+
+            // assertion
+            Assert.That(res.All(x => x == true), Is.True);
         }
 
     }
