@@ -45,7 +45,7 @@ namespace S_tp1
 
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
-            this.identifiantUnique = $"{pseudo}#{nombreIncremente++}";
+            this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
