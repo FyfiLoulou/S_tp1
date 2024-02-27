@@ -51,6 +51,7 @@ namespace TestTP1
         [Test]
         public void TestSauvegarder()
         {
+            //TODO
             //Acteurs
             Media m = new Media("allo");
             Media m1 = new Media("bonjour");
@@ -67,16 +68,19 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestSupprimerUnFichier()
+        public void TestSupprimerSansParam()
         {
             //Acteurs
             Media m = new Media();
+            Media m1 = new Media();
+            Media m2 = new Media();
             catalogue.Ajouter(m);
-            catalogue.Ajouter(m);
+            catalogue.Ajouter(m1);
+            catalogue.Ajouter(m2);
             //Actions
-            catalogue.Supprimer(m);
+            catalogue.Supprimer();
             //Assertions
-            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(1));
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(0)); 
         }
 
         [Test]
