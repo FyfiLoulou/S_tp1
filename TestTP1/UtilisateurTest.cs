@@ -65,7 +65,7 @@ namespace TestTP1
             Assert.That(id, Is.EqualTo("FB_4"));
         }
 
-
+        //TODO -> regex
         [TestCase("Jtesteur", "Jtesteur_5")]
         public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
