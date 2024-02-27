@@ -100,7 +100,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestRemplacer()
+        public void etantDonneMediaARemplacerEtMediaASupprimer_quandRemplacer_alorsMediaRemplacerDansCatalogue()
         {
             //Acteurs
             Media m1 = new Media("media1");
