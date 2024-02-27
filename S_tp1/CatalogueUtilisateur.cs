@@ -12,17 +12,35 @@ namespace S_tp1
 
         private List<Utilisateur> listeUtilisateurs;
 
-        public CatalogueUtilisateur() {
+        public CatalogueUtilisateur()
+        {
             listeUtilisateurs = new List<Utilisateur>();
         }
 
-        public void AjouterListe(Utilisateur utilisateur) {
+        /// <summary>
+        /// Ajoute un nouvel utilisateur dans la liste d'utilisateurs
+        /// </summary>
+        /// <param name="utilisateur">L'utilisateur à ajouter</param>
+        public void AjouterListe(Utilisateur utilisateur)
+        {
             listeUtilisateurs.Add(utilisateur);
         }
 
+        /// <summary>
+        /// Retourne la liste des utilisateurs
+        /// </summary>
+        /// <returns>La liste des utilisateurs</returns>
         public List<Utilisateur> GetUtilisateurs() { return listeUtilisateurs; }
 
-        public List<Utilisateur> Ajouter(string nomFichierSauvegarde) {
+        /// <summary>
+        /// Lit un fichier JSON et retourne une liste d'objet utilisateur
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier à lire</param>
+        /// <returns>Une liste d'objet utilisateur</returns>
+        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
+        /// <exception cref="Exception"> Lancée en cas d'erreur inattendue </exception>
+        public List<Utilisateur> Ajouter(string nomFichierSauvegarde)
+        {
             List<Utilisateur> list = null;
             try
             {
@@ -43,7 +61,16 @@ namespace S_tp1
 
             return list;
         }
-    public bool Sauvegarder(string nomFichierSauvegarde) {
+
+        /// <summary>
+        /// Sauvegarde la liste des utilisateurs dans un fichier JSON
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
+        /// <returns>True si la sauvegarde est réussi, false autrement</returns>
+        /// <exception cref="">Lancée si le dossier de sauvegarde n'existe pas</exception>
+        /// <exception cref="Exception"> Lancée en cas d'erreur inattendue</exception>
+        public bool Sauvegarder(string nomFichierSauvegarde)
+        {
             bool isSauvegarde = true;
             try
             {
@@ -74,8 +101,15 @@ namespace S_tp1
             return retVal;
         }
 
+        /// <summary>
+        /// Récupère un utilisateur à partir de son id
+        /// </summary>
+        /// <param name="id">l'id (pseudo) de l'utilisateur à récupérer</param>
+        /// <returns>L'utilisateur correspondant à l'id spécifié</returns>
         public Utilisateur GetUtilisateur(string id)
         {
+            // Recherche de l'utilisateur dans la liste des utilisateurs
+            // en fonction de son pseudo.
             return listeUtilisateurs.Where(u => u.Pseudo == id).First();
         }
 
