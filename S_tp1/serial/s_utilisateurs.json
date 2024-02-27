@@ -5,7 +5,8 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "Role": 1
+    "Role": 1,
+    "Favoris": []
   },
   {
     "IdentifiantUnique": "JohnyX2_2",
@@ -13,7 +14,8 @@
     "MotDePasse": "abc123",
     "Nom": "Test",
     "Prenom": "Johny",
-    "Role": 0
+    "Role": 0,
+    "Favoris": []
   },
   {
     "IdentifiantUnique": "bob_1",
@@ -21,6 +23,7 @@
     "MotDePasse": "bob",
     "Nom": "bob",
     "Prenom": "bob",
-    "Role": 2
+    "Role": 2,
+    "Favoris": []
   }
 ]

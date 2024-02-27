@@ -27,7 +27,7 @@ namespace S_tp1
             catalogue.Ajouter(pathMedia);
             catalogueUtilisateur.Ajouter(pathUtilisateur);
 
-            catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval)=>{
+            catalogueEvaluation.Ajouter(pathEvaluation)?.ForEach((eval)=>{
                 catalogue.GetMedia(eval.Media.GetNom()).AjouterEvaluation(eval);
                 catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.Pseudo).AjouterEvaluation(eval);
             });

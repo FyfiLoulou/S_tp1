@@ -2,7 +2,6 @@
   {
     "IdentifiantMedia": "testLOL_0",
     "Type": 1,
-    "Evaluations": [],
     "DateRealisation": 1001032,
     "Duree": 10,
     "Auteur": "ads",
@@ -14,7 +13,6 @@
   {
     "IdentifiantMedia": "testLOL23_1",
     "Type": 8,
-    "Evaluations": [],
     "DateRealisation": 11032,
     "Duree": 120,
     "Auteur": "adsdasdasdasdasdasd",
@@ -26,7 +24,6 @@
   {
     "IdentifiantMedia": "testLOL123123_2",
     "Type": 10,
-    "Evaluations": [],
     "DateRealisation": 10,
     "Duree": 1120,
     "Auteur": "adsasdasd",

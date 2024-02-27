@@ -6,12 +6,12 @@
       "MotDePasse": "bob",
       "Nom": "bob",
       "Prenom": "bob",
-      "Role": 2
+      "Role": 2,
+      "Favoris": []
     },
     "Media": {
       "IdentifiantMedia": "testLOL23_1",
       "Type": 8,
-      "Evaluations": [],
       "DateRealisation": 11032,
       "Duree": 120,
       "Auteur": "adsdasdasdasdasdasd",
@@ -29,12 +29,12 @@
       "MotDePasse": "abc123",
       "Nom": "Test",
       "Prenom": "Johny",
-      "Role": 1
+      "Role": 1,
+      "Favoris": []
     },
     "Media": {
       "IdentifiantMedia": "testLOL_0",
       "Type": 1,
-      "Evaluations": [],
       "DateRealisation": 1001032,
       "Duree": 10,
       "Auteur": "ads",
@@ -52,12 +52,12 @@
       "MotDePasse": "abc123",
       "Nom": "Test",
       "Prenom": "Johny",
-      "Role": 1
+      "Role": 1,
+      "Favoris": []
     },
     "Media": {
       "IdentifiantMedia": "testLOL123123_2",
       "Type": 10,
-      "Evaluations": [],
       "DateRealisation": 10,
       "Duree": 1120,
       "Auteur": "adsasdasd",
@@ -75,12 +75,12 @@
       "MotDePasse": "abc123",
       "Nom": "Test",
       "Prenom": "Johny",
-      "Role": 0
+      "Role": 0,
+      "Favoris": []
     },
     "Media": {
       "IdentifiantMedia": "testLOL_0",
       "Type": 1,
-      "Evaluations": [],
       "DateRealisation": 1001032,
       "Duree": 10,
       "Auteur": "ads",
