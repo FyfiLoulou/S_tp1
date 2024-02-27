@@ -7,7 +7,7 @@ namespace S_tp1
 {
     public class Utilisateur
     {
-        
+
 
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
 
@@ -40,13 +40,7 @@ namespace S_tp1
         }
 
 
-        /*
-         * Constructeur de la classe utilisateur
-         * @param pseudo -> le pseudonyme que l'utilisateur utilisera
-         * @param motDePasse -> le mot de passe que l'utilisateur va utiliser pour entrer dans son compte
-         * @param nom -> le nom de famille de l'utilisateur
-         * @param prenom -> le prénom de l'utilisateur
-         */
+
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
@@ -58,20 +52,20 @@ namespace S_tp1
             this.evaluations = new List<Evaluation>();
         }
 
-        /*
-         * @param media -> media que l'on veux ajouter à nos favoris
-         */
+        /// <summary>
+        /// Ajoute un média à la liste des favoris
+        /// </summary>
+        /// <param name="media">Le média à ajouter</param>
         public void AjouterFavori(Media media)
         {
             favoris.Add(media);
         }
 
 
-        /*
-         * @param media -> media que l'on veut ajouter à nos favoris
-         * @param cote -> la cote que l'on veux ajouter au media que l'on veut
-         * @return la validation de si l'ajout d'une evaluation a fonctionné
-         */
+        /// <summary>
+        /// Ajoute une évaluation à la liste des évaluations associées à cet utilisateur (this)
+        /// </summary>
+        /// <param name="eval">L'évaluation à ajouter</param>
         public void AjouterEvaluation(Evaluation eval)
         {
             this.evaluations.Add(eval);
@@ -99,7 +93,8 @@ namespace S_tp1
         public string MotDePasse
         {
             get { return motDePasse; }
-            set {
+            set
+            {
                 //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
                 motDePasse = value.Length >= 5 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
             }
