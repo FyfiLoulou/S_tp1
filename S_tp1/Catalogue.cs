@@ -176,10 +176,10 @@ namespace S_tp1
 
 
         /// <summary>
-        /// 
+        /// Sauvegarde l'état actuel du catalogue dans un fichier JSON.
         /// </summary>
-        /// <param name="nomFichierSauvegarde"></param>
-        /// <returns></returns>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier à sauvegarder</param>
+        /// <returns>True si la sauvegarde est réussi, false autrement</returns>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
