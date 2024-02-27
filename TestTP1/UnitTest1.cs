@@ -87,11 +87,13 @@ namespace TestTP1
         }
 
         [Test]
-        public void ajouterEvaluation()
+        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnEvaluationCountPlus1()
         {
             //TODO
+            int nbEvalAv = johny.Evaluation.Count;
             johny.AjouterEvaluation(evaluation);
-            //Assert.That();
+            int nbEvalAp = johny.Evaluation.Count;
+            Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
         }
 
 

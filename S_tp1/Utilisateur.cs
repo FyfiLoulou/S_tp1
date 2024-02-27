@@ -40,7 +40,7 @@ namespace S_tp1
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
-        
+
 
         /*
          * Constructeur de la classe utilisateur
@@ -87,7 +87,7 @@ namespace S_tp1
             {
                 String[] tab = identifiantUnique.Split("_");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = $"{value}" + "_" + $"{nb}";
+                identifiantUnique = $"{value}_{nb}";
             }
         }
 
@@ -123,6 +123,18 @@ namespace S_tp1
         {
             get { return role; }
             set { role = value; }
+        }
+
+        public List<Evaluation> Evaluation
+        {
+            get { return evaluations; }
+            set { evaluations = value; }
+        }
+
+        public List<Media> Favoris
+        {
+            get { return Favoris; }
+            set { Favoris = value; }
         }
 
 
