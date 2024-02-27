@@ -29,7 +29,7 @@ namespace S_tp1
             Console.WriteLine(j);
             j.IdentifiantUnique = "allo";
             Console.WriteLine(j);
-            /*
+            
 
             Evaluation ev1 = new Evaluation(bob, test2, 100);
             Evaluation ev2 = new Evaluation(j, test, 11);
@@ -44,10 +44,10 @@ namespace S_tp1
             catalogueUtilisateur.AjouterListe(j2);
             catalogueUtilisateur.AjouterListe(bob);
 
-            catalogueEvaluation.AjouterList(ev1);
-            catalogueEvaluation.AjouterList(ev2);
-            catalogueEvaluation.AjouterList(ev3);
-            catalogueEvaluation.AjouterList(ev4);
+            catalogueEvaluation.AjouterEvaluation(ev1);
+            catalogueEvaluation.AjouterEvaluation(ev2);
+            catalogueEvaluation.AjouterEvaluation(ev3);
+            catalogueEvaluation.AjouterEvaluation(ev4);
 
 
             catalogue.Sauvegarder(pathMedias);
@@ -56,7 +56,7 @@ namespace S_tp1
 
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
-            */
+            
         }
     }
 }

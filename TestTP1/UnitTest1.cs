@@ -20,10 +20,10 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            mediaTest = new Media("media", Media.Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
-
+        
         //Utilisateurs=============================================================================
         [TestCase("testeur", "testeur_0")]
         [TestCase("test_eur", "test_eur_0")]
@@ -65,6 +65,7 @@ namespace TestTP1
         [Test]
         public void getMDP()
         {
+            johny.MotDePasse = "abc123";
             String resultat = johny.MotDePasse;
 
             Assert.That(resultat, Is.EqualTo("abc123"));
@@ -86,11 +87,13 @@ namespace TestTP1
         }
 
         [Test]
-        public void ajouterEvaluation()
+        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnEvaluationCountPlus1()
         {
             //TODO
+            int nbEvalAv = johny.Evaluation.Count;
             johny.AjouterEvaluation(evaluation);
-            //Assert.That();
+            int nbEvalAp = johny.Evaluation.Count;
+            Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
         }
 
 

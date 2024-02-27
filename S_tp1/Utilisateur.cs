@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
+using System.Text.RegularExpressions;
 namespace S_tp1
 {
     public class Utilisateur
@@ -10,6 +12,8 @@ namespace S_tp1
             TECHNICIEN,
             ADMIN
         }
+
+        private const string PASSWORD_PAR_DEFAUT_PAS_BON = "jaimelespatatesLOL$3";
 
         //attributs
         private String identifiantUnique;
@@ -38,7 +42,7 @@ namespace S_tp1
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
-        
+
 
         /*
          * Constructeur de la classe utilisateur
@@ -59,13 +63,11 @@ namespace S_tp1
         }
 
         /*
-         * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
-         * @return la liste de favoris actualisée
+         * @param media -> media que l'on veux ajouter à nos favoris
          */
-        public List<Media> AjouterFavori(Media media)
+        public void AjouterFavori(Media media)
         {
             favoris.Add(media);
-            return this.favoris;
         }
 
 
@@ -87,7 +89,7 @@ namespace S_tp1
             {
                 String[] tab = identifiantUnique.Split("_");
                 String nb = tab[tab.Length - 1];
-                identifiantUnique = $"{value}" + "_" + $"{nb}";
+                identifiantUnique = $"{value}_{nb}";
             }
         }
 
@@ -101,7 +103,10 @@ namespace S_tp1
         public string MotDePasse
         {
             get { return motDePasse; }
-            set { motDePasse = value; }
+            set {
+                //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
+                motDePasse = value.Length >= 5 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
+            }
         }
         public string Nom
         {
@@ -119,6 +124,18 @@ namespace S_tp1
         {
             get { return role; }
             set { role = value; }
+        }
+
+        public List<Evaluation> Evaluation
+        {
+            get { return evaluations; }
+            set { evaluations = value; }
+        }
+
+        public List<Media> Favoris
+        {
+            get { return Favoris; }
+            set { Favoris = value; }
         }
 
 

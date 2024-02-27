@@ -8,7 +8,7 @@ namespace S_tp1
     public class CatalogueUtilisateur
     {
 
-        private string PATH_SOURCE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
         private List<Utilisateur> listeUtilisateurs;
 
