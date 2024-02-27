@@ -10,10 +10,10 @@ namespace TestTP1
     {
         Catalogue catalogue;
         Media mediaTest;
-        Utilisateur johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", RoleUtilisateur.UTILISATEUR);
-        Utilisateur lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", RoleUtilisateur.UTILISATEUR);
-        Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR);
-        Utilisateur felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", RoleUtilisateur.UTILISATEUR);
+        Utilisateur johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.UTILISATEUR);
+        Utilisateur lcb = new Utilisateur("LCB", "v87e", "Biron", "Louis-Charles", Role.UTILISATEUR);
+        Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", Role.UTILISATEUR);
+        Utilisateur felix = new Utilisateur("FB", "ofdh", "Felix", "Blanchette", Role.UTILISATEUR);
         Evaluation evaluation;
 
         [SetUp]
@@ -35,13 +35,6 @@ namespace TestTP1
             String valRetournee = johny.IdentifiantUnique;
 
             Assert.That(valRetournee, Is.EqualTo(resultat));
-        }
-
-        [Test]
-        public void constructeurUser()
-        {
-            //TODO
-            
         }
 
         [Test]
