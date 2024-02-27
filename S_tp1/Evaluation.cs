@@ -33,7 +33,7 @@ namespace S_tp1 {
         }
 
         public override string ToString() {
-            return $"utilisateur: {utilisateur.IdentifiantUnique}, media: {media.IdentifiantMedia}, cote: {cote}";
+            return $"evaluation: {utilisateur.IdentifiantUnique}, media: {media.IdentifiantMedia}, cote: {cote}";
         }
 
     }
