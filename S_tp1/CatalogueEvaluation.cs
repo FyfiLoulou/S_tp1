@@ -14,11 +14,13 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
 
-        public void AjouterList(Evaluation evaluation) {
-            listeEvaluations.Add(evaluation);
-        }
-
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
+
+        public void AjouterEvaluation(Evaluation eval) {
+            eval.Media.AjouterEvaluation(eval);
+            eval.Utilisateur.AjouterEvaluation(eval);
+            listeEvaluations.Add(eval);
+        }
 
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
