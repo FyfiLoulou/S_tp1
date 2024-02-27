@@ -77,6 +77,7 @@ namespace TestTP1
             //Assertions
         }
 
+        [Test]
         public void TestRemplacer()
         {
             //Acteurs
@@ -86,14 +87,14 @@ namespace TestTP1
             //Assertions
         }
 
+        [Test]
         public void TestToString()
         {
             //Acteurs
             String expected = "";
             String actual = catalogue.ToString();
-            //Actions
-
             //Assertions
+            Assert.That (expected, Is.EqualTo (actual));
         }
     }
 }
