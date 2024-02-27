@@ -150,7 +150,7 @@ namespace S_tp1
         /// <returns>La cote calculée à partir des évaluations</returns>
         public byte GetCote()
         {
-            return evaluations.Count > 0 ? (byte)Math.Floor((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
+            return evaluations.Count > 0 ? (byte)Math.Round((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
         }
 
         /// <summary>
