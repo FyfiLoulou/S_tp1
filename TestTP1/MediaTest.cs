@@ -87,7 +87,21 @@ namespace TestTP1
             int dureeVal = (int)media1.Duree;
 
             // assertion
-            Assert.That(dureeVal, Is.EqualTo(1001));
+            Assert.That(dureeVal, Is.EqualTo(100));
+        }
+
+        [Test]
+        public void etantDonneConstructeurVide_quandCreerMediaVide_alorsRetourneMediaParDefaut()
+        {
+            // acteurs
+            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
+
+            // action
+            media1.Duree = 100;
+            int dureeVal = (int)media1.Duree;
+
+            // assertion
+            Assert.That(dureeVal, Is.EqualTo(100));
         }
 
     }
