@@ -2,6 +2,7 @@ using static S_tp1.Catalogue;
 using static S_tp1.Media;
 using static S_tp1.Utilisateur;
 using static S_tp1.Evaluation;
+using static S_tp1.Role;
 using S_tp1;
 
 namespace TestTP1
@@ -136,61 +137,5 @@ namespace TestTP1
             //TODO
         }
 
-        //Catalogue================================================================================
-        //TODO
-        /*
-        [TestCase(media, "")]
-        public void etantCatalogue_QuandAjouter_alorsReturnValidation(Media mediaParam, String resultat)
-        {
-            String message = "";
-
-            Assert.That(message, Is.EqualTo();
-
-        }
-        */
-
-
-        [Test]
-        public void constructeurCatalogue()
-        {
-            //TODO
-        }
-
-
-        [Test]
-        public void Remplacer()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void SupprimerUnMedia()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void SupprimerLeCatalogue()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void Sauvegarder()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void MediaExisteDansCatalogue()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void toStringCatalogue()
-        {
-            //TODO
-        }
     }
 }
