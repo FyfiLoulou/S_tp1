@@ -90,12 +90,13 @@ namespace TestTP1
         }
 
         [Test]
-        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnFavorisCountPlus1()
+        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnEvaluationsListeCountPlus1()
         {
-            int nbEvalAv = johny.Favoris.Count;
+            int nbEvalAv = johny.Evaluations.Count;
             johny.AjouterEvaluation(evaluation);
-            int nbEvalAp = johny.Favoris.Count;
+            int nbEvalAp = johny.Evaluations.Count;
             Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
+
         }
 
         [Test]
