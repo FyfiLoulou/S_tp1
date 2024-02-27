@@ -241,7 +241,7 @@ namespace S_tp1
         public Media GetMedia(string id)
         {
             Console.WriteLine(id);
-            return catalogue?.Where(m => m.GetNom() == id)?.First();
+            return catalogue.Where(m => m.GetNom() == id).First();
         }
 
     }
