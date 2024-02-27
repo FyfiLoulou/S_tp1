@@ -59,13 +59,11 @@ namespace S_tp1
         }
 
         /*
-         * @param identifiantMedia -> l'idantifiant du media que l'on veux ajouter à nos favoris
-         * @return la liste de favoris actualisée
+         * @param media -> media que l'on veux ajouter à nos favoris
          */
-        public List<Media> AjouterFavori(Media media)
+        public void AjouterFavori(Media media)
         {
             favoris.Add(media);
-            return this.favoris;
         }
 
 
@@ -76,7 +74,6 @@ namespace S_tp1
          */
         public void AjouterEvaluation(Evaluation eval)
         {
-            //TODO
             this.evaluations.Add(eval);
         }
 

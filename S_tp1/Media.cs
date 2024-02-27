@@ -5,7 +5,7 @@ using static S_tp1.Types;
 namespace S_tp1
 {
     public class Media
-    {/*
+    {
         public enum Types
         {
             RAP,
@@ -21,7 +21,7 @@ namespace S_tp1
             CLASSIQUE,
             OST
         }
-        */
+        
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
@@ -37,15 +37,15 @@ namespace S_tp1
         private List<Evaluation>? evaluations;
 
 
-        /*public Media() : this($"media{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media() : this($"media{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
-        }*/
+        }
 
-        /*public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
-        }*/
+        }
 
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
@@ -148,8 +148,11 @@ namespace S_tp1
         }
 
 
-        public byte GetCote() { return 1; }// TODO
-        public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
+        public byte GetCote()
+        {
+            return evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a += b) / evaluations.Count)));
+        }
+        public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
         {

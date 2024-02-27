@@ -5,7 +5,7 @@ namespace S_tp1
     public class CatalogueEvaluation
     {
 
-        private string PATH_SOURCE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
         private List<Evaluation> listeEvaluations;
 
@@ -14,11 +14,13 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
 
-        public void AjouterList(Evaluation evaluation) {
-            listeEvaluations.Add(evaluation);
-        }
-
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
+
+        public void AjouterEvaluation(Evaluation eval) {
+            eval.Media.AjouterEvaluation(eval);
+            eval.Utilisateur.AjouterEvaluation(eval);
+            listeEvaluations.Add(eval);
+        }
 
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
