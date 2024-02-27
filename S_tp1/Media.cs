@@ -9,23 +9,23 @@ namespace S_tp1
     public class Media
     {
         [JsonIgnore]
-        private const string ID_DEFAULT = "media default";
+        public const string ID_DEFAULT = "media default";
         [JsonIgnore]
-        private const Types TYPE_DEFAULT = Types.JAZZ;
+        public const Types TYPE_DEFAULT = Types.JAZZ;
         [JsonIgnore]
-        private const long DATE_DEFAULT = 1;
+        public const long DATE_DEFAULT = 1;
         [JsonIgnore]
-        private const int DUREE_DEFAULT = 1;
+        public const int DUREE_DEFAULT = 1;
         [JsonIgnore]
-        private const string AUTEUR_DEFAULT = "Auteur default";
+        public const string AUTEUR_DEFAULT = "Auteur default";
         [JsonIgnore]
-        private const string PRODUCTEUR_DEFAULT = "Prod default";
+        public const string PRODUCTEUR_DEFAULT = "Prod default";
         [JsonIgnore]
-        private const string EXTRAIT_DEFAULT = null;
+        public const string EXTRAIT_DEFAULT = null;
         [JsonIgnore]
-        private const string COMPLET_DEFAULT = null;
+        public const string COMPLET_DEFAULT = null;
         [JsonIgnore]
-        private const string IMAGE_DEFAULT = null;
+        public const string IMAGE_DEFAULT = null;
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
