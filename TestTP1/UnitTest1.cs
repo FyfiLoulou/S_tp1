@@ -65,6 +65,7 @@ namespace TestTP1
         [Test]
         public void getMDP()
         {
+            johny.MotDePasse = "abc123";
             String resultat = johny.MotDePasse;
 
             Assert.That(resultat, Is.EqualTo("abc123"));

@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
+using System.Text.RegularExpressions;
 namespace S_tp1
 {
     public class Utilisateur
@@ -99,7 +101,11 @@ namespace S_tp1
         public string MotDePasse
         {
             get { return motDePasse; }
-            set { motDePasse = value; }
+            set {
+                //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
+                if (value.Length >= 5 && new Regex("[0-9]+[a-z]+[A-Z]+[^a-zA-Z0-9]+").IsMatch(value))
+                motDePasse = value;
+            }
         }
         public string Nom
         {
