@@ -8,6 +8,26 @@ namespace S_tp1
 {
     public class Media
     {
+        [JsonIgnore]
+        private const string ID_DEFAULT = "media default";
+        [JsonIgnore]
+        private const Types TYPE_DEFAULT = Types.JAZZ;
+        [JsonIgnore]
+        private const long DATE_DEFAULT = 1;
+        [JsonIgnore]
+        private const int DUREE_DEFAULT = 1;
+        [JsonIgnore]
+        private const string AUTEUR_DEFAULT = "Auteur default";
+        [JsonIgnore]
+        private const string PRODUCTEUR_DEFAULT = "Prod default";
+        [JsonIgnore]
+        private const string EXTRAIT_DEFAULT = null;
+        [JsonIgnore]
+        private const string COMPLET_DEFAULT = null;
+        [JsonIgnore]
+        private const string IMAGE_DEFAULT = null;
+
+        [JsonIgnore]
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
@@ -39,14 +59,14 @@ namespace S_tp1
         }
 
 
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
+        public Media(string identifiantMedia) : this(identifiantMedia, TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
 
         }
 
 
-        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
+        public Media() : this($"{ID_DEFAULT}_{nombreIncremente}", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
 
         }
@@ -64,7 +84,7 @@ namespace S_tp1
             if (obj == null || !(obj is Media))
                 return false;
             else
-                return this.identifiantMedia == ((Media)obj).identifiantMedia;
+                return this.GetNom() == ((Media)obj).GetNom();
         }
 
         public override int GetHashCode()
