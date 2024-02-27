@@ -20,7 +20,7 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
         
