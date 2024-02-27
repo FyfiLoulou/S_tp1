@@ -65,19 +65,28 @@ namespace TestTP1
         [Test]
         public void getMDP()
         {
-            johny.MotDePasse = "abc123";
+            johny.MotDePasse = "abc123$$$LOL";
             String resultat = johny.MotDePasse;
 
-            Assert.That(resultat, Is.EqualTo("abc123"));
+            Assert.That(resultat, Is.EqualTo("abc123$$$LOL"));
         }
 
         [Test]
-        public void setMDP()
+        public void setMDPMauvais()
         {
-            johny.MotDePasse = "1212Test";
+            johny.MotDePasse = "pasbon";
             String resultat = johny.MotDePasse;
 
-            Assert.That(resultat, Is.EqualTo("1212Test"));
+            Assert.That(resultat, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+        }
+
+        [Test]
+        public void setMDPon()
+        {
+            johny.MotDePasse = "cePassword3stb?n";
+            String resultat = johny.MotDePasse;
+
+            Assert.That(resultat, Is.EqualTo("cePassword3stb?n"));
         }
 
         [Test]

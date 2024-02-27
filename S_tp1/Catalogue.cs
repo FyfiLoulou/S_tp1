@@ -231,10 +231,15 @@ namespace S_tp1
          */
         public List<Media>? getCatalogue() { return catalogue; }
 
+        /// <summary>
+        /// sa va voir dans catalogue la pis sa va checker avec l'id en paratmetre si jar ye la pis si oui bin sa le donnne 
+        /// </summary>
+        /// <param name="id">l'indentifiantMedia du Media désiré</param>
+        /// <returns>le Media désiré ou null</returns>
         public Media GetMedia(string id)
         {
             Console.WriteLine(id);
-            return catalogue.Where(m => m.GetNom() == id).First();
+            return catalogue?.Where(m => m.GetNom() == id).First();
         }
 
     }
