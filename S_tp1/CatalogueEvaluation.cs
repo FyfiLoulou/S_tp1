@@ -35,10 +35,11 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// 
+        /// Lit une liste d'évaluations d'un fichier JSON
         /// </summary>
-        /// <param name="nomFichierSauvegarde"></param>
-        /// <returns></returns>
+        /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
+        /// <returns>Une liste d'évaluations</returns>
+        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
@@ -61,6 +62,12 @@ namespace S_tp1
 
             return list;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomFichierSauvegarde"></param>
+        /// <returns></returns>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
