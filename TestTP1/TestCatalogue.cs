@@ -43,7 +43,7 @@ namespace TestTP1
         public void testAjouterFichierEnParam()
         {
             //Acteurs
-            
+
             //Actions
             catalogue.Ajouter(NOM_DE_FICHIER);
             //Assertions
@@ -62,46 +62,58 @@ namespace TestTP1
             catalogue.Ajouter(m1);
             catalogue.Ajouter(m2);
             catalogue.Sauvegarder(NOM_DE_FICHIER);
+            catalogue.Supprimer();
+            catalogue.Ajouter(NOM_DE_FICHIER);
             //Assertions
-
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(3));
         }
 
         [Test]
         public void TestSupprimerUnFichier()
         {
             //Acteurs
-
+            Media m = new Media();
+            catalogue.Ajouter(m);
+            catalogue.Ajouter(m);
             //Actions
-
+            catalogue.Supprimer(m);
             //Assertions
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(1));
         }
 
         [Test]
         public void TestSupprimerUnMedia()
         {
             //Acteurs
-
+            Media m = new Media("media");
             //Actions
-
+            catalogue.Ajouter(m);
+            catalogue.Supprimer(m);
             //Assertions
+            Assert.That(catalogue.getCatalogue().Count, Is.EqualTo(0));
         }
 
+        [Test]
         public void TestRemplacer()
         {
             //Acteurs
-
+            Media m1 = new Media("media1");
+            Media m2 = new Media("media2");
             //Actions
-
+            catalogue.Ajouter(m1);
+            catalogue.Remplacer(m2, m1);
             //Assertions
+            Assert.That(catalogue.getCatalogue().Count, Is.EqualTo(1));
         }
 
+        [Test]
         public void TestToString()
         {
             //Acteurs
-
-            //Actions
-
+            String expected = "media: ";
+            String actual = catalogue.ToString();
             //Assertions
+            Assert.That (expected, Is.EqualTo (actual));
         }
     }
 }

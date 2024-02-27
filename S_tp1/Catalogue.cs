@@ -207,10 +207,10 @@ namespace S_tp1
 
         public override string ToString()
         {
-            string retVal = "";
+            string retVal = "media: ";
             foreach (Media media in catalogue)
             {
-                retVal += $"media: {media.ToString()} \n\n";
+                retVal += $"{media.ToString()} \n\n";
             }
             return retVal;
         }
