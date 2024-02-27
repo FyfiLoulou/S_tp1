@@ -14,11 +14,15 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
         /// <summary>
-        /// 
+        /// Retourne une liste de toutes les évaluations
         /// </summary>
-        /// <returns>La liste évaluation</returns>
+        /// <returns>Une liste évaluation</returns>
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eval"></param>
         public void AjouterEvaluation(Evaluation eval)
         {
             eval.Media.AjouterEvaluation(eval);
