@@ -41,7 +41,7 @@ namespace TestTP1
         public void testAjouterFichierEnParam()
         {
             //Acteurs
-            
+
             //Actions
             catalogue.Ajouter(NOM_DE_FICHIER);
             //Assertions
@@ -60,18 +60,23 @@ namespace TestTP1
             catalogue.Ajouter(m1);
             catalogue.Ajouter(m2);
             catalogue.Sauvegarder(NOM_DE_FICHIER);
+            catalogue.Supprimer();
+            catalogue.Ajouter(NOM_DE_FICHIER);
             //Assertions
-
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(3));
         }
 
         [Test]
         public void TestSupprimerUnFichier()
         {
             //Acteurs
-
+            Media m = new Media();
+            catalogue.Ajouter(m);
+            catalogue.Ajouter(m);
             //Actions
-
+            catalogue.Supprimer(m);
             //Assertions
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(1));
         }
 
         [Test]
