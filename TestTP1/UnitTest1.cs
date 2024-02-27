@@ -1,3 +1,7 @@
+using static S_tp1.Catalogue;
+using static S_tp1.Media;
+using static S_tp1.Utilisateur;
+using static S_tp1.Evaluation;
 using S_tp1;
 
 namespace TestTP1
@@ -19,7 +23,7 @@ namespace TestTP1
             mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
-
+        
         //Utilisateurs=============================================================================
         [TestCase("testeur", "testeur_0")]
         [TestCase("test_eur", "test_eur_0")]
@@ -36,7 +40,7 @@ namespace TestTP1
         [Test]
         public void getPseudo()
         {
-
+            
             String resultat = johny.Pseudo;
 
             Assert.That(resultat, Is.EqualTo("JohnyX"));
@@ -91,7 +95,7 @@ namespace TestTP1
         [Test]
         public void EtantFavorisCount_QuandAjouterFavoris_AlorsReturnFavorisCountPlus1()
         {
-
+            
             int nbFavAv = johny.Favoris.Count;
             johny.AjouterFavori(mediaTest);
             int nbFavAp = johny.Favoris.Count;
@@ -112,6 +116,7 @@ namespace TestTP1
         public void egalite()
         {
             //TODO
+
         }
 
         [Test]
