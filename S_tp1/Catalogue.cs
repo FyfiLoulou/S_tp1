@@ -174,11 +174,12 @@ namespace S_tp1
             return list;
         }
 
-        /*
-         * sauvegarde le catalogue et le sérialise dans un fichier JSON
-         * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
-         */
+
+        /// <summary>
+        /// Sauvegarde l'état actuel du catalogue dans un fichier JSON.
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier à sauvegarder</param>
+        /// <returns>True si la sauvegarde est réussi, false autrement</returns>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
@@ -216,19 +217,20 @@ namespace S_tp1
 
         // Méthodes ajoutées
 
-        /*
-         * Vérifie que le media en paramèter existe dans le catalogue
-         * 
-         * @return -> retourne vrai si le media existe dans le catalogue
-         */
+        /// <summary>
+        /// Vérifie si le média passé en paramètre existe dans le catalogue
+        /// </summary>
+        /// <param name="media">Le média à chercher dans le catalogue</param>
+        /// <returns>True si le média existe, false s'il n'existe pas</returns>
         public bool MediaExisteDansCatalogue(Media media)
         {
             return catalogue.Contains(media);
         }
 
-        /*
-         * @return -> retourne le catalogue
-         */
+        /// <summary>
+        /// permet l'accès au catalogue
+        /// </summary>
+        /// <returns>Le catalogue</returns>
         public List<Media>? getCatalogue() { return catalogue; }
 
         /// <summary>

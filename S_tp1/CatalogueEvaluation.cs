@@ -13,10 +13,14 @@ namespace S_tp1
         {
             listeEvaluations = new List<Evaluation>();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>La liste évaluation</returns>
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
 
-        public void AjouterEvaluation(Evaluation eval) {
+        public void AjouterEvaluation(Evaluation eval)
+        {
             eval.Media.AjouterEvaluation(eval);
             eval.Utilisateur.AjouterEvaluation(eval);
             listeEvaluations.Add(eval);
@@ -44,7 +48,8 @@ namespace S_tp1
 
             return list;
         }
-        public bool Sauvegarder(string nomFichierSauvegarde) {
+        public bool Sauvegarder(string nomFichierSauvegarde)
+        {
             bool isSauvegarde = true;
             try
             {
