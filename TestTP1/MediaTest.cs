@@ -94,7 +94,7 @@ namespace TestTP1
         public void etantDonneConstructeurVide_quandCreerMediaVide_alorsRetourneMediaParDefaut()
         {
             // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
+            media1 = new Media();
 
             // action
             media1.Duree = 100;
