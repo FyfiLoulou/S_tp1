@@ -6,7 +6,7 @@ namespace TestTP1
     public class TestCatalogue
     {
         Catalogue catalogue;
-        const string NOM_DE_FICHIER = "s_test_catalogue.json";
+        string NOM_DE_FICHIER = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial\s_test_catalogue.json";
 
 
 
