@@ -40,7 +40,7 @@ namespace TestTP1
         [Test]
         public void constructeurUser()
         {
-
+            //TODO
             
         }
 
@@ -82,14 +82,15 @@ namespace TestTP1
         [Test]
         public void ajouterFavori()
         {
-
+            //TODO
         }
 
         [Test]
         public void ajouterEvaluation()
         {
+            //TODO
             johny.AjouterEvaluation(evaluation);
-            Assert.That();
+            //Assert.That();
         }
 
 
@@ -98,29 +99,30 @@ namespace TestTP1
         [Test]
         public void constructeurMedia()
         {
+            //TODO
 
         }
 
         [Test]
         public void egalite()
         {
-
+            //TODO
         }
 
         [Test]
         public void deuxChamps()
         {
-
+            //TODO
         }
 
         [Test]
         public void toStringMedia()
         {
-
+            //TODO
         }
 
         //Catalogue================================================================================
-
+        //TODO
         /*
         [TestCase(media, "")]
         public void etantCatalogue_QuandAjouter_alorsReturnValidation(Media mediaParam, String resultat)
@@ -136,44 +138,44 @@ namespace TestTP1
         [Test]
         public void constructeurCatalogue()
         {
-
+            //TODO
         }
 
 
         [Test]
         public void Remplacer()
         {
-
+            //TODO
         }
 
         [Test]
         public void SupprimerUnMedia()
         {
-
+            //TODO
         }
 
         [Test]
         public void SupprimerLeCatalogue()
         {
-
+            //TODO
         }
 
         [Test]
         public void Sauvegarder()
         {
-
+            //TODO
         }
 
         [Test]
         public void MediaExisteDansCatalogue()
         {
-
+            //TODO
         }
 
         [Test]
         public void toStringCatalogue()
         {
-
+            //TODO
         }
     }
 }
