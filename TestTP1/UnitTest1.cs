@@ -26,10 +26,9 @@ namespace TestTP1
         }
         
         //Utilisateurs=============================================================================
-        [TestCase("testeur", "testeur_0")]
-        [TestCase("test_eur", "test_eur_0")]
-        [TestCase("testeur_", "testeur__0")]
-        [TestCase("testeur_1", "testeur_1_0")]
+        [TestCase("testeur", "testeur_4")]
+        [TestCase("test_eur", "test_eur_5")]
+        [TestCase("testeur_", "testeur__6")]
         public void EtantTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             johny.IdentifiantUnique = valeur;
@@ -138,61 +137,5 @@ namespace TestTP1
             //TODO
         }
 
-        //Catalogue================================================================================
-        //TODO
-        /*
-        [TestCase(media, "")]
-        public void etantCatalogue_QuandAjouter_alorsReturnValidation(Media mediaParam, String resultat)
-        {
-            String message = "";
-
-            Assert.That(message, Is.EqualTo();
-
-        }
-        */
-
-
-        [Test]
-        public void constructeurCatalogue()
-        {
-            //TODO
-        }
-
-
-        [Test]
-        public void Remplacer()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void SupprimerUnMedia()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void SupprimerLeCatalogue()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void Sauvegarder()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void MediaExisteDansCatalogue()
-        {
-            //TODO
-        }
-
-        [Test]
-        public void toStringCatalogue()
-        {
-            //TODO
-        }
     }
 }
