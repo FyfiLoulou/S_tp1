@@ -5,6 +5,7 @@ namespace TestTP1
     public class TestCatalogue
     {
         Catalogue catalogue;
+        const string NOM_DE_FICHIER = "s_test_catalogue.json";
 
 
 
@@ -40,9 +41,9 @@ namespace TestTP1
         public void testAjouterFichierEnParam()
         {
             //Acteurs
-            string nomDeFichier = "s_test_catalogue.json";
+            
             //Actions
-            catalogue.Ajouter(nomDeFichier);
+            catalogue.Ajouter(NOM_DE_FICHIER);
             //Assertions
             Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(4));
         }
@@ -51,10 +52,16 @@ namespace TestTP1
         public void TestSauvegarder()
         {
             //Acteurs
-
+            Media m = new Media("allo");
+            Media m1 = new Media("bonjour");
+            Media m2 = new Media("salut");
             //Actions
-
+            catalogue.Ajouter(m);
+            catalogue.Ajouter(m1);
+            catalogue.Ajouter(m2);
+            catalogue.Sauvegarder(NOM_DE_FICHIER);
             //Assertions
+
         }
 
         [Test]
