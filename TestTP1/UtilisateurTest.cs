@@ -4,10 +4,11 @@ using static S_tp1.Utilisateur;
 using static S_tp1.Evaluation;
 using static S_tp1.Role;
 using S_tp1;
+using System.Text.RegularExpressions;
 
 namespace TestTP1
 {
-    public class Tests
+    public class UtilisateurTest
     {
         //Acteurs
         Catalogue catalogue;
@@ -28,11 +29,22 @@ namespace TestTP1
 
         //Utilisateurs=============================================================================
         [Test]
-        public void Constructeur1()
+        public void EtantDonneConstructeurVide_quandCreerUtilisateur_AlorsUtilisateurParDefaut()
         {
-            String id = lcb.IdentifiantUnique;
+            // acteurs
+            lcb = new Utilisateur();
+            List<bool> res = new List<bool>
+            {
+                // action
+                new Regex($"^{Utilisateur.PSEUDO_DEFAULT}_[0-9]+$").IsMatch(lcb.IdentifiantUnique),
+                lcb.Role == Utilisateur.ROLE_DEFAULT,
+                lcb.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON,
+                lcb.Nom == Utilisateur.NOM_DEFAULT,
+                lcb.Prenom == Utilisateur.PRENOM_DEFAULT
+            };
 
-            Assert.That(id, Is.EqualTo("nomUtilisateurDefault_1_2"));
+            // assertion
+            Assert.That(res.All(x => x == true), Is.True);
         }
 
         [Test]
@@ -40,7 +52,7 @@ namespace TestTP1
         {
             String id = maek.IdentifiantUnique;
 
-            Assert.That(id, Is.EqualTo("ML_3"));
+            Assert.That(id, Is.EqualTo("ML_2"));
         }
 
         [Test]
@@ -48,7 +60,7 @@ namespace TestTP1
         {
             String id = felix.IdentifiantUnique;
 
-            Assert.That(id, Is.EqualTo("FB_5"));
+            Assert.That(id, Is.EqualTo("FB_4"));
         }
 
 

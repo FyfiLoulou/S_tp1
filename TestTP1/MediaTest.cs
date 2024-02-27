@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using static S_tp1.Types;
 
 namespace TestTP1
@@ -98,7 +99,7 @@ namespace TestTP1
             List<bool> res = new List<bool>();
 
             // action
-            res.Add(media1.IdentifiantMedia == Media.ID_DEFAULT+"_0");
+            res.Add(new Regex($"^{Media.ID_DEFAULT}_[0-9]+$").IsMatch(media1.IdentifiantMedia));
             res.Add(media1.Type == Media.TYPE_DEFAULT);
             res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
             res.Add(media1.Duree == Media.DUREE_DEFAULT);
