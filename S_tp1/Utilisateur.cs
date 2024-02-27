@@ -8,12 +8,22 @@ namespace S_tp1
 {
     public class Utilisateur
     {
-
+        [JsonIgnore]
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixAimeLesPatatesPlainsFULL<3";
+        [JsonIgnore]
+        private const string PSEUDO_DEFAULT = "pseudo";
+        [JsonIgnore]
+        private const string NOM_DEFAULT = "nom";
+        [JsonIgnore]
+        private const string PRENOM_DEFAULT = "prenom";
+        [JsonIgnore]
+        private const Role ROLE_DEFAULT = Role.UTILISATEUR;
+
+        [JsonIgnore]
+        private static int nombreIncremente = 0;
 
         //attributs
         private String identifiantUnique;
-        private static int nombreIncremente = 0;
         private String pseudo;
         private String motDePasse;
         private String nom;
@@ -40,7 +50,7 @@ namespace S_tp1
         }
 
 
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", Role.UTILISATEUR)
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, NOM_DEFAULT, PRENOM_DEFAULT, ROLE_DEFAULT)
         {
             this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
             this.pseudo = pseudo;
@@ -48,7 +58,7 @@ namespace S_tp1
         }
 
         //Constructeur par défaut
-        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", Role.UTILISATEUR)
+        public Utilisateur() : this(PSEUDO_DEFAULT, PASSWORD_PAR_DEFAUT_PAS_BON, "Lorman", "Maek", Role.UTILISATEUR)
         {
 
         }
