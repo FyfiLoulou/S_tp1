@@ -7,7 +7,7 @@ namespace S_tp1
 {
     public class Utilisateur
     {
-        
+
 
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
 
@@ -40,7 +40,7 @@ namespace S_tp1
         }
 
 
-        
+
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
@@ -63,9 +63,9 @@ namespace S_tp1
 
 
         /// <summary>
-        /// 
+        /// Ajoute une évaluation à la liste des évaluations associées à cet utilisateur (this)
         /// </summary>
-        /// <param name="eval"></param>
+        /// <param name="eval">L'évaluation à ajouter</param>
         public void AjouterEvaluation(Evaluation eval)
         {
             this.evaluations.Add(eval);
@@ -93,7 +93,8 @@ namespace S_tp1
         public string MotDePasse
         {
             get { return motDePasse; }
-            set {
+            set
+            {
                 //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
                 motDePasse = value.Length >= 5 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
             }
