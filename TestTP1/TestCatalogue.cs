@@ -7,6 +7,7 @@ namespace TestTP1
         Catalogue catalogue;
 
 
+
         [SetUp]
         public void Setup()
         {
@@ -14,7 +15,40 @@ namespace TestTP1
         }
 
         [Test]
-        public void testConstructeur()
+        public void TestConstructeur()
+        {
+            //TODO
+            //Acteurs
+
+            //Actions
+
+            //Assertions
+        }
+
+        [Test]
+        public void TestAjouterMediaEnParam()
+        {
+            //Acteurs
+            Media m = new Media();
+            //Actions
+            catalogue.Ajouter(m);
+            //Assertions
+            Assert.That(catalogue.getCatalogue().Contains(m), Is.True);
+        }
+
+        [Test]
+        public void testAjouterFichierEnParam()
+        {
+            //Acteurs
+            string nomDeFichier = "s_test_catalogue.json";
+            //Actions
+            catalogue.Ajouter(nomDeFichier);
+            //Assertions
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(4));
+        }
+
+        [Test]
+        public void TestSauvegarder()
         {
             //Acteurs
 
@@ -24,7 +58,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void etantDonneAjouterUnMedia_quandAjouterUnMedia_alorsUnMediaDansCatalogue()
+        public void TestSupprimerUnFichier()
         {
             //Acteurs
 
@@ -34,37 +68,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void etantDonneAjouterUnFichier_quandAjouterUnFichier_alorsCatalogueRempliDeMedia()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSauvegarder()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSupprimerUnFichier()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSupprimerUnMedia()
+        public void TestSupprimerUnMedia()
         {
             //Acteurs
 

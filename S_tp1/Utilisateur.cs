@@ -11,13 +11,13 @@ namespace S_tp1
         [JsonIgnore]
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixAimeLesPatatesPlainsFULL<3";
         [JsonIgnore]
-        private const string PSEUDO_DEFAULT = "pseudo";
+        public const string PSEUDO_DEFAULT = "pseudo";
         [JsonIgnore]
-        private const string NOM_DEFAULT = "nom";
+        public const string NOM_DEFAULT = "nom";
         [JsonIgnore]
-        private const string PRENOM_DEFAULT = "prenom";
+        public const string PRENOM_DEFAULT = "prenom";
         [JsonIgnore]
-        private const Role ROLE_DEFAULT = Role.UTILISATEUR;
+        public const Role ROLE_DEFAULT = Role.UTILISATEUR;
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
