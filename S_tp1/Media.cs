@@ -6,8 +6,8 @@ namespace S_tp1
 {
     public class Media
     {
-        
-        
+
+
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
@@ -135,10 +135,19 @@ namespace S_tp1
         }
 
 
+        /// <summary>
+        /// Calcule la cote (moyenne) à partir des évaluations associées à cet objet (this) média
+        /// </summary
+        /// <returns>La cote calculée à partir des évaluations</returns>
         public byte GetCote()
         {
-            return evaluations.Count>0 ? evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a += b) / evaluations.Count))) : (byte)0;
+            return evaluations.Count > 0 ? evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a += b) / evaluations.Count))) : (byte)0;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
