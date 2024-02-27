@@ -83,7 +83,7 @@ namespace TestTP1
         [Test]
         public void setMDPon()
         {
-            johny.MotDePasse = "cePassword3stb?n";
+            johny.MotDePasse = "cePassword3stb()n";
             String resultat = johny.MotDePasse;
 
             Assert.That(resultat, Is.EqualTo("cePassword3stb()n"));
