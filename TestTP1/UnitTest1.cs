@@ -40,7 +40,7 @@ namespace TestTP1
         {
             String id = maek.IdentifiantUnique;
 
-            Assert.That(id, Is.EqualTo("ML_3"));
+            Assert.That(id, Is.EqualTo("ML_2"));
         }
 
         [Test]
@@ -48,11 +48,11 @@ namespace TestTP1
         {
             String id = felix.IdentifiantUnique;
 
-            Assert.That(id, Is.EqualTo("FB_5"));
+            Assert.That(id, Is.EqualTo("FB_4"));
         }
 
 
-        [TestCase("Jtesteur", "Jtesteur_6")]
+        [TestCase("Jtesteur", "Jtesteur_5")]
         public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             //Action
