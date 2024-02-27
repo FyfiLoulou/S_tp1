@@ -1,5 +1,5 @@
 [
-    {
+  {
     "IdentifiantMedia": "allo_16",
     "Type": 2,
     "DateRealisation": 1,
@@ -9,8 +9,8 @@
     "Extrait": null,
     "Complet": null,
     "Image": null
-    },
-    {
+  },
+  {
     "IdentifiantMedia": "bonjour_18",
     "Type": 2,
     "DateRealisation": 1,
@@ -20,8 +20,8 @@
     "Extrait": null,
     "Complet": null,
     "Image": null
-    },
-    {
+  },
+  {
     "IdentifiantMedia": "salut_20",
     "Type": 2,
     "DateRealisation": 1,
@@ -31,5 +31,5 @@
     "Extrait": null,
     "Complet": null,
     "Image": null
-    }
+  }
 ]
