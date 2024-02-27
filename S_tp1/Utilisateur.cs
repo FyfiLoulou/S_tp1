@@ -13,6 +13,8 @@ namespace S_tp1
             ADMIN
         }
 
+        private const string PASSWORD_PAR_DEFAUT_PAS_BON = "jaimelespatatesLOL$3";
+
         //attributs
         private String identifiantUnique;
         private static int nombreIncremente = 0;
@@ -103,8 +105,7 @@ namespace S_tp1
             get { return motDePasse; }
             set {
                 //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
-                if (value.Length >= 5 && new Regex("[0-9]+[a-z]+[A-Z]+[^a-zA-Z0-9]+").IsMatch(value))
-                motDePasse = value;
+                motDePasse = value.Length >= 5 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
             }
         }
         public string Nom
