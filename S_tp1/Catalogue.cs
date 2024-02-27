@@ -217,11 +217,11 @@ namespace S_tp1
 
         // Méthodes ajoutées
 
-        /*
-         * Vérifie que le media en paramèter existe dans le catalogue
-         * 
-         * @return -> retourne vrai si le media existe dans le catalogue
-         */
+        /// <summary>
+        /// Vérifie si le média passé en paramètre existe dans le catalogue
+        /// </summary>
+        /// <param name="media">Le média à chercher dans le catalogue</param>
+        /// <returns>True si le média existe, false s'il n'existe pas</returns>
         public bool MediaExisteDansCatalogue(Media media)
         {
             return catalogue.Contains(media);
