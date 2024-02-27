@@ -20,7 +20,7 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Media.Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
         
@@ -80,19 +80,22 @@ namespace TestTP1
         }
 
         [Test]
-        public void ajouterFavori()
+        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnFavorisCountPlus1()
         {
-            //TODO
+            int nbEvalAv = johny.Favoris.Count;
+            johny.AjouterEvaluation(evaluation);
+            int nbEvalAp = johny.Favoris.Count;
+            Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
         }
 
         [Test]
-        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnEvaluationCountPlus1()
+        public void EtantFavorisCount_QuandAjouterFavoris_AlorsReturnFavorisCountPlus1()
         {
-            //TODO
-            int nbEvalAv = johny.Evaluation.Count;
-            johny.AjouterEvaluation(evaluation);
-            int nbEvalAp = johny.Evaluation.Count;
-            Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
+            
+            int nbFavAv = johny.Favoris.Count;
+            johny.AjouterFavori(mediaTest);
+            int nbFavAp = johny.Favoris.Count;
+            Assert.That(nbFavAp, Is.EqualTo(nbFavAv + 1));
         }
 
 
