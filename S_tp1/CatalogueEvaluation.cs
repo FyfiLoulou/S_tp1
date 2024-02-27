@@ -14,11 +14,19 @@ namespace S_tp1
             listeEvaluations = new List<Evaluation>();
         }
         /// <summary>
-        /// 
+        /// Retourne une liste de toutes les évaluations
         /// </summary>
-        /// <returns>La liste évaluation</returns>
+        /// <returns>Une liste évaluation</returns>
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
 
+        /// <summary>
+        /// Ajoute une évaluation dans la liste d'évaluations
+        /// </summary>
+        /// <param name="eval">L'évaluation à ajouter</param>
+        /// <remarks>
+        /// Cette fonction ajoute une évaluation dans la liste d'évaluations et met à jour l'objet média
+        /// et l'objet utilisateur avec la nouvelle évaluation.
+        /// </remarks>
         public void AjouterEvaluation(Evaluation eval)
         {
             eval.Media.AjouterEvaluation(eval);
@@ -26,6 +34,12 @@ namespace S_tp1
             listeEvaluations.Add(eval);
         }
 
+        /// <summary>
+        /// Lit une liste d'évaluations d'un fichier JSON
+        /// </summary>
+        /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
+        /// <returns>Une liste d'évaluations</returns>
+        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
@@ -48,6 +62,14 @@ namespace S_tp1
 
             return list;
         }
+
+        /// <summary>
+        /// Sauvegarde la liste d'évaluations dans un fichier JSON
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
+        /// <returns>True si le sauvegarde est réussi, false autrement</returns>
+        /// <exception cref="DirectoryNotFoundException">Lancée si le dossier de sauvegarde n'existe pas</exception>
+        /// <exception cref="Exception">Lancée en cas d'erreur inattendue</exception>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
