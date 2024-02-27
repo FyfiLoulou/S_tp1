@@ -23,7 +23,7 @@ namespace S_tp1
         private List<Evaluation>? evaluations;
 
 
-        public Media() : this($"media_{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media() : this($"nomMediaDefaut_{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
         }
@@ -152,7 +152,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $"id: {this.identifiantMedia}, Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
+            return $"id: {this.identifiantMedia}\n  Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }
