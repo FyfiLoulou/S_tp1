@@ -2,18 +2,12 @@
 using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
 using System.Text.RegularExpressions;
-using static S_tp1.RoleUtilisateur;
+using static S_tp1.Role;
 using System.Runtime.ExceptionServices;
 namespace S_tp1
 {
     public class Utilisateur
     {
-        public enum RoleUtilisateur
-        {
-            UTILISATEUR,
-            TECHNICIEN,
-            ADMIN
-        }
 
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixAimeLesPatatesPlainsFULL<3";
 
@@ -24,7 +18,7 @@ namespace S_tp1
         private String motDePasse;
         private String nom;
         private String prenom;
-        private RoleUtilisateur role;
+        private Role role;
         private List<Media> favoris;
         [JsonIgnore]
         private List<Evaluation> evaluations;
@@ -32,7 +26,7 @@ namespace S_tp1
 
 
         [JsonConstructor]
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
 
             this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
@@ -46,7 +40,7 @@ namespace S_tp1
         }
 
 
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", Role.UTILISATEUR)
         {
             this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
             this.pseudo = pseudo;
@@ -54,7 +48,7 @@ namespace S_tp1
         }
 
         //Constructeur par défaut
-        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", Role.UTILISATEUR)
         {
 
         }
@@ -116,7 +110,7 @@ namespace S_tp1
             set { prenom = value; }
         }
 
-        public RoleUtilisateur Role
+        public Role Role
         {
             get { return role; }
             set { role = value; }
