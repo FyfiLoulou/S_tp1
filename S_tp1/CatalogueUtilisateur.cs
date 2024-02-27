@@ -101,6 +101,10 @@ namespace S_tp1
             return retVal;
         }
 
+        /// Retourne le premier utilisateur dans la liste d'utilisateurs ayant un pseudo qui corresspond à l'id en paramètre
+        /// </summary>
+        /// <param name="id">L'id de l'utilisateur recherché</param>
+        /// <returns></returns>
         public Utilisateur GetUtilisateur(string id)
         {
             return listeUtilisateurs.Where(u => u.Pseudo == id).First();
