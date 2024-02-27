@@ -86,7 +86,7 @@ namespace TestTP1
             johny.MotDePasse = "cePassword3stb?n";
             String resultat = johny.MotDePasse;
 
-            Assert.That(resultat, Is.EqualTo("cePassword3stb?n"));
+            Assert.That(resultat, Is.EqualTo("cePassword3stb()n"));
         }
 
         [Test]
