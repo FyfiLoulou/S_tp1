@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
 using System.Text.RegularExpressions;
+using static S_tp1.RoleUtilisateur;
 namespace S_tp1
 {
     public class Utilisateur

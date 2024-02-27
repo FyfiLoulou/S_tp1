@@ -1,26 +1,13 @@
 ﻿using System;
 using Newtonsoft.Json;
+using static S_tp1.Types;
 
 namespace S_tp1
 {
     public class Media
     {
 
-        public enum Types
-        {
-            RAP,
-            POP,
-            JAZZ,
-            ROCK,
-            ELECTRO,
-            COUNTRY,
-            RELAXATION,
-            INSTRUMENTAL,
-            CONCEPTUALSYNTH,
-            PARTY,
-            CLASSIQUE,
-            OST
-        }
+        
 
 
         private static int nombreIncremente = 0;
