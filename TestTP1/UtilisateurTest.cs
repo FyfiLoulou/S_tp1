@@ -66,7 +66,7 @@ namespace TestTP1
         }
 
         //TODO -> regex
-        [TestCase("Jtesteur", "Jtesteur_5")]
+        [TestCase("Jtesteur", "Jtesteur_0")]
         public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             //Action
