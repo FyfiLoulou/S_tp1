@@ -1,4 +1,5 @@
-﻿using S_tp1;
+﻿using NUnit.Framework.Internal;
+using S_tp1;
 
 namespace TestTP1
 {
@@ -18,12 +19,13 @@ namespace TestTP1
         [Test]
         public void TestConstructeur()
         {
-            //TODO
             //Acteurs
 
             //Actions
+            List<Media> cat = catalogue.getCatalogue();
 
             //Assertions
+            Assert.That(cat.Count(), Is.EqualTo(0));
         }
 
         [Test]
