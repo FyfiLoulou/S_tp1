@@ -5,7 +5,7 @@ using static S_tp1.Types;
 namespace S_tp1
 {
     public class Media
-    {/*
+    {
         public enum Types
         {
             RAP,
@@ -21,7 +21,7 @@ namespace S_tp1
             CLASSIQUE,
             OST
         }
-        */
+        
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
