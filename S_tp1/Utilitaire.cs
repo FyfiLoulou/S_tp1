@@ -48,7 +48,7 @@ namespace S_tp1
                 catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.Pseudo).AjouterEvaluation(eval);
             });
 
-            // ?tests? dans la console?
+            // TODO -> à supprimer?
             Console.WriteLine("cm: " + catalogue.getCatalogue().Count);
             Console.WriteLine("cu: " + catalogueUtilisateur.GetUtilisateurs().Count);
             Console.WriteLine("ce: " + catalogueEvaluation.GetEvaluations().Count);
