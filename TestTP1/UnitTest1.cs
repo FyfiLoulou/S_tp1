@@ -121,6 +121,12 @@ namespace TestTP1
             //TODO
         }
 
+        [Test]
+        public void getCoteMediaia()
+        {
+            //TODO
+        }
+
         //Catalogue================================================================================
         //TODO
         /*

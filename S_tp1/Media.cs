@@ -148,7 +148,9 @@ namespace S_tp1
         }
 
 
-        public byte GetCote() { return 1; }// TODO
+        public byte GetCote() {
+            return evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a+=b)/evaluations.Count)));
+        }
         public string GetNom() { return this.identifiantMedia?.Split("_")[0]??"'Nom non définit'"; }
 
         public override string ToString()

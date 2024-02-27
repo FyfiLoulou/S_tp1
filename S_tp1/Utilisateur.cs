@@ -76,7 +76,6 @@ namespace S_tp1
          */
         public void AjouterEvaluation(Evaluation eval)
         {
-            //TODO
             this.evaluations.Add(eval);
         }
 
