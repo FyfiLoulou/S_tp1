@@ -38,14 +38,13 @@ namespace S_tp1
             // Ajoute les utilisateurs à partir du fichier de sauvegarde
             catalogueUtilisateur.Ajouter(pathUtilisateur);
 
-            
-            catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval)=>{
+            // Ajoute les évaluations
+            catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval) =>
+            {
                 Media m = catalogue.GetMedia(eval.Media.IdentifiantMedia);
                 Utilisateur u = catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.IdentifiantUnique);
+
                 // Ajoute chaque évaluations associée à son média correspondant dans le catalogue média
-                Console.WriteLine("tset");
-                Console.WriteLine(m);
-                // Ajoute chaque évaluations associée à son utilisateur correspondant dans le catalogue utilisateur
                 m?.AjouterEvaluation(eval);
                 // Ajoute chaque évaluations associée à son utilisateur correspondant dans le catalogue utilisateur
                 u?.AjouterEvaluation(eval);
@@ -55,8 +54,11 @@ namespace S_tp1
             Console.WriteLine("cm: " + catalogue.getCatalogue().Count);
             Console.WriteLine("cu: " + catalogueUtilisateur.GetUtilisateurs().Count);
             Console.WriteLine("ce: " + catalogueEvaluation.GetEvaluations().Count);
+            Console.WriteLine("\n\nCatalogue média");
             Console.WriteLine(catalogue.ToString());
+            Console.WriteLine("\n\nCatalogue Utilisateurs");
             Console.WriteLine(catalogueUtilisateur.ToString());
+            Console.WriteLine("\n\nCatalogue Evaluation");
             Console.WriteLine(catalogueEvaluation.ToString());
         }
 

@@ -29,6 +29,7 @@ namespace S_tp1
         /// <returns>True si le média est ajouté au catalogue, false si le média existe déjà</returns>
         public bool Ajouter(Media media)
         {
+            
             bool isAjouter = false;
             if (!MediaExisteDansCatalogue(media))
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using static S_tp1.Types;
 
@@ -7,7 +8,7 @@ namespace S_tp1
     public class Media
     {
 
-        
+
 
 
         private static int nombreIncremente = 0;
@@ -22,12 +23,14 @@ namespace S_tp1
         private string? complet;
         private string? image;
         [JsonIgnore]
-        private List<Evaluation>? evaluations;
+        private List<Evaluation>? evaluations = new List<Evaluation>();
 
 
-        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        [JsonConstructor]
+        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
-            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+
+            this.identifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? identifiantMedia : $"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -36,17 +39,17 @@ namespace S_tp1
             this.complet = complet;
             this.extrait = extrait;
             this.image = image;
-            this.evaluations = evaluations;
         }
 
 
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+
         }
 
 
-        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
         {
 
         }
@@ -147,7 +150,7 @@ namespace S_tp1
         /// <returns>La cote calculée à partir des évaluations</returns>
         public byte GetCote()
         {
-            return evaluations.Count > 0 ? (byte)Math.Floor((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
+            return evaluations.Count > 0 ? (byte)Math.Round((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
         }
 
         /// <summary>
