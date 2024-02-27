@@ -33,14 +33,15 @@ namespace TestTP1
         {
             // acteurs
             lcb = new Utilisateur();
-            List<bool> res = new List<bool>();
-
-            // action
-            res.Add(new Regex($"^{Utilisateur.PSEUDO_DEFAULT}_[0-9]+$").IsMatch(lcb.IdentifiantUnique));
-            res.Add(lcb.Role == Utilisateur.ROLE_DEFAULT);
-            res.Add(lcb.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON);
-            res.Add(lcb.Nom == Utilisateur.NOM_DEFAULT);
-            res.Add(lcb.Prenom == Utilisateur.PRENOM_DEFAULT);
+            List<bool> res = new List<bool>
+            {
+                // action
+                new Regex($"^{Utilisateur.PSEUDO_DEFAULT}_[0-9]+$").IsMatch(lcb.IdentifiantUnique),
+                lcb.Role == Utilisateur.ROLE_DEFAULT,
+                lcb.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON,
+                lcb.Nom == Utilisateur.NOM_DEFAULT,
+                lcb.Prenom == Utilisateur.PRENOM_DEFAULT
+            };
 
             // assertion
             Assert.That(res.All(x => x == true), Is.True);
