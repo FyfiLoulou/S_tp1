@@ -110,7 +110,7 @@ namespace S_tp1
         {
             // Recherche de l'utilisateur dans la liste des utilisateurs
             // en fonction de son pseudo.
-            return listeUtilisateurs.Where(u => u.Pseudo == id).First();
+            return listeUtilisateurs.Where(u => u.IdentifiantUnique == id).Count()>0 ? listeUtilisateurs.Where(u => u.IdentifiantUnique == id).First() : null;
         }
 
     }

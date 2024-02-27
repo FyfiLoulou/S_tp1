@@ -239,9 +239,8 @@ namespace S_tp1
         /// <param name="id">l'indentifiantMedia du Media désiré</param>
         /// <returns>le Media désiré ou null</returns>
         public Media GetMedia(string id)
-        {
-            Console.WriteLine(id);
-            return catalogue.Where(m => m.GetNom() == id).First();
+        {   
+            return catalogue.Where(m => m.IdentifiantMedia == id).Count()>0 ? catalogue.Where(m => m.IdentifiantMedia == id).First() : null;
         }
 
     }

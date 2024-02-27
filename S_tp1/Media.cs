@@ -1,11 +1,26 @@
 ﻿using System;
 using Newtonsoft.Json;
-using static S_tp1.Types;
 
 namespace S_tp1
 {
     public class Media
     {
+
+        public enum Types
+        {
+            RAP,
+            POP,
+            JAZZ,
+            ROCK,
+            ELECTRO,
+            COUNTRY,
+            RELAXATION,
+            INSTRUMENTAL,
+            CONCEPTUALSYNTH,
+            PARTY,
+            CLASSIQUE,
+            OST
+        }
 
 
         private static int nombreIncremente = 0;
@@ -69,7 +84,7 @@ namespace S_tp1
         // redéfinition des opérateurs
         public static bool operator ==(Media m1, Media m2) => m1.Equals(m2);
 
-        public static bool operator !=(Media m1, Media m2) => !(m1.identifiantMedia == m2.identifiantMedia);
+        public static bool operator !=(Media m1, Media m2) => !m1.Equals(m2);
 
         //getters setter
         public string IdentifiantMedia

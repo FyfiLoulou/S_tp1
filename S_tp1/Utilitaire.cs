@@ -29,8 +29,10 @@ namespace S_tp1
             catalogueUtilisateur.Ajouter(pathUtilisateur);
 
             catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval)=>{
-                catalogue.GetMedia(eval.Media.GetNom()).AjouterEvaluation(eval);
-                catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.Pseudo).AjouterEvaluation(eval);
+                Media m = catalogue.GetMedia(eval.Media.IdentifiantMedia);
+                Utilisateur u = catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.IdentifiantUnique);
+                if (m != null) m.AjouterEvaluation(eval);
+                if (u != null) u.AjouterEvaluation(eval);
             });
 
             Console.WriteLine("cm: " + catalogue.getCatalogue().Count);

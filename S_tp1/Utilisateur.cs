@@ -2,12 +2,16 @@
 using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
 using System.Text.RegularExpressions;
-using static S_tp1.Role;
 namespace S_tp1
 {
     public class Utilisateur
     {
-
+        public enum RoleUtilisateur
+        {
+            UTILISATEUR,
+            TECHNICIEN,
+            ADMIN
+        }
 
         public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
 
@@ -18,7 +22,7 @@ namespace S_tp1
         private String motDePasse;
         private String nom;
         private String prenom;
-        private Role role;
+        private RoleUtilisateur role;
         private List<Media> favoris;
         [JsonIgnore]
         private List<Evaluation> evaluations;
@@ -26,13 +30,13 @@ namespace S_tp1
 
 
         //Constructeur par défaut
-        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", UTILISATEUR)
+        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
 
         }
 
         //Constructeur Login et mdp
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", Role.UTILISATEUR)
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
             this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
             this.pseudo = pseudo;
@@ -41,7 +45,7 @@ namespace S_tp1
 
 
 
-        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
+        public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
             this.motDePasse = motDePasse;
@@ -111,7 +115,7 @@ namespace S_tp1
             set { prenom = value; }
         }
 
-        public Role Role
+        public RoleUtilisateur Role
         {
             get { return role; }
             set { role = value; }
