@@ -174,11 +174,12 @@ namespace S_tp1
             return list;
         }
 
-        /*
-         * sauvegarde le catalogue et le sérialise dans un fichier JSON
-         * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
-         */
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomFichierSauvegarde"></param>
+        /// <returns></returns>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
