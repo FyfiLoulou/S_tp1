@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Text.RegularExpressions;
-using static S_tp1.Evaluation;
-using System.Text.RegularExpressions;
+
 namespace S_tp1
 {
     public class Utilisateur
