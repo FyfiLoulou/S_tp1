@@ -38,7 +38,7 @@ namespace S_tp1
         //Constructeur Login et mdp
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
-            this.identifiantUnique = $"{pseudo}#{nombreIncremente}";
+            this.identifiantUnique = $"{pseudo}#{nombreIncremente++}";
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
