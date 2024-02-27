@@ -8,9 +8,6 @@ namespace S_tp1
     public class Media
     {
 
-
-
-
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;
