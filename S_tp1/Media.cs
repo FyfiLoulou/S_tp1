@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using static S_tp1.Types;
 
@@ -7,7 +8,7 @@ namespace S_tp1
     public class Media
     {
 
-        
+
 
 
         private static int nombreIncremente = 0;
@@ -22,12 +23,14 @@ namespace S_tp1
         private string? complet;
         private string? image;
         [JsonIgnore]
-        private List<Evaluation>? evaluations;
+        private List<Evaluation>? evaluations = new List<Evaluation>();
 
 
-        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
+        [JsonConstructor]
+        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
-            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+
+            this.identifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? "" : $"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;
@@ -36,21 +39,19 @@ namespace S_tp1
             this.complet = complet;
             this.extrait = extrait;
             this.image = image;
-            this.evaluations = evaluations;
-            Console.WriteLine("C'est normal");
         }
 
 
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
-            Console.WriteLine("SA marche po ici");
+
         }
 
 
-        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", "", "")
         {
-            Console.WriteLine("SA marche po ici vriament po");
+
         }
 
 

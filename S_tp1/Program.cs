@@ -11,16 +11,16 @@ namespace S_tp1
         static void Main(string[] args)
         {
             Console.WriteLine("TP1 d'application web\n");
-            
+
 
             Catalogue catalogue = new Catalogue();
             CatalogueUtilisateur catalogueUtilisateur = new CatalogueUtilisateur();
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
-/*
-            Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "asd", new List<Evaluation>(), "apap", "1132sad");
-            Media test2 = new Media("testLOL23", Types.CONCEPTUALSYNTH, 11032, 120, "adsdasdasdasdasdasd", "asd12312dsa", "asd", new List<Evaluation>(), "ap123123ap", "1132sad");
-            Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd", new List<Evaluation>(), "apap", "1132s31123123ad");
+
+            Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "asd",  "apap", "1132sad");
+            Media test2 = new Media("testLOL23", Types.CONCEPTUALSYNTH, 11032, 120, "adsdasdasdasdasdasd", "asd12312dsa", "asd",  "ap123123ap", "1132sad");
+            Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd",  "apap", "1132s31123123ad");
 
             Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Utilisateur.RoleUtilisateur.TECHNICIEN);
             Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Utilisateur.RoleUtilisateur.ADMIN);
@@ -39,20 +39,23 @@ namespace S_tp1
             catalogueUtilisateur.AjouterListe(j2);
             catalogueUtilisateur.AjouterListe(bob);
 
-            
+
             catalogueEvaluation.AjouterEvaluation(ev1);
             catalogueEvaluation.AjouterEvaluation(ev2);
             catalogueEvaluation.AjouterEvaluation(ev3);
             catalogueEvaluation.AjouterEvaluation(ev4);
-            
+
 
             catalogue.Sauvegarder(pathMedias);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
-*/
-            utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
+
+
 
             
+            utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
+
+
         }
     }
 }
