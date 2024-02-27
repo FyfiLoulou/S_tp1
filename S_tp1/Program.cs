@@ -17,7 +17,7 @@ namespace S_tp1
             CatalogueUtilisateur catalogueUtilisateur = new CatalogueUtilisateur();
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
-
+/*
             Media test = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "asd", new List<Evaluation>(), "apap", "1132sad");
             Media test2 = new Media("testLOL23", Types.CONCEPTUALSYNTH, 11032, 120, "adsdasdasdasdasdasd", "asd12312dsa", "asd", new List<Evaluation>(), "ap123123ap", "1132sad");
             Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd", new List<Evaluation>(), "apap", "1132s31123123ad");
@@ -49,7 +49,7 @@ namespace S_tp1
             catalogue.Sauvegarder(pathMedias);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
-
+*/
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
             

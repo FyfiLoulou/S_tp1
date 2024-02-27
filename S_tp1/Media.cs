@@ -37,18 +37,20 @@ namespace S_tp1
             this.extrait = extrait;
             this.image = image;
             this.evaluations = evaluations;
+            Console.WriteLine("C'est normal");
         }
 
 
         public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+            Console.WriteLine("SA marche po ici");
         }
 
 
         public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
-
+            Console.WriteLine("SA marche po ici vriament po");
         }
 
 
