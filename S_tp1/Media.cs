@@ -1,26 +1,13 @@
 ﻿using System;
 using Newtonsoft.Json;
+using static S_tp1.Types;
 
 namespace S_tp1
 {
     public class Media
     {
 
-        public enum Types
-        {
-            RAP,
-            POP,
-            JAZZ,
-            ROCK,
-            ELECTRO,
-            COUNTRY,
-            RELAXATION,
-            INSTRUMENTAL,
-            CONCEPTUALSYNTH,
-            PARTY,
-            CLASSIQUE,
-            OST
-        }
+        
 
 
         private static int nombreIncremente = 0;
@@ -38,16 +25,6 @@ namespace S_tp1
         private List<Evaluation>? evaluations;
 
 
-        public Media() : this($"nomMediaDefaut_{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
-        {
-
-        }
-
-        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
-        {
-            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
-        }
-
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, List<Evaluation> evaluations, string complet, string image)
         {
             this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
@@ -61,6 +38,20 @@ namespace S_tp1
             this.image = image;
             this.evaluations = evaluations;
         }
+
+
+        public Media(string identifiantMedia) : this(identifiantMedia, Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        {
+            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+        }
+
+
+        public Media() : this($"nomMediaDefaut_{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        {
+
+        }
+
+
 
         public void AjouterEvaluation(Evaluation eval)
         {

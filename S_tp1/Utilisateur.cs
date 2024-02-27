@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
 using System.Text.RegularExpressions;
+using static S_tp1.RoleUtilisateur;
 namespace S_tp1
 {
     public class Utilisateur
@@ -29,21 +30,6 @@ namespace S_tp1
 
 
 
-        //Constructeur par défaut
-        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
-        {
-
-        }
-
-        //Constructeur Login et mdp
-        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
-        {
-            this.identifiantUnique = $"{pseudo}#{nombreIncremente++}";
-            this.pseudo = pseudo;
-            this.motDePasse = motDePasse;
-        }
-
-
 
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
@@ -54,6 +40,20 @@ namespace S_tp1
             this.role = role;
             this.favoris = new List<Media>();
             this.evaluations = new List<Evaluation>();
+        }
+
+
+        public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        {
+            this.identifiantUnique = $"{pseudo}#{nombreIncremente++}";
+            this.pseudo = pseudo;
+            this.motDePasse = motDePasse;
+        }
+
+        //Constructeur par défaut
+        public Utilisateur() : this($"nomUtilisateurDefault_{nombreIncremente++}", "abc123", "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
+        {
+
         }
 
         /// <summary>
