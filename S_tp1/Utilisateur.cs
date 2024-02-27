@@ -13,7 +13,7 @@ namespace S_tp1
             ADMIN
         }
 
-        private const string PASSWORD_PAR_DEFAUT_PAS_BON = "jaimelespatatesLOL$3";
+        private const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
 
         //attributs
         private String identifiantUnique;
