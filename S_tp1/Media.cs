@@ -30,7 +30,7 @@ namespace S_tp1
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
 
-            this.identifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? "" : $"{identifiantMedia}_{nombreIncremente++}";
+            this.identifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? identifiantMedia : $"{identifiantMedia}_{nombreIncremente++}";
             this.type = type;
             this.dateRealisation = dateRealisation;
             this.duree = duree;

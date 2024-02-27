@@ -30,10 +30,10 @@ namespace S_tp1
 
 
 
-
+        [JsonConstructor]
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
-            this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
+            this.identifiantUnique = "";
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
