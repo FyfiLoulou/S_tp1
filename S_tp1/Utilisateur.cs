@@ -58,7 +58,7 @@ namespace S_tp1
         }
 
         //Constructeur par défaut
-        public Utilisateur() : this(PSEUDO_DEFAULT, PASSWORD_PAR_DEFAUT_PAS_BON, "Lorman", "Maek", Role.UTILISATEUR)
+        public Utilisateur() : this(PSEUDO_DEFAULT, PASSWORD_PAR_DEFAUT_PAS_BON, NOM_DEFAULT, PRENOM_DEFAULT, ROLE_DEFAULT)
         {
 
         }

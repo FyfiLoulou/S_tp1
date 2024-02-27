@@ -4,10 +4,11 @@ using static S_tp1.Utilisateur;
 using static S_tp1.Evaluation;
 using static S_tp1.Role;
 using S_tp1;
+using System.Text.RegularExpressions;
 
 namespace TestTP1
 {
-    public class Tests
+    public class UtilisateurTest
     {
         //Acteurs
         Catalogue catalogue;
@@ -28,11 +29,21 @@ namespace TestTP1
 
         //Utilisateurs=============================================================================
         [Test]
-        public void Constructeur1()
+        public void EtantDonneConstructeurVide_quandCreerUtilisateur_AlorsUtilisateurParDefaut()
         {
-            String id = lcb.IdentifiantUnique;
+            // acteurs
+            lcb = new Utilisateur();
+            List<bool> res = new List<bool>();
 
-            Assert.That(id, Is.EqualTo("nomUtilisateurDefault_1"));
+            // action
+            res.Add(new Regex($"^{Utilisateur.PSEUDO_DEFAULT}_[0-9]+$").IsMatch(lcb.IdentifiantUnique));
+            res.Add(lcb.Role == Utilisateur.ROLE_DEFAULT);
+            res.Add(lcb.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON);
+            res.Add(lcb.Nom == Utilisateur.NOM_DEFAULT);
+            res.Add(lcb.Prenom == Utilisateur.PRENOM_DEFAULT);
+
+            // assertion
+            Assert.That(res.All(x => x == true), Is.True);
         }
 
         [Test]
