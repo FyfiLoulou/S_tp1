@@ -64,10 +64,12 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// 
+        /// Sauvegarde la liste d'évaluations dans un fichier JSON
         /// </summary>
-        /// <param name="nomFichierSauvegarde"></param>
-        /// <returns></returns>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
+        /// <returns>True si le sauvegarde est réussi, false autrement</returns>
+        /// <exception cref="DirectoryNotFoundException">Lancée si le dossier de sauvegarde n'existe pas</exception>
+        /// <exception cref="Exception">Lancée en cas d'erreur inattendue</exception>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
