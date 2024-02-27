@@ -13,7 +13,7 @@ namespace S_tp1
             ADMIN
         }
 
-        public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
+        public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixAimeLesPatatesPlainsFULL<3";
 
         //attributs
         private String identifiantUnique;
@@ -81,6 +81,7 @@ namespace S_tp1
             get { return identifiantUnique; }
             set
             {
+                //retire le chiffre après le "_" pour le renvoyer apres avoir modifier l'identifiantUnique
                 String[] tab = identifiantUnique.Split("_");
                 String nb = tab[tab.Length - 1];
                 identifiantUnique = $"{value}_{nb}";
