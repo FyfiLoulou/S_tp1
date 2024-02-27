@@ -40,13 +40,7 @@ namespace S_tp1
         }
 
 
-        /*
-         * Constructeur de la classe utilisateur
-         * @param pseudo -> le pseudonyme que l'utilisateur utilisera
-         * @param motDePasse -> le mot de passe que l'utilisateur va utiliser pour entrer dans son compte
-         * @param nom -> le nom de famille de l'utilisateur
-         * @param prenom -> le prénom de l'utilisateur
-         */
+        
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
             this.identifiantUnique = $"{this.pseudo = pseudo}_{nombreIncremente++}";
@@ -58,20 +52,20 @@ namespace S_tp1
             this.evaluations = new List<Evaluation>();
         }
 
-        /*
-         * @param media -> media que l'on veux ajouter à nos favoris
-         */
+        /// <summary>
+        /// Ajoute un média à la liste des favoris
+        /// </summary>
+        /// <param name="media">Le média à ajouter</param>
         public void AjouterFavori(Media media)
         {
             favoris.Add(media);
         }
 
 
-        /*
-         * @param media -> media que l'on veut ajouter à nos favoris
-         * @param cote -> la cote que l'on veux ajouter au media que l'on veut
-         * @return la validation de si l'ajout d'une evaluation a fonctionné
-         */
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eval"></param>
         public void AjouterEvaluation(Evaluation eval)
         {
             this.evaluations.Add(eval);
