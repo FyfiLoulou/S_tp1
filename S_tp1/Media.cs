@@ -143,7 +143,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $" Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
+            return $"id: {this.identifiantMedia}, Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100, Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }
