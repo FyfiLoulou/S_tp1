@@ -85,7 +85,8 @@ namespace TestTP1
         public void TestToString()
         {
             //Acteurs
-
+            String expected = "";
+            String actual = catalogue.ToString();
             //Actions
 
             //Assertions
