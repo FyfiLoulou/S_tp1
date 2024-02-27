@@ -5,6 +5,8 @@ namespace TestTP1
     public class TestCatalogue
     {
         Catalogue catalogue;
+        const string NOM_DE_FICHIER = "s_test_catalogue.json";
+
 
 
         [SetUp]
@@ -14,7 +16,56 @@ namespace TestTP1
         }
 
         [Test]
-        public void testConstructeur()
+        public void TestConstructeur()
+        {
+            //TODO
+            //Acteurs
+
+            //Actions
+
+            //Assertions
+        }
+
+        [Test]
+        public void TestAjouterMediaEnParam()
+        {
+            //Acteurs
+            Media m = new Media();
+            //Actions
+            catalogue.Ajouter(m);
+            //Assertions
+            Assert.That(catalogue.getCatalogue().Contains(m), Is.True);
+        }
+
+        [Test]
+        public void testAjouterFichierEnParam()
+        {
+            //Acteurs
+            
+            //Actions
+            catalogue.Ajouter(NOM_DE_FICHIER);
+            //Assertions
+            Assert.That(catalogue.getCatalogue().Count(), Is.EqualTo(4));
+        }
+
+        [Test]
+        public void TestSauvegarder()
+        {
+            //Acteurs
+            Media m = new Media("allo");
+            Media m1 = new Media("bonjour");
+            Media m2 = new Media("salut");
+            //Actions
+            catalogue.Ajouter(m);
+            catalogue.Ajouter(m1);
+            catalogue.Ajouter(m2);
+            catalogue.Sauvegarder(NOM_DE_FICHIER);
+            //Assertions
+
+        }
+
+        [Test]
+        public void TestSupprimerUnFichier()
         {
             //Acteurs
 
@@ -24,47 +75,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void etantDonneAjouterUnMedia_quandAjouterUnMedia_alorsUnMediaDansCatalogue()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void etantDonneAjouterUnFichier_quandAjouterUnFichier_alorsCatalogueRempliDeMedia()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSauvegarder()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSupprimerUnFichier()
-        {
-            //Acteurs
-
-            //Actions
-
-            //Assertions
-        }
-
-        [Test]
-        public void testSupprimerUnMedia()
+        public void TestSupprimerUnMedia()
         {
             //Acteurs
 
