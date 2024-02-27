@@ -126,7 +126,7 @@ namespace S_tp1
             set { role = value; }
         }
 
-        public List<Evaluation> Evaluation
+        public List<Evaluation> Evaluations
         {
             get { return evaluations; }
             set { evaluations = value; }
