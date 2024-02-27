@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
 using System.Text.RegularExpressions;
 using static S_tp1.RoleUtilisateur;
+using System.Runtime.ExceptionServices;
 namespace S_tp1
 {
     public class Utilisateur
@@ -33,7 +34,9 @@ namespace S_tp1
         [JsonConstructor]
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, RoleUtilisateur role)
         {
-            this.identifiantUnique = "";
+
+            this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
+            this.pseudo = pseudo;
             this.motDePasse = motDePasse;
             this.nom = nom;
             this.prenom = prenom;
@@ -45,7 +48,7 @@ namespace S_tp1
 
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, "Lorman", "Maek", RoleUtilisateur.UTILISATEUR)
         {
-            this.identifiantUnique = $"{pseudo}#{nombreIncremente++}";
+            this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
             this.pseudo = pseudo;
             this.motDePasse = motDePasse;
         }
@@ -81,10 +84,7 @@ namespace S_tp1
             get { return identifiantUnique; }
             set
             {
-                //retire le chiffre après le "_" pour le renvoyer apres avoir modifier l'identifiantUnique
-                String[] tab = identifiantUnique.Split("_");
-                String nb = tab[tab.Length - 1];
-                identifiantUnique = $"{value}_{nb}";
+                identifiantUnique = new Regex("_[0-9]$").IsMatch(value) ? value : $"{value}_{nombreIncremente++}";
             }
         }
 
