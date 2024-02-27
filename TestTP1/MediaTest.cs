@@ -16,7 +16,7 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
+            //mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
         }
 
         public void egalite() {
