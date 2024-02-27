@@ -14,7 +14,7 @@ namespace S_tp1
         //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
         private static List<Media>? catalogue;
 
-        private string PATH_SOURCE = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
         // Constructeur par défaut
         public Catalogue()
