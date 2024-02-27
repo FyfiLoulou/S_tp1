@@ -92,9 +92,9 @@ namespace TestTP1
         [Test]
         public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnFavorisCountPlus1()
         {
-            int nbEvalAv = johny.Favoris.Count;
+            int nbEvalAv = johny.Evaluation.Count;
             johny.AjouterEvaluation(evaluation);
-            int nbEvalAp = johny.Favoris.Count;
+            int nbEvalAp = johny.Evaluation.Count;
             Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
         }
 
