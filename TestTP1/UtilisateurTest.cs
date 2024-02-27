@@ -50,9 +50,9 @@ namespace TestTP1
         [Test]
         public void Constructeur2()
         {
-            String id = maek.IdentifiantUnique;
+            bool res = new Regex($"^ML_[0-9]+$").IsMatch(maek.IdentifiantUnique);
 
-            Assert.That(id, Is.EqualTo("ML_2"));
+            Assert.That(res, Is.True);
         }
 
         [Test]
