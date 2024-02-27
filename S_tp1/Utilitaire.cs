@@ -43,9 +43,12 @@ namespace S_tp1
                 Media m = catalogue.GetMedia(eval.Media.IdentifiantMedia);
                 Utilisateur u = catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.IdentifiantUnique);
                 // Ajoute chaque évaluations associée à son média correspondant dans le catalogue média
-                if (m != null) m.AjouterEvaluation(eval);
+                Console.WriteLine("tset");
+                Console.WriteLine(m);
                 // Ajoute chaque évaluations associée à son utilisateur correspondant dans le catalogue utilisateur
-                if (u != null) u.AjouterEvaluation(eval);
+                m?.AjouterEvaluation(eval);
+                // Ajoute chaque évaluations associée à son utilisateur correspondant dans le catalogue utilisateur
+                u?.AjouterEvaluation(eval);
             });
 
             // TODO -> à supprimer?
