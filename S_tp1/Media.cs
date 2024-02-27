@@ -2,15 +2,12 @@
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using static S_tp1.Types;
+using static S_tp1.Role;
 
 namespace S_tp1
 {
     public class Media
     {
-
-
-
-
         private static int nombreIncremente = 0;
 
         private string? identifiantMedia;

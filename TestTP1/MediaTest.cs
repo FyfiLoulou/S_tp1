@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace S_tp1
+namespace TestTP1
 {
-    public enum Role
+    internal class MediaTest
     {
-        UTILISATEUR,
-        TECHNICIEN,
-        ADMIN
     }
 }

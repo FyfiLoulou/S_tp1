@@ -11,7 +11,7 @@ namespace S_tp1 {
         public Evaluation(Utilisateur utilisateur, Media media, byte cote) {
             this.utilisateur = utilisateur;
             this.media = media;
-            this.cote = cote;
+            this.cote = cote>100?(byte)100:cote;
         }
 
         public Utilisateur Utilisateur

@@ -2,6 +2,7 @@ using static S_tp1.Catalogue;
 using static S_tp1.Media;
 using static S_tp1.Utilisateur;
 using static S_tp1.Evaluation;
+using static S_tp1.Role;
 using S_tp1;
 
 namespace TestTP1
@@ -20,7 +21,7 @@ namespace TestTP1
         public void Setup()
         {
             catalogue = new Catalogue();
-            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", new List<Evaluation>(), "complet", "image");
+            mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
             evaluation = new Evaluation(johny, mediaTest, 3);
         }
         
