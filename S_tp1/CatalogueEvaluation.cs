@@ -20,9 +20,13 @@ namespace S_tp1
         public List<Evaluation> GetEvaluations() { return listeEvaluations; }
 
         /// <summary>
-        /// 
+        /// Ajoute une évaluation dans la liste d'évaluations
         /// </summary>
-        /// <param name="eval"></param>
+        /// <param name="eval">L'évaluation à ajouter</param>
+        /// <remarks>
+        /// Cette fonction ajoute une évaluation dans la liste d'évaluations et met à jour l'objet média
+        /// et l'objet utilisateur avec la nouvelle évaluation.
+        /// </remarks>
         public void AjouterEvaluation(Evaluation eval)
         {
             eval.Media.AjouterEvaluation(eval);
@@ -30,6 +34,11 @@ namespace S_tp1
             listeEvaluations.Add(eval);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomFichierSauvegarde"></param>
+        /// <returns></returns>
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
