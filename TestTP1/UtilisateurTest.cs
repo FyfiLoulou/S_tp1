@@ -50,6 +50,7 @@ namespace TestTP1
         [Test]
         public void Constructeur2()
         {
+            //TODO: pseudo + mdp
             bool res = new Regex($"^ML_[0-9]+$").IsMatch(maek.IdentifiantUnique);
 
             Assert.That(res, Is.True);
@@ -58,6 +59,7 @@ namespace TestTP1
         [Test]
         public void Constructeur3()
         {
+            //TODO: FULLO
             String id = felix.IdentifiantUnique;
 
             Assert.That(id, Is.EqualTo("FB_4"));
