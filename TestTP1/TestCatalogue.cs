@@ -53,7 +53,6 @@ namespace TestTP1
         [Test]
         public void TestSauvegarder()
         {
-            //TODO
             //Acteurs
             Media m = new Media("allo");
             Media m1 = new Media("bonjour");
