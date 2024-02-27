@@ -96,6 +96,7 @@ namespace TestTP1
             johny.AjouterEvaluation(evaluation);
             int nbEvalAp = johny.Evaluations.Count;
             Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
+
         }
 
         [Test]
