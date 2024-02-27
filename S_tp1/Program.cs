@@ -44,12 +44,12 @@ namespace S_tp1
             catalogueUtilisateur.AjouterListe(j2);
             catalogueUtilisateur.AjouterListe(bob);
 
-            /*
+            
             catalogueEvaluation.AjouterEvaluation(ev1);
             catalogueEvaluation.AjouterEvaluation(ev2);
             catalogueEvaluation.AjouterEvaluation(ev3);
             catalogueEvaluation.AjouterEvaluation(ev4);
-            */
+            
 
             catalogue.Sauvegarder(pathMedias);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
