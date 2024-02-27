@@ -137,7 +137,7 @@ namespace S_tp1
 
         public byte GetCote()
         {
-            return evaluations.Count>0 ? evaluations.Select(x => x.Cote).Aggregate((a, b) => (byte)Math.Round((double)((a += b) / evaluations.Count))) : (byte)0;
+            return evaluations.Count>0 ? (byte)Math.Floor((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a+=b) / evaluations.Count)) : (byte)0;
         }
         public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
 

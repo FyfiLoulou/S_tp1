@@ -23,9 +23,9 @@ namespace S_tp1
             Media test2 = new Media("testLOL23", Types.CONCEPTUALSYNTH, 11032, 120, "adsdasdasdasdasdasd", "asd12312dsa", "asd", new List<Evaluation>(), "ap123123ap", "1132sad");
             Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd", new List<Evaluation>(), "apap", "1132s31123123ad");
 
-            Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Utilisateur.RoleUtilisateur.TECHNICIEN);
-            Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Utilisateur.RoleUtilisateur.ADMIN);
-            Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Utilisateur.RoleUtilisateur.UTILISATEUR);
+            Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.TECHNICIEN);
+            Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Role.ADMIN);
+            Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Role.UTILISATEUR);
 
             Evaluation ev1 = new Evaluation(bob, test2, 100);
             Evaluation ev2 = new Evaluation(j, test, 11);
