@@ -46,7 +46,7 @@ namespace S_tp1
         }
 
 
-        public Media() : this($"nomMediaDefaut_{nombreIncremente++}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
+        public Media() : this($"nomMediaDefaut_{nombreIncremente}", Types.ELECTRO, 1, 1, "Félix Blanchette", "Louis-Charles Biron", "", new List<Evaluation>(), "", "")
         {
 
         }
