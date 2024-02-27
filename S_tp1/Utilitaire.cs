@@ -39,7 +39,8 @@ namespace S_tp1
             catalogueUtilisateur.Ajouter(pathUtilisateur);
 
             // Ajoute les évaluations
-            catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval)=>{
+            catalogueEvaluation.Ajouter(pathEvaluation).ForEach((eval) =>
+            {
                 Media m = catalogue.GetMedia(eval.Media.IdentifiantMedia);
                 Utilisateur u = catalogueUtilisateur.GetUtilisateur(eval.Utilisateur.IdentifiantUnique);
 
@@ -53,8 +54,11 @@ namespace S_tp1
             Console.WriteLine("cm: " + catalogue.getCatalogue().Count);
             Console.WriteLine("cu: " + catalogueUtilisateur.GetUtilisateurs().Count);
             Console.WriteLine("ce: " + catalogueEvaluation.GetEvaluations().Count);
+            Console.WriteLine("\n\nCatalogue média");
             Console.WriteLine(catalogue.ToString());
+            Console.WriteLine("\n\nCatalogue Utilisateurs");
             Console.WriteLine(catalogueUtilisateur.ToString());
+            Console.WriteLine("\n\nCatalogue Evaluation");
             Console.WriteLine(catalogueEvaluation.ToString());
         }
 
