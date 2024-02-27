@@ -8,10 +8,10 @@ namespace S_tp1
      */
     public class Catalogue
     {
-        //TODO: 20-02-2024 -> définir le path du fichier de sauvegarde
+
         private const string MESSAGE_ERREUR = "Erreur! 1D10T-6969: Un événement inattendu s'est produit!";
 
-        //TODO: 20-02-2024 -> maybe singleton, getInstance et le constructeur private maybe
+
         private static List<Media>? catalogue;
 
         private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
@@ -22,14 +22,11 @@ namespace S_tp1
             catalogue = new List<Media>();
         }
 
-        /*
-         * ajoute un media passé en paramètre dans le catalogue
-         * 
-         * @param identifiantMedia -> l'identifiant unique du media à ajouter
-         * @return -> retourne vrai si le media a bel et bien été ajouter au catalogue
-         */
-        // TODO -> check si autre message à retourner
-        // TODO -> faire ajouter avec param fichier JSON
+        /// <summary>
+        /// Ajoute un objet média dans le catalogue
+        /// </summary>
+        /// <param name="media">L'objet média à ajouter</param>
+        /// <returns>True si le média est ajouté au catalogue, false si le média existe déjà</returns>
         public bool Ajouter(Media media)
         {
             bool isAjouter = false;
@@ -51,17 +48,19 @@ namespace S_tp1
             return isAjouter;
         }
 
-        /*
-         * remplace un media passé en paramètre par un autre aussi passé en paramètre
-         * 
-         * @param mediaToAdd -> media à ajouter
-         * @param mediaToRemove -> media à remplacer
-         * @return -> retourne vrai si le media a bel et bien été remplacé
-         */
+        /// <summary>
+        /// remplace un objet média déjà présent dans le catalogue par un nouvel objet média
+        /// </summary>
+        /// <param name="mediaToAdd">Le nouvel objet média à ajouter dans le catalogue</param>
+        /// <param name="mediaToRemove">L'objet média à remplacer dans le catalogue</param>
+        /// <returns>True si l'objet média est remplacé par le nouvel objet média, false autrement</returns>
         public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
             string messageRetour;
             bool isRemplace = false;
+
+            // mediaToAdd n'est pas dans le catalogue et mediaToRemove y est
+            // on doit ajouter le nouvel objet média dans le catalogue et retirer le média à remplacer
             if (!(MediaExisteDansCatalogue(mediaToAdd)) && MediaExisteDansCatalogue(mediaToRemove))
             {
                 isRemplace = true;
@@ -71,29 +70,33 @@ namespace S_tp1
             }
             else if (!(MediaExisteDansCatalogue(mediaToRemove)))
             {
+                // Le média à remplacer n'est pas dans le catalogue
                 messageRetour = $"Le media {mediaToRemove.GetNom()} n'existe pas dans le catalogue et ne peut donc pas être supprimé!";
             }
             else if (MediaExisteDansCatalogue(mediaToAdd))
             {
+                // Le media à ajouter existe déjà dans le catalogue
                 messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et ne peut donc pas être ajouté!";
             }
             else
             {
+                // Erreur inattendue
                 Utilitaire.consoleState(true);
                 messageRetour = MESSAGE_ERREUR;
                 Utilitaire.consoleState(false);
             }
 
+            // Message de retour dans la console
             Console.WriteLine(messageRetour);
+
             return isRemplace;
         }
 
-        /*
-         * supprime le media passé en paramètre du catalogue
-         * 
-         * @param media -> l'identifiant unique du media à supprimer
-         * @return -> retourne vrai si le media a bel et bien supprimé
-         */
+        /// <summary>
+        /// Supprime le media passé en paramètre du catalogue
+        /// </summary>
+        /// <param name="media">L'objet media à supprimer</param>
+        /// <returns>True si le media a été supprimé, false si le media n'a pas été supprimé</returns>
         public bool Supprimer(Media media)
         {
             bool isSupprime = false;
@@ -118,15 +121,14 @@ namespace S_tp1
                 Console.WriteLine(MESSAGE_ERREUR);
                 Utilitaire.consoleState(false);
             }
-            
+
             return isSupprime;
         }
 
-        /*
-         * supprime le catalogue au complet
-         * 
-         * @return -> retourne vrai si le catalogue est supprimé correctement
-         */
+        /// <summary>
+        /// Supprime tous les médias du catalogue
+        /// </summary>
+        /// <returns> True si le catalogue a bien été supprimé, false autrement</returns>
         public bool Supprimer()
         {
             catalogue.Clear();
@@ -144,11 +146,11 @@ namespace S_tp1
             return isSupprime;
         }
 
-        /*
-         * Sérialise le catalogue dans un fichier JSON
-         * 
-         * @return -> retourne vrai si le catalogue est sérialisé
-         */
+        /// <summary>
+        /// Lit in fichier JSON du chemin spécifié et ajoute les médias à la liste des médias du catalogue
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le chemin du fichier JSON</param>
+        /// <returns>Le catalogue rempli d'objet média</returns>
         public List<Media> Ajouter(string nomFichierSauvegarde)
         {
             List<Media> list = null;
@@ -172,11 +174,12 @@ namespace S_tp1
             return list;
         }
 
-        /*
-         * sauvegarde le catalogue et le sérialise dans un fichier JSON
-         * 
-         * @param nomFichierSauvegarde -> le nom du fichier JSON de sauvegarde YOFO
-         */
+
+        /// <summary>
+        /// Sauvegarde l'état actuel du catalogue dans un fichier JSON.
+        /// </summary>
+        /// <param name="nomFichierSauvegarde">Le nom du fichier à sauvegarder</param>
+        /// <returns>True si la sauvegarde est réussi, false autrement</returns>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
@@ -214,24 +217,31 @@ namespace S_tp1
 
         // Méthodes ajoutées
 
-        /*
-         * Vérifie que le media en paramèter existe dans le catalogue
-         * 
-         * @return -> retourne vrai si le media existe dans le catalogue
-         */
+        /// <summary>
+        /// Vérifie si le média passé en paramètre existe dans le catalogue
+        /// </summary>
+        /// <param name="media">Le média à chercher dans le catalogue</param>
+        /// <returns>True si le média existe, false s'il n'existe pas</returns>
         public bool MediaExisteDansCatalogue(Media media)
         {
             return catalogue.Contains(media);
         }
 
-        /*
-         * @return -> retourne le catalogue
-         */
+        /// <summary>
+        /// permet l'accès au catalogue
+        /// </summary>
+        /// <returns>Le catalogue</returns>
         public List<Media>? getCatalogue() { return catalogue; }
 
-        public Media GetMedia(string id) {
+        /// <summary>
+        /// sa va voir dans catalogue la pis sa va checker avec l'id en paratmetre si jar ye la pis si oui bin sa le donnne 
+        /// </summary>
+        /// <param name="id">l'indentifiantMedia du Media désiré</param>
+        /// <returns>le Media désiré ou null</returns>
+        public Media GetMedia(string id)
+        {
             Console.WriteLine(id);
-            return catalogue.Where(m => m.GetNom() == id).First();
+            return catalogue?.Where(m => m.GetNom() == id).First();
         }
 
     }

@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 using static S_tp1.Evaluation;
+using System.Text.RegularExpressions;
 namespace S_tp1
 {
     public class Utilisateur
@@ -10,6 +12,8 @@ namespace S_tp1
             TECHNICIEN,
             ADMIN
         }
+
+        public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixaimelespatatesplainsFULL<3";
 
         //attributs
         private String identifiantUnique;
@@ -99,7 +103,10 @@ namespace S_tp1
         public string MotDePasse
         {
             get { return motDePasse; }
-            set { motDePasse = value; }
+            set {
+                //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
+                motDePasse = value.Length >= 5 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
+            }
         }
         public string Nom
         {
