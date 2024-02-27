@@ -12,7 +12,7 @@ namespace S_tp1
         private const string MESSAGE_ERREUR = "Erreur! 1D10T-6969: Un événement inattendu s'est produit!";
 
 
-        private static List<Media>? catalogue;
+        private static List<Media> catalogue;
 
         private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
@@ -241,7 +241,7 @@ namespace S_tp1
         public Media GetMedia(string id)
         {
             Console.WriteLine(id);
-            return catalogue?.Where(m => m.GetNom() == id).First();
+            return catalogue?.Where(m => m.GetNom() == id)?.First();
         }
 
     }
