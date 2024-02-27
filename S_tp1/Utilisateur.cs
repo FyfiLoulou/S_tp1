@@ -134,8 +134,8 @@ namespace S_tp1
 
         public List<Media> Favoris
         {
-            get { return Favoris; }
-            set { Favoris = value; }
+            get { return favoris; }
+            set { favoris = value; }
         }
 
 
