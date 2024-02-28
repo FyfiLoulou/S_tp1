@@ -95,7 +95,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void getPseudo()
+        public void EtantDonneJohnyXCommePseudo_QuandGetPseudo_AlorsJohnyXCommePseudo()
         {
             //Action
             String resultat = johny.Pseudo;
@@ -105,7 +105,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setPseudo()
+        public void EtantDonnePseudoDefaut_QuandSetPseudo_AlorsPseudoChanger()
         {
             //Action
             johny.Pseudo = "TestUser";
@@ -116,7 +116,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void getMDP()
+        public void EtantDonneMotDePasse_QuandGetMotDePasse_AlorsMotDePasseRetourne()
         {
             //Action
             johny.MotDePasse = "abc123$$$LOL";
@@ -127,7 +127,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setMDPMauvais()
+        public void EtantDonneMotDePassePasBon_QuandSetMotDePasse_AlorsMotDePasseParDefaut()
         {
             //Action
             johny.MotDePasse = "pasbon";
@@ -138,7 +138,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setMDPon()
+        public void EtantDonneMotDePasseCorrect_QuandSetMotDePasse_AlorsMotDePasseChange()
         {
             //Action
             johny.MotDePasse = "cePassword3stb()n";
