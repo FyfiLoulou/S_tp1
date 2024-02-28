@@ -64,7 +64,7 @@ namespace TestTP1
         }
 
 
-        [TestCase("Jtesteur", "Jtesteur_5")]
+        [TestCase("Jtesteur", "Jtesteur_6")]
         public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
             //Action
