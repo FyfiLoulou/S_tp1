@@ -56,10 +56,10 @@ namespace TestTP1
             {
                 new Regex($"^ML_[0-9]+$").IsMatch(maek.IdentifiantUnique),
                 maek.Role == Utilisateur.ROLE_DEFAULT,
-                maek.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON,
+                maek.MotDePasse == "abc123",
                 maek.Nom == Utilisateur.NOM_DEFAULT,
                 maek.Prenom == Utilisateur.PRENOM_DEFAULT
-            }
+            };
 
 
         Assert.That(res.All(x => x == true), Is.True);
@@ -69,15 +69,15 @@ namespace TestTP1
         public void EtantDonneCreerUtilisateurConstructeurFull_QuandConstructeurFull_AlorsCreerUtilisateurConstructeurFull()
         {
             //TODO: FULLO
-            felix = new Utilisateur("FB", "ofdh", "Blanchette", "Felix", Role.UTILISATEURE);
+            felix = new Utilisateur("FB", "ofdh", "Blanchette", "Felix", Role.UTILISATEUR);
             List<bool> res = new List<bool>
             {
                 new Regex($"^FB_[0-9]+$").IsMatch(felix.IdentifiantUnique),
-                felix.Role == Utilisateur.ROLE_UTILISATEUR,
+                felix.Role == Role.UTILISATEUR,
                 felix.MotDePasse == "ofdh",
                 felix.Nom == "Blanchette",
                 felix.Prenom == "Felix"
-            }
+            };
 
             Assert.That(res.All(x => x == true), Is.True);
         }

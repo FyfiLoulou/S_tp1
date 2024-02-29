@@ -23,9 +23,9 @@ namespace S_tp1
             Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd", "apap", "1132s31123123ad");
             Media test4 = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "asd",  "apap", "1132sad");
 
-            Utilisateur j = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.TECHNICIEN);
-            Utilisateur bob = new Utilisateur("bob", "bob", "bob", "bob", Role.ADMIN);
-            Utilisateur j2 = new Utilisateur("JohnyX2", "abc123", "Test", "Johny", Role.UTILISATEUR);
+            Utilisateur j = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
+            Utilisateur bob = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
+            Utilisateur j2 = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
 
             Evaluation ev1 = new Evaluation(bob, test2, 100);
             Evaluation ev2 = new Evaluation(j, test, 11);
