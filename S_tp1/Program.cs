@@ -8,6 +8,8 @@ namespace S_tp1
         private const string pathMedias = "s_medias.json",
         pathUtilisateurs = "s_utilisateurs.json",
         pathEvaluations = "s_evalutations.json";
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("TP1 d'application web\n");
