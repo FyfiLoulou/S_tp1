@@ -23,9 +23,9 @@ namespace S_tp1
             Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
             Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait",  "Path full", "Path image");
 
-            Utilisateur j = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
-            Utilisateur bob = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
-            Utilisateur j2 = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
+            Utilisateur felix = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
+            Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
+            Utilisateur lcb = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
 
             Evaluation ev1 = new Evaluation(maek, test2, 100);
             Evaluation ev2 = new Evaluation(felix, test, 11);
