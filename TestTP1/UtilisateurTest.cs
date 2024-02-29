@@ -48,35 +48,54 @@ namespace TestTP1
         }
 
         [Test]
-        public void Constructeur2()
+        public void etantDonneConstructeurAvecPseudoEtMotDePasseParam_quandCreerUtilisateur_AlorsUtilisateurPseudoMDP()
         {
-            String id = maek.IdentifiantUnique;
+            //TODO: pseudo + mdp
+            maek = new Utilisateur("ML", "abc123");
+            List<bool> res = new List<bool>
+            {
+                new Regex($"^ML_[0-9]+$").IsMatch(maek.IdentifiantUnique),
+                maek.Role == Utilisateur.ROLE_DEFAULT,
+                maek.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON,
+                maek.Nom == Utilisateur.NOM_DEFAULT,
+                maek.Prenom == Utilisateur.PRENOM_DEFAULT
+            }
 
-            Assert.That(id, Is.EqualTo("ML_2"));
+
+        Assert.That(res.All(x => x == true), Is.True);
         }
 
         [Test]
-        public void Constructeur3()
+        public void EtantDonneCreerUtilisateurConstructeurFull_QuandConstructeurFull_AlorsCreerUtilisateurConstructeurFull()
         {
-            String id = felix.IdentifiantUnique;
+            //TODO: FULLO
+            felix = new Utilisateur("FB", "ofdh", "Blanchette", "Felix", Role.UTILISATEURE);
+            List<bool> res = new List<bool>
+            {
+                new Regex($"^FB_[0-9]+$").IsMatch(felix.IdentifiantUnique),
+                felix.Role == Utilisateur.ROLE_UTILISATEUR,
+                felix.MotDePasse == "ofdh",
+                felix.Nom == "Blanchette",
+                felix.Prenom == "Felix"
+            }
 
-            Assert.That(id, Is.EqualTo("FB_4"));
+            Assert.That(res.All(x => x == true), Is.True);
         }
 
+        //TODO -> regex
 
-        [TestCase("Jtesteur", "Jtesteur_6")]
         public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
         {
+            //Acteur
+            johny = new Utilisateur("JTesteur", "abc123", "Test", "Johny", Role.UTILISATEUR);
             //Action
-            johny.IdentifiantUnique = valeur;
-            String valRetournee = johny.IdentifiantUnique;
-
+            bool res = new Regex("^JTesteur_[0-9]$").IsMatch(johny.IdentifiantUnique);
             //Assertion
-            Assert.That(valRetournee, Is.EqualTo(resultat));
+            Assert.That(res, Is.True);
         }
 
         [Test]
-        public void getPseudo()
+        public void EtantDonneJohnyXCommePseudo_QuandGetPseudo_AlorsJohnyXCommePseudo()
         {
             //Action
             String resultat = johny.Pseudo;
@@ -86,7 +105,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setPseudo()
+        public void EtantDonnePseudoDefaut_QuandSetPseudo_AlorsPseudoChanger()
         {
             //Action
             johny.Pseudo = "TestUser";
@@ -97,7 +116,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void getMDP()
+        public void EtantDonneMotDePasse_QuandGetMotDePasse_AlorsMotDePasseRetourne()
         {
             //Action
             johny.MotDePasse = "abc123$$$LOL";
@@ -108,7 +127,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setMDPMauvais()
+        public void EtantDonneMotDePassePasBon_QuandSetMotDePasse_AlorsMotDePasseParDefaut()
         {
             //Action
             johny.MotDePasse = "pasbon";
@@ -119,7 +138,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void setMDPon()
+        public void EtantDonneMotDePasseCorrect_QuandSetMotDePasse_AlorsMotDePasseChange()
         {
             //Action
             johny.MotDePasse = "cePassword3stb()n";

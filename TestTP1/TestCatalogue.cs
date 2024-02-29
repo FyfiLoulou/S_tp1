@@ -30,7 +30,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestAjouterMediaEnParam()
+        public void etandDonneMediaAAjouterDansCatalogue_quandAjouterAvecParam_alorsMediaAjouterDansCatalogue()
         {
             //Acteurs
             Media m = new Media();
@@ -41,7 +41,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void testAjouterFichierEnParam()
+        public void etantDonneFichierJsonAvecContenu_quandAjouterAvecFichierEnParam_alorsAjouterContenuFichierEnParam()
         {
             //Acteurs
 
@@ -54,7 +54,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestSauvegarder()
+        public void etantDonneCatalogueAvecContenu_quandSauvegarder_alorsContenuDansFichierSauvegarde()
         {
             //Acteurs
             Media m = new Media("allo");
@@ -72,7 +72,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestSupprimerSansParam()
+        public void etantDonneCatalogueRempli_quandSupprimerSansParam_alorsCatalogueVide()
         {
             //Acteurs
             Media m = new Media();
@@ -88,7 +88,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestSupprimerUnMedia()
+        public void etantDonneMediaASupprimerDuCatalogue_quandSupprimerAvecMediaEnParam_alorsMediaSupprimeDuCatalogue()
         {
             //Acteurs
             Media m = new Media("media");
@@ -100,7 +100,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestRemplacer()
+        public void etantDonneMediaARemplacerEtMediaASupprimer_quandRemplacer_alorsMediaRemplacerDansCatalogue()
         {
             //Acteurs
             Media m1 = new Media("media1");
@@ -113,7 +113,7 @@ namespace TestTP1
         }
 
         [Test]
-        public void TestToString()
+        public void etantDonneEcrireDansLaConsoleCatalogue_quandToString_alorsCatalogueEcritDansLaConsole()
         {
             //Acteurs
             String expected = "media: ";
