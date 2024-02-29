@@ -1,11 +1,11 @@
 [
   {
     "Utilisateur": {
-      "IdentifiantUnique": "bob_1",
-      "Pseudo": "bob",
-      "MotDePasse": "bob",
-      "Nom": "bob",
-      "Prenom": "bob",
+      "IdentifiantUnique": "ML_1",
+      "Pseudo": "ML",
+      "MotDePasse": "abc123",
+      "Nom": "Lorman",
+      "Prenom": "Maëk",
       "Role": 2,
       "Favoris": []
     },
@@ -24,11 +24,11 @@
   },
   {
     "Utilisateur": {
-      "IdentifiantUnique": "JohnyX_0",
-      "Pseudo": "JohnyX",
+      "IdentifiantUnique": "FB_0",
+      "Pseudo": "FB",
       "MotDePasse": "abc123",
-      "Nom": "Test",
-      "Prenom": "Johny",
+      "Nom": "Blanchette",
+      "Prenom": "Félix",
       "Role": 1,
       "Favoris": []
     },
@@ -47,11 +47,11 @@
   },
   {
     "Utilisateur": {
-      "IdentifiantUnique": "JohnyX_0",
-      "Pseudo": "JohnyX",
+      "IdentifiantUnique": "FB_0",
+      "Pseudo": "FB",
       "MotDePasse": "abc123",
-      "Nom": "Test",
-      "Prenom": "Johny",
+      "Nom": "Blanchette",
+      "Prenom": "Félix",
       "Role": 1,
       "Favoris": []
     },
@@ -70,11 +70,11 @@
   },
   {
     "Utilisateur": {
-      "IdentifiantUnique": "JohnyX2_2",
-      "Pseudo": "JohnyX2",
+      "IdentifiantUnique": "LCB_2",
+      "Pseudo": "LCB",
       "MotDePasse": "abc123",
-      "Nom": "Test",
-      "Prenom": "Johny",
+      "Nom": "Biron",
+      "Prenom": "Louis-charles",
       "Role": 0,
       "Favoris": []
     },

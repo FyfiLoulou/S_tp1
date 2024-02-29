@@ -27,6 +27,13 @@ namespace S_tp1
             Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
             Utilisateur lcb = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
 
+            //affichage utilisateurs
+            Console.WriteLine("=========================================================");
+            Console.WriteLine("Affichage des utilisateurs:\n\n");
+            Console.WriteLine(felix.ToString() + "\n\n" + maek.ToString() + "\n\n" + lcb.ToString());
+            Console.WriteLine("=========================================================");
+
+
             Evaluation ev1 = new Evaluation(maek, test2, 100);
             Evaluation ev2 = new Evaluation(felix, test, 11);
             Evaluation ev3 = new Evaluation(felix, test3, 121);
@@ -38,26 +45,26 @@ namespace S_tp1
 
             Console.WriteLine("Tentative d'ajouter un media qui est déja dans le catalogue:\n");
             catalogue.Ajouter(test4);
-
+            Console.WriteLine("Ajout des utilisateurs das la liste des utilisateurs");
 
             catalogueUtilisateur.AjouterListe(felix);
             catalogueUtilisateur.AjouterListe(lcb);
             catalogueUtilisateur.AjouterListe(maek);
-
+            Console.WriteLine("Ajout des evaluations dans la liste des evaluations");
 
             catalogueEvaluation.AjouterEvaluation(ev1);
             catalogueEvaluation.AjouterEvaluation(ev2);
             catalogueEvaluation.AjouterEvaluation(ev3);
             catalogueEvaluation.AjouterEvaluation(ev4);
 
-
+            Console.WriteLine("sauvegarde/seréalisation");
             catalogue.Sauvegarder(pathMedias);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
 
 
 
-            
+            Console.WriteLine("déseréalisation");
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
 
