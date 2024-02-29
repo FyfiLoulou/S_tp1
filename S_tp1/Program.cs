@@ -18,19 +18,19 @@ namespace S_tp1
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
 
-            Media test = new Media("", Types.POP, 1001032, 10, "ads", "asddsa", "asd",  "apap", "1132sad");
-            Media test2 = new Media("testLOL23", Types.CONCEPTUALSYNTH, 11032, 120, "adsdasdasdasdasdasd", "asd12312dsa", "asd",  "ap123123ap", "1132sad");
-            Media test3 = new Media("testLOL123123", Types.CLASSIQUE, 10, 1120, "adsasdasd", "asd1231231231231231dsa", "asd", "apap", "1132s31123123ad");
-            Media test4 = new Media("testLOL", Types.POP, 1001032, 10, "ads", "asddsa", "asd",  "apap", "1132sad");
+            Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait",  "Path full", "Path image");
+            Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait",  "Path full", "Path image");
+            Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
+            Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait",  "Path full", "Path image");
 
             Utilisateur j = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
             Utilisateur bob = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
             Utilisateur j2 = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
 
-            Evaluation ev1 = new Evaluation(bob, test2, 100);
-            Evaluation ev2 = new Evaluation(j, test, 11);
-            Evaluation ev3 = new Evaluation(j, test3, 121);
-            Evaluation ev4 = new Evaluation(j2, test, 120);
+            Evaluation ev1 = new Evaluation(maek, test2, 100);
+            Evaluation ev2 = new Evaluation(felix, test, 11);
+            Evaluation ev3 = new Evaluation(felix, test3, 121);
+            Evaluation ev4 = new Evaluation(lcb, test, 120);
 
             catalogue.Ajouter(test);
             catalogue.Ajouter(test2);
@@ -40,9 +40,9 @@ namespace S_tp1
             catalogue.Ajouter(test4);
 
 
-            catalogueUtilisateur.AjouterListe(j);
-            catalogueUtilisateur.AjouterListe(j2);
-            catalogueUtilisateur.AjouterListe(bob);
+            catalogueUtilisateur.AjouterListe(felix);
+            catalogueUtilisateur.AjouterListe(lcb);
+            catalogueUtilisateur.AjouterListe(maek);
 
 
             catalogueEvaluation.AjouterEvaluation(ev1);
