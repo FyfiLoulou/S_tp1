@@ -51,6 +51,7 @@ namespace S_tp1
             });
 
             // TODO -> à supprimer?
+            /*
             Console.WriteLine("cm: " + catalogue.getCatalogue().Count);
             Console.WriteLine("cu: " + catalogueUtilisateur.GetUtilisateurs().Count);
             Console.WriteLine("ce: " + catalogueEvaluation.GetEvaluations().Count);
@@ -60,6 +61,7 @@ namespace S_tp1
             Console.WriteLine(catalogueUtilisateur.ToString());
             Console.WriteLine("\n\nCatalogue Evaluation");
             Console.WriteLine(catalogueEvaluation.ToString());
+            */
         }
 
 
