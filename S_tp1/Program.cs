@@ -18,10 +18,10 @@ namespace S_tp1
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
 
-            Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait",  "Path full", "Path image");
-            Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait",  "Path full", "Path image");
+            Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait", "Path full", "Path image");
+            Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");
             Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
-            Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait",  "Path full", "Path image");
+            Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait", "Path full", "Path image");
 
             Utilisateur felix = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
             Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
@@ -31,7 +31,7 @@ namespace S_tp1
             Console.WriteLine("=========================================================");
             Console.WriteLine("Affichage des utilisateurs:\n\n");
             Console.WriteLine(felix.ToString() + "\n\n" + maek.ToString() + "\n\n" + lcb.ToString());
-            Console.WriteLine("=========================================================");
+            Console.WriteLine("=========================================================\n");
 
 
             Evaluation ev1 = new Evaluation(maek, test2, 100);
@@ -43,31 +43,50 @@ namespace S_tp1
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
 
-            Console.WriteLine("Tentative d'ajouter un media qui est déja dans le catalogue:\n");
+            Console.WriteLine("Tentative d'ajouter un media qui est déja dans le catalogue...\n");
             catalogue.Ajouter(test4);
-            Console.WriteLine("Ajout des utilisateurs das la liste des utilisateurs");
+            Console.WriteLine();
+
+            Console.WriteLine("Ajout des utilisateurs das la liste des utilisateurs...\n");
 
             catalogueUtilisateur.AjouterListe(felix);
             catalogueUtilisateur.AjouterListe(lcb);
             catalogueUtilisateur.AjouterListe(maek);
-            Console.WriteLine("Ajout des evaluations dans la liste des evaluations");
+            Console.WriteLine();
+
+            Console.WriteLine("Ajout des evaluations dans la liste des evaluations...\n");
 
             catalogueEvaluation.AjouterEvaluation(ev1);
             catalogueEvaluation.AjouterEvaluation(ev2);
             catalogueEvaluation.AjouterEvaluation(ev3);
             catalogueEvaluation.AjouterEvaluation(ev4);
+            Console.WriteLine();
 
-            Console.WriteLine("sauvegarde/seréalisation");
+            Console.WriteLine("sauvegarde/seréalisation...\n");
             catalogue.Sauvegarder(pathMedias);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
+            Console.WriteLine();
+
+            Console.WriteLine("Affichage des catalogues/listes");
+            Console.WriteLine($"Catalogue media:\n {catalogue.ToString()} \n");
+            Console.WriteLine($"Catalogue utilisateurs:\n {catalogueUtilisateur} \n");
+            Console.WriteLine($"Catalogue evaluations:\n {catalogueEvaluation} \n");
+
+
+            Console.WriteLine("Suppression du catalogue media...");
+
+            catalogue.Supprimer();
+
+            Console.WriteLine($"Catalogue media:\n {catalogue.ToString()} \n");
 
 
 
-            Console.WriteLine("déseréalisation");
+            Console.WriteLine("déseréalisation...\n");
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
-
+            Console.WriteLine("Affichage apres déserialisation");
+            Console.WriteLine(catalogue.ToString());
         }
     }
 }
