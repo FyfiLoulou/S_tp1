@@ -35,7 +35,7 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Lit une liste d'évaluations d'un fichier JSON, si le nom du fichier n'existe pas, erreur par défaut
+        /// Lit une liste d'évaluations d'un fichier JSON, try catch non inclus
         /// </summary>
         /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
         /// <returns>Une liste d'évaluations</returns>
@@ -47,27 +47,14 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Sauvegarde la liste d'évaluations dans un fichier JSON
+        /// Sauvegarde la liste d'évaluations dans un fichier JSON, try catch non inclus
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
         /// <returns>True si le sauvegarde est réussi, false autrement</returns>
-        /// <exception cref="DirectoryNotFoundException">Lancée si le dossier de sauvegarde n'existe pas</exception>
-        /// <exception cref="Exception">Lancée en cas d'erreur inattendue</exception>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
-            try
-            {
-                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
-            }
-            catch (DirectoryNotFoundException err)
-            {
-                Console.WriteLine("Dossier existe pas: " + err.Message);
-            }
-            catch (Exception err)
-            {
-                Console.WriteLine("Erreur autre: " + err.Message);
-            }
+            File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
             return isSauvegarde;
         }
 
