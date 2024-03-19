@@ -18,7 +18,7 @@ namespace S_tp1
         [JsonIgnore]
         public const string AUTEUR_DEFAULT = "Auteur default";
         [JsonIgnore]
-        public const string PRODUCTEUR_DEFAULT = "Prod default";
+        public const string PRODUCTEUR_DEFAULT = "Productueur default";
         [JsonIgnore]
         public const string EXTRAIT_DEFAULT = null;
         [JsonIgnore]
@@ -29,38 +29,38 @@ namespace S_tp1
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
-        private string? identifiantMedia;
-        private Types? type;
-        private long? dateRealisation;
-        private int? duree;
-        private string? auteur;
-        private string? producteur;
-        private string? extrait;
-        private string? complet;
-        private string? image;
+        private string identifiantMedia;
+        private Types type;
+        private long dateRealisation;
+        private int duree;
+        private string auteur;
+        private string producteur;
+        private string extrait;
+        private string complet;
+        private string image;
         [JsonIgnore]
-        private List<Evaluation>? evaluations = new List<Evaluation>();
+        private List<Evaluation> evaluations = new List<Evaluation>();
 
 
         [JsonConstructor]
         public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
 
-            this.identifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? identifiantMedia : $"{identifiantMedia}_{nombreIncremente++}";
-            this.type = type;
-            this.dateRealisation = dateRealisation;
-            this.duree = duree;
-            this.auteur = auteur;
-            this.producteur = producteur;
-            this.complet = complet;
-            this.extrait = extrait;
-            this.image = image;
+            IdentifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? identifiantMedia : $"{identifiantMedia}_{nombreIncremente++}";
+            Type = type;
+            DateRealisation = dateRealisation;
+            Duree = duree;
+            Auteur = auteur;
+            Producteur = producteur;
+            Complet = complet;
+            Extrait = extrait;
+            Image = image;
         }
 
 
         public Media(string identifiantMedia) : this(identifiantMedia, TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
-            this.identifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+            IdentifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
 
         }
 
@@ -88,7 +88,7 @@ namespace S_tp1
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return HashCode.Combine(IdentifiantMedia, this.GetNom());
         }
 
         // redéfinition des opérateurs
@@ -103,60 +103,62 @@ namespace S_tp1
             set { }
         }
 
-        public Types? Type
+        public Types Type
         {
             get { return type; }
             set { this.type = value; }
         }
 
         [JsonIgnore]
-        public List<Evaluation>? Evaluations
+        public List<Evaluation> Evaluations
         {
             get { return evaluations; }
             set { this.evaluations = value; }
         }
 
-        public long? DateRealisation
+        public long DateRealisation
         {
             get { return dateRealisation; }
-            set { this.dateRealisation = value; }
+            set {
+                this.dateRealisation = value < DateTimeOffset.Now.ToUnixTimeMilliseconds() ? value : DATE_DEFAULT;
+            }
         }
 
-        public int? Duree
+        public int Duree
         {
             get { return duree; }
-            set { this.duree = value; }
+            set { this.duree = value>0 ? value : DUREE_DEFAULT; }
         }
 
 
-        public string? Auteur
+        public string Auteur
         {
             get { return auteur; }
-            set { this.auteur = value; }
+            set { this.auteur = value!="" && value.Length<50 ? value : AUTEUR_DEFAULT; }
         }
 
-        public string? Producteur
+        public string Producteur
         {
             get { return producteur; }
-            set { this.producteur = value; }
+            set { this.producteur = value != "" && value.Length < 50 ? value : PRODUCTEUR_DEFAULT; }
         }
 
-        public string? Extrait
+        public string Extrait
         {
             get { return extrait; }
-            set { this.extrait = value; }
+            set { this.extrait = value.IndexOf(".") >= 0 ? value : EXTRAIT_DEFAULT;}
         }
 
-        public string? Complet
+        public string Complet
         {
             get { return complet; }
-            set { this.complet = value; }
+            set { this.complet = value.IndexOf(".") >= 0 ? value : COMPLET_DEFAULT; }
         }
 
-        public string? Image
+        public string Image
         {
             get { return image; }
-            set { this.image = value; }
+            set { this.image = value.IndexOf(".") >= 0 ? value : IMAGE_DEFAULT;}
         }
 
 
@@ -177,7 +179,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $"id: {this.identifiantMedia}\n  Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
+            return $"id: {this.identifiantMedia}\n type:{this.Type}, complet:{this.extrait}, image:{this.Image},  Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
         }
 
     }

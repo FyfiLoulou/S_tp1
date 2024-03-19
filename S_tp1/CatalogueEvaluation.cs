@@ -35,60 +35,26 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Lit une liste d'évaluations d'un fichier JSON
+        /// Lit une liste d'évaluations d'un fichier JSON, try catch non inclus
         /// </summary>
         /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
         /// <returns>Une liste d'évaluations</returns>
-        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
-            try
-            {
-                listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            }
-            catch (FileNotFoundException err)
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine("Fichier existe pas: " + err.Message);
-                Utilitaire.consoleState(false);
-            }
-            catch (Exception err)
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(false);
-            }
-
+            listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             return list;
         }
 
         /// <summary>
-        /// Sauvegarde la liste d'évaluations dans un fichier JSON
+        /// Sauvegarde la liste d'évaluations dans un fichier JSON, try catch non inclus
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
         /// <returns>True si le sauvegarde est réussi, false autrement</returns>
-        /// <exception cref="DirectoryNotFoundException">Lancée si le dossier de sauvegarde n'existe pas</exception>
-        /// <exception cref="Exception">Lancée en cas d'erreur inattendue</exception>
         public bool Sauvegarder(string nomFichierSauvegarde)
         {
             bool isSauvegarde = true;
-            try
-            {
-                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
-            }
-            catch (DirectoryNotFoundException err)
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine("Dossier existe pas: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
-            }
-            catch (Exception err)
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
-            }
+            File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
             return isSauvegarde;
         }
 

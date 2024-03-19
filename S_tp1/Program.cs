@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 
 namespace S_tp1
 {
@@ -8,6 +9,8 @@ namespace S_tp1
         private const string pathMedias = "s_medias.json",
         pathUtilisateurs = "s_utilisateurs.json",
         pathEvaluations = "s_evalutations.json";
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("TP1 d'application web\n");
@@ -22,6 +25,11 @@ namespace S_tp1
             Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");
             Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
             Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait", "Path full", "Path image");
+
+            test.DateRealisation = 2198702198021980321;
+            Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds());
+            Console.WriteLine(test.DateRealisation);
+            
 
             Utilisateur felix = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
             Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);

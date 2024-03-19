@@ -9,9 +9,6 @@ namespace S_tp1
     public class Catalogue
     {
 
-        private const string MESSAGE_ERREUR = "Erreur! 1D10T-6969: Un événement inattendu s'est produit!";
-
-
         private static List<Media> catalogue;
 
         private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
@@ -36,16 +33,7 @@ namespace S_tp1
                 catalogue.Add(media);
                 isAjouter = true;
             }
-            else if (MediaExisteDansCatalogue(media))
-            {
-                Console.WriteLine($"Le media {media.GetNom()} existe déjà dans le catalogue et n'a pas pu être ajouté");
-            }
-            else
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine(MESSAGE_ERREUR);
-                Utilitaire.consoleState(false);
-            }
+            
             return isAjouter;
         }
 
@@ -57,38 +45,16 @@ namespace S_tp1
         /// <returns>True si l'objet média est remplacé par le nouvel objet média, false autrement</returns>
         public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            string messageRetour;
             bool isRemplace = false;
 
             // mediaToAdd n'est pas dans le catalogue et mediaToRemove y est
             // on doit ajouter le nouvel objet média dans le catalogue et retirer le média à remplacer
-            if (!(MediaExisteDansCatalogue(mediaToAdd)) && MediaExisteDansCatalogue(mediaToRemove))
+            if (!MediaExisteDansCatalogue(mediaToAdd) && MediaExisteDansCatalogue(mediaToRemove))
             {
                 isRemplace = true;
-                messageRetour = $"Le media {mediaToAdd.GetNom()} a été ajouté au catalogue et le media {mediaToRemove.GetNom()} a été supprimé";
                 this.Supprimer(mediaToRemove);
                 this.Ajouter(mediaToAdd);
             }
-            else if (!(MediaExisteDansCatalogue(mediaToRemove)))
-            {
-                // Le média à remplacer n'est pas dans le catalogue
-                messageRetour = $"Le media {mediaToRemove.GetNom()} n'existe pas dans le catalogue et ne peut donc pas être supprimé!";
-            }
-            else if (MediaExisteDansCatalogue(mediaToAdd))
-            {
-                // Le media à ajouter existe déjà dans le catalogue
-                messageRetour = $"Le media {mediaToAdd.GetNom()} existe déjà dans le catalogue et ne peut donc pas être ajouté!";
-            }
-            else
-            {
-                // Erreur inattendue
-                Utilitaire.consoleState(true);
-                messageRetour = MESSAGE_ERREUR;
-                Utilitaire.consoleState(false);
-            }
-
-            // Message de retour dans la console
-            Console.WriteLine(messageRetour);
 
             return isRemplace;
         }
@@ -106,23 +72,11 @@ namespace S_tp1
                 catalogue.Remove(media);
                 if (!MediaExisteDansCatalogue(media))
                 {
-                    Console.WriteLine($"Le media {media} a ete supprime!");
                     isSupprime = true;
                 }
-                else
-                {
-                    Utilitaire.consoleState(true);
-                    Console.WriteLine(MESSAGE_ERREUR);
-                    Utilitaire.consoleState(false);
-                }
+                
             }
-            else
-            {
-                Utilitaire.consoleState(true);
-                Console.WriteLine(MESSAGE_ERREUR);
-                Utilitaire.consoleState(false);
-            }
-
+            
             return isSupprime;
         }
 
@@ -133,18 +87,7 @@ namespace S_tp1
         public bool Supprimer()
         {
             catalogue.Clear();
-            bool isSupprime = true;
-            string messageRetour = "Le catalogue a été complètement supprimé!";
-            if (catalogue.Count != 0)
-            {
-                isSupprime = false;
-                Utilitaire.consoleState(true);
-                messageRetour = MESSAGE_ERREUR;
-                Utilitaire.consoleState(false);
-            }
-
-            Console.WriteLine(messageRetour);
-            return isSupprime;
+            return catalogue.Count() == 0;
         }
 
         /// <summary>
@@ -161,15 +104,13 @@ namespace S_tp1
             }
             catch (FileNotFoundException err)
             {
-                Utilitaire.consoleState(true);
+                //Todo -> Qu'est ce qu'on fait avec ca
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                Utilitaire.consoleState(false);
             }
             catch (Exception err)
             {
-                Utilitaire.consoleState(true);
+                //Todo -> Qu'est ce qu'on fait avec ca
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(false);
             }
 
             return list;
@@ -190,15 +131,15 @@ namespace S_tp1
             }
             catch (DirectoryNotFoundException err)
             {
-                Utilitaire.consoleState(true);
+                //Todo -> Qu'est ce qu'on fait avec ca
                 Console.WriteLine("Dossier existe pas: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
+                
             }
             catch (Exception err)
             {
-                Utilitaire.consoleState(true);
+                //Todo -> Qu'est ce qu'on fait avec ca
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
+                
             }
             return isSauvegarde;
         }
@@ -219,6 +160,7 @@ namespace S_tp1
         // Méthodes ajoutées
 
         /// <summary>
+        /// Todo -> Est-ce qu'on garde ?
         /// Vérifie si le média passé en paramètre existe dans le catalogue
         /// </summary>
         /// <param name="media">Le média à chercher dans le catalogue</param>
@@ -234,8 +176,10 @@ namespace S_tp1
         /// <returns>Le catalogue</returns>
         public List<Media>? getCatalogue() { return catalogue; }
 
+
         /// <summary>
-        /// Récupère un média à partir de sin identifiant
+        /// Todo -> Est-ce qu'on en vraiment besoin ?
+        /// Récupère un média à partir de son identifiant
         /// </summary>
         /// <param name="id">l'indentifiantMedia du Media à récuprérer</param>
         /// <returns>Le média coresspondant à l'identififant spécifié</returns>

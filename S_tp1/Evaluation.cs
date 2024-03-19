@@ -9,27 +9,27 @@ namespace S_tp1 {
 
 
         public Evaluation(Utilisateur utilisateur, Media media, byte cote) {
-            this.utilisateur = utilisateur;
-            this.media = media;
-            this.cote = cote>100?(byte)100:cote;
+            Utilisateur = utilisateur;
+            Media = media;
+            Cote = cote;
         }
 
         public Utilisateur Utilisateur
         {
             get { return utilisateur; }
-            set {}
+            set {utilisateur = value;}
         }
 
         public Media Media
         {
             get { return media; }
-            set {}
+            set {media = value;}
         }
 
         public byte Cote
         {
             get { return cote; }
-            set {}
+            set { cote = value > 100 ? (byte)100 : value; }
         }
 
         public override string ToString() {
