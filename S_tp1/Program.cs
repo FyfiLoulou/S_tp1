@@ -69,7 +69,7 @@ namespace S_tp1
             Console.WriteLine();
 
             Console.WriteLine("Affichage des catalogues/listes");
-            Console.WriteLine($"Catalogue media:\n {catalogue.ToString()} \n");
+            Console.WriteLine($"Catalogue media:\n {catalogue} \n");
             Console.WriteLine($"Catalogue utilisateurs:\n {catalogueUtilisateur} \n");
             Console.WriteLine($"Catalogue evaluations:\n {catalogueEvaluation} \n");
 
@@ -78,7 +78,7 @@ namespace S_tp1
 
             catalogue.Supprimer();
 
-            Console.WriteLine($"Catalogue media:\n {catalogue.ToString()} \n");
+            Console.WriteLine($"Catalogue media:\n {catalogue} \n");
 
 
 
@@ -86,7 +86,7 @@ namespace S_tp1
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
             Console.WriteLine("Affichage apres déserialisation");
-            Console.WriteLine(catalogue.ToString());
+            Console.WriteLine(catalogue);
         }
     }
 }
