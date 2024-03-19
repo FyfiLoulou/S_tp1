@@ -13,17 +13,6 @@ namespace S_tp1
             this.catalogueEvaluation = catalogueEvaluation;
         }
 
-
-        /// <summary>
-        /// Modifie la couleur de texte de la console en fonction de l'état spécifié
-        /// </summary>
-        /// <param name="isError">Indique si l'état est une erreur</param>
-        public static void consoleState(bool isError)
-        {
-            Console.ForegroundColor = isError ? ConsoleColor.Red : ConsoleColor.White;
-        }
-
-
         /// <summary>
         /// Désérialise les données à partir des fichiers spécifiés et remplie les catalogues média, utilisateur et évaluation
         /// </summary>

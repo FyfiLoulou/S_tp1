@@ -11,7 +11,7 @@ namespace S_tp1 {
         public Evaluation(Utilisateur utilisateur, Media media, byte cote) {
             this.utilisateur = utilisateur;
             this.media = media;
-            this.cote = cote>100?(byte)100:cote;
+            Cote = cote;
         }
 
         public Utilisateur Utilisateur
@@ -29,7 +29,7 @@ namespace S_tp1 {
         public byte Cote
         {
             get { return cote; }
-            set {}
+            set { this.cote = cote > 100 ? (byte)100 : cote; }
         }
 
         public override string ToString() {

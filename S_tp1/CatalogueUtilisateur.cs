@@ -48,15 +48,11 @@ namespace S_tp1
             }
             catch (FileNotFoundException err)
             {
-                Utilitaire.consoleState(true);
                 Console.WriteLine("Fichier existe pas: " + err.Message);
-                Utilitaire.consoleState(false);
             }
             catch (Exception err)
             {
-                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(false);
             }
 
             return list;
@@ -78,15 +74,11 @@ namespace S_tp1
             }
             catch (DirectoryNotFoundException err)
             {
-                Utilitaire.consoleState(true);
                 Console.WriteLine("Dossier existe pas: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
             }
             catch (Exception err)
             {
-                Utilitaire.consoleState(true);
                 Console.WriteLine("Erreur autre: " + err.Message);
-                Utilitaire.consoleState(isSauvegarde = false);
             }
             return isSauvegarde;
         }
