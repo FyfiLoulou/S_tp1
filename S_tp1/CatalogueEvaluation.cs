@@ -35,27 +35,14 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Lit une liste d'évaluations d'un fichier JSON
+        /// Lit une liste d'évaluations d'un fichier JSON, si le nom du fichier n'existe pas, erreur par défaut
         /// </summary>
         /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
         /// <returns>Une liste d'évaluations</returns>
-        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         public List<Evaluation> Ajouter(string nomFichierSauvegarde)
         {
             List<Evaluation> list = null;
-            try
-            {
-                listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            }
-            catch (FileNotFoundException err)
-            {
-                Console.WriteLine("Fichier existe pas: " + err.Message);
-            }
-            catch (Exception err)
-            {
-                Console.WriteLine("Erreur autre: " + err.Message);
-            }
-
+            listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
             return list;
         }
 
