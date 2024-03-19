@@ -87,13 +87,7 @@ namespace S_tp1
         public bool Supprimer()
         {
             catalogue.Clear();
-            bool isSupprime = true;
-            if (catalogue.Count != 0)
-            {
-                isSupprime = false;
-                
-            }
-            return isSupprime;
+            return catalogue.Count() == 0;
         }
 
         /// <summary>
