@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Text.RegularExpressions;
-using static S_tp1.Evaluation;
-using System.Text.RegularExpressions;
-using static S_tp1.Role;
-using System.Runtime.ExceptionServices;
+
 namespace S_tp1
 {
     public class Utilisateur
@@ -23,11 +20,11 @@ namespace S_tp1
         private static int nombreIncremente = 0;
 
         //attributs
-        private String identifiantUnique;
-        private String pseudo;
-        private String motDePasse;
-        private String nom;
-        private String prenom;
+        private string identifiantUnique;
+        private string pseudo;
+        private string motDePasse;
+        private string nom;
+        private string prenom;
         private Role role;
         private List<Media> favoris;
         [JsonIgnore]
@@ -39,12 +36,14 @@ namespace S_tp1
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
 
-            this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
-            this.pseudo = pseudo;
-            this.motDePasse = motDePasse;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.role = role;
+            IdentifiantUnique = $"{Pseudo}_{nombreIncremente++}";
+            Pseudo = pseudo;
+            MotDePasse = motDePasse;
+            Nom = nom;
+            Prenom = prenom;
+            Role = role;
+
+            //Todo -> On devrait pas avoir des new ici
             this.favoris = new List<Media>();
             this.evaluations = new List<Evaluation>();
         }
@@ -52,9 +51,9 @@ namespace S_tp1
 
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, NOM_DEFAULT, PRENOM_DEFAULT, ROLE_DEFAULT)
         {
-            this.identifiantUnique = $"{pseudo}_{nombreIncremente++}";
-            this.pseudo = pseudo;
-            this.motDePasse = motDePasse;
+            IdentifiantUnique = $"{Pseudo}_{nombreIncremente++}";
+            Pseudo = pseudo;
+            MotDePasse = motDePasse;
         }
 
         //Constructeur par défaut
@@ -79,7 +78,7 @@ namespace S_tp1
         /// <param name="eval">L'évaluation à ajouter</param>
         public void AjouterEvaluation(Evaluation eval)
         {
-            this.evaluations.Add(eval);
+            evaluations.Add(eval);
         }
 
         //getters & setters
@@ -96,7 +95,8 @@ namespace S_tp1
         public string Pseudo
         {
             get { return pseudo; }
-            set { pseudo = value; }
+            // Pseudo doit contenir seulement des chiffres et des lettres et doit avoir une longueur minimale de 5 caractères et une longueur maximale de 50 caractère
+            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PSEUDO_DEFAULT; }
         }
 
         public string MotDePasse
@@ -111,13 +111,13 @@ namespace S_tp1
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
+            set { nom = value.Length > 1 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) ? value : NOM_DEFAULT; }
         }
 
         public string Prenom
         {
             get { return prenom; }
-            set { prenom = value; }
+            set { prenom = value.Length > 1 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PRENOM_DEFAULT; }
         }
 
         public Role Role
