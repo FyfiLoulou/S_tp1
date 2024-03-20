@@ -57,13 +57,12 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <RadioButton layoutX="178.0" layoutY="310.0" mnemonicParsing="false" text="Utilisateur">
+            <RadioButton layoutX="196.0" layoutY="310.0" mnemonicParsing="false" text="Utilisateur">
                <toggleGroup>
                   <ToggleGroup fx:id="role" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="283.0" layoutY="310.0" mnemonicParsing="false" text="Admin" toggleGroup="$role" />
-            <RadioButton layoutX="379.0" layoutY="310.0" mnemonicParsing="false" text="Technicien" toggleGroup="$role" />
+            <RadioButton layoutX="359.0" layoutY="310.0" mnemonicParsing="false" text="Admin" toggleGroup="$role" />
             <Button layoutX="294.0" layoutY="354.0" mnemonicParsing="false" text="Create" />
       </children>
     </AnchorPane>
