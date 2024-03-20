@@ -42,23 +42,21 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="239.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenu">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Text>
             <Button layoutX="563.0" layoutY="14.0" mnemonicParsing="false" text="S'inscrire" />
             <Button layoutX="461.0" layoutY="14.0" mnemonicParsing="false" text="Se connecter" />
-            <Text layoutX="288.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TP2">
+            <Text layoutX="287.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TP2">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="237.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Web">
+            <Text layoutX="236.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Web">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
+            <Text layoutX="128.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contexte de développement: bla bla bla bla bla bla bla bla bla bla " />
+            <Text layoutX="291.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Musiques" />
+            <Text layoutX="126.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Services disponibles pour le moment dans votre application Web" />
          </children>
     </AnchorPane>
   </children>
