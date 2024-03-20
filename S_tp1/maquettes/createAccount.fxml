@@ -46,13 +46,13 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="425.0" prefWidth="639.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="469.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="152.0" text="Login" />
-            <PasswordField layoutX="244.0" layoutY="239.0" promptText="Password" />
-            <TextField layoutX="244.0" layoutY="161.0" promptText="First name" />
-            <PasswordField layoutX="244.0" layoutY="265.0" promptText="Confirm password" />
-            <TextField layoutX="244.0" layoutY="213.0" promptText="Login" />
-            <TextField layoutX="244.0" layoutY="187.0" promptText="Last name" />
-            <Text fontSmoothingType="LCD" layoutX="211.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create your account" textAlignment="CENTER" wrappingWidth="218.17967987060547">
+            <Button layoutX="469.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="152.0" text="Se connecter" />
+            <PasswordField layoutX="244.0" layoutY="239.0" promptText="Mot de passe" />
+            <TextField layoutX="244.0" layoutY="161.0" promptText="Prénom" />
+            <PasswordField layoutX="244.0" layoutY="265.0" promptText="Confirmer mot de passe" />
+            <TextField layoutX="244.0" layoutY="213.0" promptText="Pseudo" />
+            <TextField layoutX="244.0" layoutY="187.0" promptText="Nom de famille" />
+            <Text fontSmoothingType="LCD" layoutX="211.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer votre compte" textAlignment="CENTER" wrappingWidth="218.17967987060547">
                <font>
                   <Font size="24.0" />
                </font>
@@ -62,8 +62,8 @@
                   <ToggleGroup fx:id="role" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="359.0" layoutY="310.0" mnemonicParsing="false" text="Admin" toggleGroup="$role" />
-            <Button layoutX="294.0" layoutY="354.0" mnemonicParsing="false" text="Create" />
+            <RadioButton layoutX="359.0" layoutY="310.0" mnemonicParsing="false" text="Administrateur" toggleGroup="$role" />
+            <Button layoutX="273.0" layoutY="356.0" mnemonicParsing="false" text="Creer compte" />
       </children>
     </AnchorPane>
   </children>
