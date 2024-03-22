@@ -74,7 +74,6 @@ namespace S_tp1
                 {
                     isSupprime = true;
                 }
-                
             }
             
             return isSupprime;
