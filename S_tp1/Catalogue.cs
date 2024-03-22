@@ -11,7 +11,7 @@ namespace S_tp1
 
         private static List<Media> catalogue;
 
-        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
+        
 
         // Constructeur par défaut
         public Catalogue()
@@ -94,12 +94,12 @@ namespace S_tp1
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le chemin du fichier JSON</param>
         /// <returns>Le catalogue rempli d'objet média</returns>
-        public List<Media> Ajouter(string nomFichierSauvegarde)
+        public List<Media> Ajouter(string nomFichierSauvegarde, string path)
         {
             List<Media> list = null;
             try
             {
-                catalogue = list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
+                catalogue = list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{path}\{nomFichierSauvegarde}"));
             }
             catch (FileNotFoundException err)
             {
@@ -121,12 +121,12 @@ namespace S_tp1
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier à sauvegarder</param>
         /// <returns>True si la sauvegarde est réussi, false autrement</returns>
-        public bool Sauvegarder(string nomFichierSauvegarde)
+        public bool Sauvegarder(string nomFichierSauvegarde, string path)
         {
             bool isSauvegarde = true;
             try
             {
-                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
+                File.WriteAllText(@$"{path}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
             }
             catch (DirectoryNotFoundException err)
             {

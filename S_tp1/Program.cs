@@ -9,6 +9,7 @@ namespace S_tp1
         private const string pathMedias = "s_medias.json",
         pathUtilisateurs = "s_utilisateurs.json",
         pathEvaluations = "s_evalutations.json";
+        private static string pathCatalogue = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
 
         static void Main(string[] args)
@@ -71,7 +72,7 @@ namespace S_tp1
             Console.WriteLine();
 
             Console.WriteLine("sauvegarde/seréalisation...\n");
-            catalogue.Sauvegarder(pathMedias);
+            catalogue.Sauvegarder(pathMedias, pathCatalogue);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
             Console.WriteLine();
