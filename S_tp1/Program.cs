@@ -17,7 +17,7 @@ namespace S_tp1
             Console.WriteLine("TP1 d'application web\n");
 
 
-            Catalogue catalogue = new Catalogue();
+            /*Catalogue catalogue = new Catalogue();
             CatalogueUtilisateur catalogueUtilisateur = new CatalogueUtilisateur();
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
@@ -95,7 +95,7 @@ namespace S_tp1
             utilitaire.deserializer(pathMedias, pathUtilisateurs, pathEvaluations);
 
             Console.WriteLine("Affichage apres déserialisation");
-            Console.WriteLine(catalogue);
+            Console.WriteLine(catalogue);*/
         }
     }
 }
