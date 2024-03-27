@@ -12,15 +12,32 @@ namespace S_tp1
         private static string pathCatalogue = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
 
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("TP1 d'application web\n");
 
+            List<string> list = new List<string>(); 
 
-            /*Catalogue catalogue = new Catalogue();
+            /*
+             * Liste Media
+             * Liste Utilisateur
+             * Liste Eval
+             * Liste Favoris
+             * 
+             * 
+             * ajouter
+             * modifier
+             * supprimer Media/Utilisateur/Eval
+             * 
+            =&\727&78*/
+
+            Catalogue catalogue = new Catalogue();
             CatalogueUtilisateur catalogueUtilisateur = new CatalogueUtilisateur();
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
-            Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
+
+            /*Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
 
             Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait", "Path full", "Path image");
             Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");

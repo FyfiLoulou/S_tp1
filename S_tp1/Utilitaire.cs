@@ -22,7 +22,7 @@ namespace S_tp1
         public void deserializer(string pathMedia, string pathUtilisateur, string pathEvaluation)
         {
             // Ajoute les médias à partir du fichier de sauvegarde
-            catalogue.Ajouter(pathMedia);
+            //catalogue.Ajouter(pathMedia);
 
             // Ajoute les utilisateurs à partir du fichier de sauvegarde
             catalogueUtilisateur.Ajouter(pathUtilisateur);
