@@ -1,17 +1,22 @@
 [
   {
-    "UserId": "asdasda332_3",
-    "MediaId": "steawkc_1",
-    "Cote": 8
+    "UserId": "ML_1",
+    "MediaId": "heart shaped box_1",
+    "Cote": 100
   },
   {
-    "UserId": "asdasda12_5",
-    "MediaId": "steawkc_1",
-    "Cote": 50
+    "UserId": "FB_0",
+    "MediaId": "Smooth Criminal_0",
+    "Cote": 11
   },
   {
-    "UserId": "pseudo_1",
-    "MediaId": "steawkc_1",
-    "Cote": 87
+    "UserId": "FB_0",
+    "MediaId": "Imagine_2",
+    "Cote": 100
+  },
+  {
+    "UserId": "LCB_2",
+    "MediaId": "Smooth Criminal_0",
+    "Cote": 100
   }
 ]

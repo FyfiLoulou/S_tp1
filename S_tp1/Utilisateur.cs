@@ -20,7 +20,9 @@ namespace S_tp1
         private static int nombreIncremente = 0;
 
         //attributs
+        [JsonIgnore]
         private string id;
+
         private string pseudo;
         private string motDePasse;
         private string nom;
@@ -31,7 +33,7 @@ namespace S_tp1
         [JsonConstructor]
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
-            Id = $"{Pseudo}_{nombreIncremente++}";
+            id = $"{pseudo}_{nombreIncremente++}";
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Nom = nom;
@@ -42,7 +44,6 @@ namespace S_tp1
 
         public Utilisateur(string pseudo, string motDePasse) : this(pseudo, motDePasse, NOM_DEFAULT, PRENOM_DEFAULT, ROLE_DEFAULT)
         {
-            Id = $"{Pseudo}_{nombreIncremente++}";
             Pseudo = pseudo;
             MotDePasse = motDePasse;
         }
@@ -54,15 +55,10 @@ namespace S_tp1
         }
 
         //getters & setters
-        public string Id
-        {
-            get { return id; }
-            set
-            {
-                id = new Regex("_[0-9]$").IsMatch(value) ? value : $"{value}_{nombreIncremente++}";
-            }
-        }
 
+        public string getId() {
+            return this.id;
+        }
 
         public string Pseudo
         {
@@ -104,7 +100,7 @@ namespace S_tp1
          */
         public override string ToString()
         {
-            return $"Identifiant unique : {Id}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}\n";
+            return $"Identifiant unique : {this.getId()}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}\n";
         }
 
 

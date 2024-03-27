@@ -1,14 +1,14 @@
 [
   {
-    "UserId": "asdasda332_3",
-    "MediaId": "steawkc2_3"
+    "UserId": "user2_1",
+    "MediaId": "m1_1"
   },
   {
-    "UserId": "asdasda12_5",
-    "MediaId": "steawkc3_5"
+    "UserId": "user2_2",
+    "MediaId": "m3_2"
   },
   {
-    "UserId": "pseudo_1",
-    "MediaId": "steawkc_1"
+    "UserId": "user1_0",
+    "MediaId": "m1_0"
   }
 ]
