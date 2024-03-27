@@ -99,7 +99,7 @@ namespace TestTP1
             List<bool> res = new List<bool>();
 
             // action
-            res.Add(new Regex($"^{Media.ID_DEFAULT}_[0-9]+$").IsMatch(media1.IdentifiantMedia));
+            res.Add(new Regex($"^{Media.ID_DEFAULT}_[0-9]+$").IsMatch(media1.Id));
             res.Add(media1.Type == Media.TYPE_DEFAULT);
             res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
             res.Add(media1.Duree == Media.DUREE_DEFAULT);
@@ -142,7 +142,7 @@ namespace TestTP1
             List<bool> res = new List<bool>();
 
             // action
-            res.Add(!string.IsNullOrEmpty(media1.IdentifiantMedia+"_0"));
+            res.Add(!string.IsNullOrEmpty(media1.Id+"_0"));
             res.Add(media1.Type != null);
             res.Add(media1.DateRealisation != null);
             res.Add(media1.Duree != null);

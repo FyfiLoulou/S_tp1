@@ -1,94 +1,17 @@
 [
   {
-    "Utilisateur": {
-      "IdentifiantUnique": "ML_1",
-      "Pseudo": "ML",
-      "MotDePasse": "abc123",
-      "Nom": "Lorman",
-      "Prenom": "Maëk",
-      "Role": 2,
-      "Favoris": []
-    },
-    "Media": {
-      "IdentifiantMedia": "heart shaped box_1",
-      "Type": 3,
-      "DateRealisation": 11032,
-      "Duree": 120,
-      "Auteur": "Nirvana",
-      "Producteur": "Nirvana",
-      "Extrait": "Path extrait",
-      "Complet": "Path full",
-      "Image": "Path image"
-    },
-    "Cote": 100
+    "UserId": "asdasda332_3",
+    "MediaId": "steawkc_1",
+    "Cote": 8
   },
   {
-    "Utilisateur": {
-      "IdentifiantUnique": "FB_0",
-      "Pseudo": "FB",
-      "MotDePasse": "abc123",
-      "Nom": "Blanchette",
-      "Prenom": "Félix",
-      "Role": 1,
-      "Favoris": []
-    },
-    "Media": {
-      "IdentifiantMedia": "Smooth Criminal_0",
-      "Type": 1,
-      "DateRealisation": 2198702198021980321,
-      "Duree": 10,
-      "Auteur": "Micheal Jackson",
-      "Producteur": "Micheal Jakson",
-      "Extrait": "Path extrait",
-      "Complet": "Path full",
-      "Image": "Path image"
-    },
-    "Cote": 11
+    "UserId": "asdasda12_5",
+    "MediaId": "steawkc_1",
+    "Cote": 50
   },
   {
-    "Utilisateur": {
-      "IdentifiantUnique": "FB_0",
-      "Pseudo": "FB",
-      "MotDePasse": "abc123",
-      "Nom": "Blanchette",
-      "Prenom": "Félix",
-      "Role": 1,
-      "Favoris": []
-    },
-    "Media": {
-      "IdentifiantMedia": "Imagine_2",
-      "Type": 10,
-      "DateRealisation": 10,
-      "Duree": 1120,
-      "Auteur": "John Lennon",
-      "Producteur": "John Lennon",
-      "Extrait": "Path extrait",
-      "Complet": "Path full",
-      "Image": "Path image"
-    },
-    "Cote": 100
-  },
-  {
-    "Utilisateur": {
-      "IdentifiantUnique": "LCB_2",
-      "Pseudo": "LCB",
-      "MotDePasse": "abc123",
-      "Nom": "Biron",
-      "Prenom": "Louis-charles",
-      "Role": 0,
-      "Favoris": []
-    },
-    "Media": {
-      "IdentifiantMedia": "Smooth Criminal_0",
-      "Type": 1,
-      "DateRealisation": 2198702198021980321,
-      "Duree": 10,
-      "Auteur": "Micheal Jackson",
-      "Producteur": "Micheal Jakson",
-      "Extrait": "Path extrait",
-      "Complet": "Path full",
-      "Image": "Path image"
-    },
-    "Cote": 100
+    "UserId": "pseudo_1",
+    "MediaId": "steawkc_1",
+    "Cote": 87
   }
 ]

@@ -18,9 +18,9 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Ajoute un nouvel utilisateur dans la liste d'utilisateurs
+        /// Ajoute un nouvel userId dans la liste d'utilisateurs
         /// </summary>
-        /// <param name="utilisateur">L'utilisateur à ajouter</param>
+        /// <param name="utilisateur">L'userId à ajouter</param>
         public void AjouterListe(Utilisateur utilisateur)
         {
             listeUtilisateurs.Add(utilisateur);
@@ -33,10 +33,10 @@ namespace S_tp1
         public List<Utilisateur> GetUtilisateurs() { return listeUtilisateurs; }
 
         /// <summary>
-        /// Lit un fichier JSON et retourne une liste d'objet utilisateur
+        /// Lit un fichier JSON et retourne une liste d'objet userId
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier à lire</param>
-        /// <returns>Une liste d'objet utilisateur</returns>
+        /// <returns>Une liste d'objet userId</returns>
         /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         /// <exception cref="Exception"> Lancée en cas d'erreur inattendue </exception>
         public List<Utilisateur> Ajouter(string nomFichierSauvegarde)
@@ -94,15 +94,15 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Récupère un utilisateur à partir de son id
+        /// Récupère un userId à partir de son id
         /// </summary>
-        /// <param name="id">l'id (pseudo) de l'utilisateur à récupérer</param>
-        /// <returns>L'utilisateur correspondant à l'id spécifié</returns>
+        /// <param name="id">l'id (pseudo) de l'userId à récupérer</param>
+        /// <returns>L'userId correspondant à l'id spécifié</returns>
         public Utilisateur GetUtilisateur(string id)
         {
-            // Recherche de l'utilisateur dans la liste des utilisateurs
+            // Recherche de l'userId dans la liste des utilisateurs
             // en fonction de son pseudo.
-            return listeUtilisateurs.Where(u => u.IdentifiantUnique == id).Count()>0 ? listeUtilisateurs.Where(u => u.IdentifiantUnique == id).First() : null;
+            return listeUtilisateurs.Where(u => u.Id == id).Count()>0 ? listeUtilisateurs.Where(u => u.Id == id).First() : null;
         }
 
     }

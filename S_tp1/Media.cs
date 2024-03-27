@@ -8,7 +8,7 @@ namespace S_tp1
     public class Media
     {
         [JsonIgnore]
-        public const string ID_DEFAULT = "media default";
+        public const string ID_DEFAULT = "mediaId default";
         [JsonIgnore]
         public const Types TYPE_DEFAULT = Types.JAZZ;
         [JsonIgnore]
@@ -20,16 +20,17 @@ namespace S_tp1
         [JsonIgnore]
         public const string PRODUCTEUR_DEFAULT = "Productueur default";
         [JsonIgnore]
-        public const string EXTRAIT_DEFAULT = null;
+        public const string EXTRAIT_DEFAULT = "extrait_default";
         [JsonIgnore]
-        public const string COMPLET_DEFAULT = null;
+        public const string COMPLET_DEFAULT = "complet_dfefault";
         [JsonIgnore]
-        public const string IMAGE_DEFAULT = null;
+        public const string IMAGE_DEFAULT = "img_def";
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
-        private string identifiantMedia;
+        private string id;
+        private string nom;
         private Types type;
         private long dateRealisation;
         private int duree;
@@ -38,16 +39,14 @@ namespace S_tp1
         private string extrait;
         private string complet;
         private string image;
-        [JsonIgnore]
-        private List<Evaluation> evaluations = new List<Evaluation>();
 
 
         [JsonConstructor]
-        public Media(string identifiantMedia, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
+        public Media(string nom, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
 
-            IdentifiantMedia = new Regex("_[0-9]$").IsMatch(identifiantMedia) ? identifiantMedia : $"{identifiantMedia}_{nombreIncremente++}";
-            Type = type;
+            this.id = new Regex("_[0-9]$").IsMatch(nom) ? nom : $"{nom}_{nombreIncremente++}";
+            Type = type; 
             DateRealisation = dateRealisation;
             Duree = duree;
             Auteur = auteur;
@@ -58,24 +57,18 @@ namespace S_tp1
         }
 
 
-        public Media(string identifiantMedia) : this(identifiantMedia, TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
+        public Media(string nom) : this(nom, TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
-            IdentifiantMedia = $"{identifiantMedia}_{nombreIncremente++}";
+            this.id = $"{nom}_{nombreIncremente++}";
+            this.Nom = nom;
+        }
+
+        //{ID_DEFAULT}_{nombreIncremente}", 
+        public Media() : this($"nom default", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
+        {
 
         }
 
-
-        public Media() : this($"{ID_DEFAULT}_{nombreIncremente}", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
-        {
-
-        }
-
-
-
-        public void AjouterEvaluation(Evaluation eval)
-        {
-            this.evaluations.Add(eval);
-        }
 
         //overrides
         public override bool Equals(Object obj)
@@ -88,7 +81,7 @@ namespace S_tp1
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(IdentifiantMedia, this.GetNom());
+            return HashCode.Combine(Id, this.GetNom());
         }
 
         // redéfinition des opérateurs
@@ -97,23 +90,21 @@ namespace S_tp1
         public static bool operator !=(Media m1, Media m2) => !m1.Equals(m2);
 
         //getters setter
-        public string IdentifiantMedia
+        public string Id
         {
-            get { return identifiantMedia; }
+            get { return id; }
             set { }
         }
 
+        public string Nom// TODO VALIDATION 
+        {
+            get { return nom; }
+            set { this.nom = value; }
+        }
         public Types Type
         {
             get { return type; }
             set { this.type = value; }
-        }
-
-        [JsonIgnore]
-        public List<Evaluation> Evaluations
-        {
-            get { return evaluations; }
-            set { this.evaluations = value; }
         }
 
         public long DateRealisation
@@ -152,7 +143,9 @@ namespace S_tp1
         public string Complet
         {
             get { return complet; }
-            set { this.complet = value.IndexOf(".") >= 0 ? value : COMPLET_DEFAULT; }
+            set {
+                Console.WriteLine(this); 
+                this.complet = value.IndexOf(".") >= 0 ? value : COMPLET_DEFAULT; }
         }
 
         public string Image
@@ -166,20 +159,20 @@ namespace S_tp1
         /// Calcule la cote (moyenne) à partir des évaluations associées à cet objet (this) média
         /// </summary>
         /// <returns>La cote calculée à partir des évaluations</returns>
-        public byte GetCote()
+        /*public byte GetCote()
         {
             return evaluations.Count > 0 ? (byte)Math.Round((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
-        }
+        }*/
 
         /// <summary>
         /// Récupère le nom de l'objet média à partir de son identifiant unique
         /// </summary>
         /// <returns>Le nom de l'objet média extrait de son identifiant. Si l'identitfant n'est pas défini, retourne "Nom non défini"</returns>
-        public string GetNom() { return this.identifiantMedia?.Split("_")[0] ?? "'Nom non définit'"; }
+        public string GetNom() { return this.id?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
         {
-            return $"id: {this.identifiantMedia}\n type:{this.Type}, complet:{this.extrait}, image:{this.Image},  Name: {this.GetNom()}\n Type: {this.type}\nCote: {this.GetCote()}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n EvalCoutn: {evaluations.Count}";
+            return $"id: {this.Id}\n type:{this.Type}, complet:{this.extrait}, image:{this.Image},  Name: {this.GetNom()}\n Type: {this.type}\nCote: {/*this.GetCote()*/1}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n";
         }
 
     }

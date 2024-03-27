@@ -1,29 +1,26 @@
 [
   {
-    "IdentifiantUnique": "FB_0",
-    "Pseudo": "FB",
-    "MotDePasse": "abc123",
-    "Nom": "Blanchette",
-    "Prenom": "Félix",
-    "Role": 1,
-    "Favoris": []
+    "Id": "asdasda332_3",
+    "Pseudo": "asdasda332",
+    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
+    "Nom": "nom",
+    "Prenom": "prenom",
+    "Role": 0
   },
   {
-    "IdentifiantUnique": "LCB_2",
-    "Pseudo": "LCB",
-    "MotDePasse": "abc123",
-    "Nom": "Biron",
-    "Prenom": "Louis-charles",
-    "Role": 0,
-    "Favoris": []
+    "Id": "asdasda12_5",
+    "Pseudo": "asdasda12",
+    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
+    "Nom": "nom",
+    "Prenom": "prenom",
+    "Role": 0
   },
   {
-    "IdentifiantUnique": "ML_1",
-    "Pseudo": "ML",
-    "MotDePasse": "abc123",
-    "Nom": "Lorman",
-    "Prenom": "Maëk",
-    "Role": 2,
-    "Favoris": []
+    "Id": "pseudo_1",
+    "Pseudo": "pseudo",
+    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
+    "Nom": "nom",
+    "Prenom": "prenom",
+    "Role": 0
   }
 ]

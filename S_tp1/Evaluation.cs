@@ -3,27 +3,27 @@
 namespace S_tp1 {
     public class Evaluation {//
 
-        private Utilisateur utilisateur;
-        private Media media;
+        private string userId;
+        private string mediaId;
         private byte cote;
 
 
-        public Evaluation(Utilisateur utilisateur, Media media, byte cote) {
-            Utilisateur = utilisateur;
-            Media = media;
+        public Evaluation(string userId, string mediaId, byte cote) {
+            UserId = userId;
+            MediaId = mediaId;
             Cote = cote;
         }
 
-        public Utilisateur Utilisateur
+        public string UserId
         {
-            get { return utilisateur; }
-            set {utilisateur = value;}
+            get { return userId; }
+            set {userId = value;}
         }
 
-        public Media Media
+        public string MediaId
         {
-            get { return media; }
-            set {media = value;}
+            get { return mediaId; }
+            set {mediaId = value;}
         }
 
         public byte Cote
@@ -33,7 +33,12 @@ namespace S_tp1 {
         }
 
         public override string ToString() {
-            return $"evaluation: {utilisateur.IdentifiantUnique}, media: {media.IdentifiantMedia}, cote: {cote}";
+            return $"user: {UserId}, mediaId: {MediaId}, cote: {cote}";
+        }
+
+
+        public bool Ajouter(){
+            return false;
         }
 
     }

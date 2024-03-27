@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace S_tp1
@@ -8,8 +9,9 @@ namespace S_tp1
 
         private const string pathMedias = "s_medias.json",
         pathUtilisateurs = "s_utilisateurs.json",
-        pathEvaluations = "s_evalutations.json";
-        private static string pathCatalogue = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
+        pathEvaluations = "s_evalutations.json",
+        pathFavoris = "s_favoris.json";
+        private static string pathDossierSerial = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
 
 
@@ -18,20 +20,136 @@ namespace S_tp1
         {
             Console.WriteLine("TP1 d'application web\n");
 
-            List<string> list = new List<string>(); 
+            List<Media> mediaListe = new List<Media>(); // mediaId pis c toute
+            List<Utilisateur> userListe = new List<Utilisateur>(); // users pis c toute
 
+            List<Evaluation> evalListe = new List<Evaluation>(); // evals: cote, id, identifiantUser
+            List<Favoris> favorisListe = new List<Favoris>(); // evals: cote, id, identifiantUser
+
+
+            Media media1 = new Media("steawkc");
+            Utilisateur user1 = new Utilisateur("asdasda", "asdasd");
+            Evaluation eval1 = new Evaluation(user1.Id, media1.Id, 87);
+            Favoris fav1 = new Favoris(user1.Id, media1.Id);
+            Media media2 = new Media("steawkc2");
+            Utilisateur user2 = new Utilisateur("asdasda332", "asdasd3123");
+            Evaluation eval2 = new Evaluation(user2.Id, media1.Id, 8);
+            Favoris fav2 = new Favoris(user2.Id, media2.Id);
+            Media media3 = new Media("steawkc3");
+            Utilisateur user3 = new Utilisateur("asdasda12", "asdasd12");
+            Evaluation eval3 = new Evaluation(user3.Id, media1.Id, 50);
+            Favoris fav3 = new Favoris(user3.Id, media3.Id);
+
+            mediaListe.Add(media2);
+            userListe.Add(user2);
+            evalListe.Add(eval2);
+            favorisListe.Add(fav2);
+            mediaListe.Add(media3);
+            userListe.Add(user3);
+            evalListe.Add(eval3);
+            favorisListe.Add(fav3);
+            mediaListe.Add(media1);
+            userListe.Add(user1);
+            evalListe.Add(eval1);
+            favorisListe.Add(fav1);
+
+            Console.WriteLine("Ajouter: GOOD");
+            Console.WriteLine("mediaListe: " + mediaListe.Count());
+            Console.WriteLine("userListe: " + userListe.Count());
+            Console.WriteLine("evalListe: " + evalListe.Count());
+            Console.WriteLine("favorisListe: " + favorisListe.Count());
+
+            Console.WriteLine("\nget: DONE");
+            // a partir d'un eval → get MediaId et UserId
+            //eval1;    
+            Media mediaQuery = mediaListe.Where(x => x.Id == eval1.MediaId).ToList()[0];
+            Utilisateur userQuery = userListe.Where(x => x.Id == eval1.UserId).ToList()[0];
+
+            Console.WriteLine(eval1);
+            Console.WriteLine(mediaQuery);
+            Console.WriteLine(userQuery);
+
+            Console.WriteLine("\nmodifier: a revoir ???)()))");
+            //user1.Pseudo = "alloBOB";
+            //Console.WriteLine("user1 → "+user1.Id);
+            //media1.Complet = "protumanux";
+            //Console.WriteLine("media1 → complet" + media1.Complet);
+
+            Console.WriteLine("\nsupprimer: TODO 💀💀");
+            /*// function removeMedia(media) {
+            evalListe.RemoveAll(x => x.MediaId == media1.Id);
+            favorisListe.RemoveAll(x => x.MediaId == media1.Id);
+            mediaListe.Remove(media1);
+            Console.WriteLine("deleted media1");
+            //}
+
+            Console.WriteLine("mediaListe: " + mediaListe.Count());
+            Console.WriteLine("userListe: " + userListe.Count());
+            Console.WriteLine("evalListe: " + evalListe.Count());
+            Console.WriteLine("favorisListe: " + favorisListe.Count());
+
+            // function removeUser(user) {
+            evalListe.RemoveAll(x => x.UserId == user2.Id);
+            favorisListe.RemoveAll(x => x.UserId == user2.Id);
+            userListe.Remove(user2);
+            Console.WriteLine("\n\ndeleted user2");
+            //}
+
+            Console.WriteLine("mediaListe: " + mediaListe.Count());
+            Console.WriteLine("userListe: " + userListe.Count());
+            Console.WriteLine("evalListe: " + evalListe.Count());
+            Console.WriteLine("favorisListe: " + favorisListe.Count());
+
+            // function removeEval(eval) {
+            evalListe.Remove(eval3);
+            Console.WriteLine("\n\ndeleted eval3");
+            //}
+
+            Console.WriteLine("mediaListe: " + mediaListe.Count());
+            Console.WriteLine("userListe: " + userListe.Count());
+            Console.WriteLine("evalListe: " + evalListe.Count());
+            Console.WriteLine("favorisListe: " + favorisListe.Count());
+
+            // function removeFav(fav) {
+            favorisListe.Remove(fav3);
+            Console.WriteLine("\n\ndeleted fav3");
+            //}*/
+
+            Console.WriteLine("mediaListe: " + mediaListe.Count());
+            Console.WriteLine("userListe: " + userListe.Count());
+            Console.WriteLine("evalListe: " + evalListe.Count());
+            Console.WriteLine("favorisListe: " + favorisListe.Count());
+
+            Console.WriteLine("\n\nGET COTE: media1");
+            Console.WriteLine(evalListe.Count > 0 ? (byte)Math.Round((double)(evalListe.Select(x => x.Cote).Aggregate((a, b) => a += b) / evalListe.Count)) : (byte)0);
+            
+            Console.WriteLine("\n\nseriliser tout");
+            File.WriteAllText(@$"{pathDossierSerial}\{pathMedias}", JsonConvert.SerializeObject(mediaListe, Formatting.Indented));
+            File.WriteAllText(@$"{pathDossierSerial}\{pathUtilisateurs}", JsonConvert.SerializeObject(userListe, Formatting.Indented));
+            File.WriteAllText(@$"{pathDossierSerial}\{pathEvaluations}", JsonConvert.SerializeObject(evalListe, Formatting.Indented));
+            File.WriteAllText(@$"{pathDossierSerial}\{pathFavoris}", JsonConvert.SerializeObject(favorisListe, Formatting.Indented));
+
+            List<Favoris> a = new List<Favoris>
+            {
+                new Favoris("a", "b"),
+                new Favoris("a", "b")
+            };
+            Console.WriteLine(JsonConvert.SerializeObject(a, Formatting.Indented));
+
+            Console.WriteLine("\n\nDÉseriliser tout");
             /*
-             * Liste Media
-             * Liste Utilisateur
+             * Liste MediaId
+             * Liste UserId
              * Liste Eval
              * Liste Favoris
              * 
              * 
-             * ajouter
+             * ajouter GOOD
+             * get GOOD
              * modifier
-             * supprimer Media/Utilisateur/Eval
-             * 
-            =&\727&78*/
+             * supprimer MediaId/UserId/Eval
+             * céréales mmmm :)
+             */
 
             Catalogue catalogue = new Catalogue();
             CatalogueUtilisateur catalogueUtilisateur = new CatalogueUtilisateur();
@@ -39,19 +157,19 @@ namespace S_tp1
 
             /*Utilitaire utilitaire = new Utilitaire(catalogue, catalogueUtilisateur, catalogueEvaluation);
 
-            Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait", "Path full", "Path image");
-            Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");
-            Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
-            Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait", "Path full", "Path image");
+            MediaId test = new MediaId("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait", "Path full", "Path image");
+            MediaId test2 = new MediaId("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");
+            MediaId test3 = new MediaId("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
+            MediaId test4 = new MediaId("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait", "Path full", "Path image");
 
             test.DateRealisation = 2198702198021980321;
             Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds());
             Console.WriteLine(test.DateRealisation);
             
 
-            Utilisateur felix = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
-            Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
-            Utilisateur lcb = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
+            UserId felix = new UserId("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
+            UserId maek = new UserId("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
+            UserId lcb = new UserId("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
 
             //affichage utilisateurs
             Console.WriteLine("=========================================================");
@@ -69,7 +187,7 @@ namespace S_tp1
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
 
-            Console.WriteLine("Tentative d'ajouter un media qui est déja dans le catalogue...\n");
+            Console.WriteLine("Tentative d'ajouter un mediaId qui est déja dans le catalogue...\n");
             catalogue.Ajouter(test4);
             Console.WriteLine();
 
@@ -89,22 +207,22 @@ namespace S_tp1
             Console.WriteLine();
 
             Console.WriteLine("sauvegarde/seréalisation...\n");
-            catalogue.Sauvegarder(pathMedias, pathCatalogue);
+            catalogue.Sauvegarder(pathMedias, pathDossierSerial);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs);
             catalogueEvaluation.Sauvegarder(pathEvaluations);
             Console.WriteLine();
 
             Console.WriteLine("Affichage des catalogues/listes");
-            Console.WriteLine($"Catalogue media:\n {catalogue} \n");
+            Console.WriteLine($"Catalogue mediaId:\n {catalogue} \n");
             Console.WriteLine($"Catalogue utilisateurs:\n {catalogueUtilisateur} \n");
             Console.WriteLine($"Catalogue evaluations:\n {catalogueEvaluation} \n");
 
 
-            Console.WriteLine("Suppression du catalogue media...");
+            Console.WriteLine("Suppression du catalogue mediaId...");
 
             catalogue.Supprimer();
 
-            Console.WriteLine($"Catalogue media:\n {catalogue} \n");
+            Console.WriteLine($"Catalogue mediaId:\n {catalogue} \n");
 
 
 

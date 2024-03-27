@@ -60,10 +60,10 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Supprime le media passé en paramètre du catalogue
+        /// Supprime le mediaId passé en paramètre du catalogue
         /// </summary>
-        /// <param name="media">L'objet media à supprimer</param>
-        /// <returns>True si le media a été supprimé, false si le media n'a pas été supprimé</returns>
+        /// <param name="media">L'objet mediaId à supprimer</param>
+        /// <returns>True si le mediaId a été supprimé, false si le mediaId n'a pas été supprimé</returns>
         public bool Supprimer(Media media)
         {
             bool isSupprime = false;
@@ -124,22 +124,7 @@ namespace S_tp1
         public bool Sauvegarder(string nomFichierSauvegarde, string path)
         {
             bool isSauvegarde = true;
-            try
-            {
-                File.WriteAllText(@$"{path}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
-            }
-            catch (DirectoryNotFoundException err)
-            {
-                //Todo -> Qu'est ce qu'on fait avec ca
-                Console.WriteLine("Dossier existe pas: " + err.Message);
-                
-            }
-            catch (Exception err)
-            {
-                //Todo -> Qu'est ce qu'on fait avec ca
-                Console.WriteLine("Erreur autre: " + err.Message);
-                
-            }
+            File.WriteAllText(@$"{path}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
             return isSauvegarde;
         }
 
@@ -147,7 +132,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            string retVal = "media: ";
+            string retVal = "mediaId: ";
             foreach (Media media in catalogue)
             {
                 retVal += $"{media.ToString()} \n\n";
@@ -180,11 +165,11 @@ namespace S_tp1
         /// Todo -> Est-ce qu'on en vraiment besoin ?
         /// Récupère un média à partir de son identifiant
         /// </summary>
-        /// <param name="id">l'indentifiantMedia du Media à récuprérer</param>
+        /// <param name="id">l'indentifiantMedia du MediaId à récuprérer</param>
         /// <returns>Le média coresspondant à l'identififant spécifié</returns>
         public Media GetMedia(string id)
         {   
-            return catalogue.Where(m => m.IdentifiantMedia == id).Count()>0 ? catalogue.Where(m => m.IdentifiantMedia == id).First() : null;
+            return catalogue.Where(m => m.Id == id).Count()>0 ? catalogue.Where(m => m.Id == id).First() : null;
         }
 
     }

@@ -1,35 +1,38 @@
 [
   {
-    "IdentifiantMedia": "Smooth Criminal_0",
-    "Type": 1,
-    "DateRealisation": 2198702198021980321,
-    "Duree": 10,
-    "Auteur": "Micheal Jackson",
-    "Producteur": "Micheal Jakson",
-    "Extrait": "Path extrait",
-    "Complet": "Path full",
-    "Image": "Path image"
+    "Id": "steawkc2_3",
+    "Nom": "steawkc2",
+    "Type": 2,
+    "DateRealisation": 1,
+    "Duree": 1,
+    "Auteur": "Auteur default",
+    "Producteur": "Productueur default",
+    "Extrait": "extrait_default",
+    "Complet": "complet_dfefault",
+    "Image": "img_def"
   },
   {
-    "IdentifiantMedia": "heart shaped box_1",
-    "Type": 3,
-    "DateRealisation": 11032,
-    "Duree": 120,
-    "Auteur": "Nirvana",
-    "Producteur": "Nirvana",
-    "Extrait": "Path extrait",
-    "Complet": "Path full",
-    "Image": "Path image"
+    "Id": "steawkc3_5",
+    "Nom": "steawkc3",
+    "Type": 2,
+    "DateRealisation": 1,
+    "Duree": 1,
+    "Auteur": "Auteur default",
+    "Producteur": "Productueur default",
+    "Extrait": "extrait_default",
+    "Complet": "complet_dfefault",
+    "Image": "img_def"
   },
   {
-    "IdentifiantMedia": "Imagine_2",
-    "Type": 10,
-    "DateRealisation": 10,
-    "Duree": 1120,
-    "Auteur": "John Lennon",
-    "Producteur": "John Lennon",
-    "Extrait": "Path extrait",
-    "Complet": "Path full",
-    "Image": "Path image"
+    "Id": "steawkc_1",
+    "Nom": "steawkc",
+    "Type": 2,
+    "DateRealisation": 1,
+    "Duree": 1,
+    "Auteur": "Auteur default",
+    "Producteur": "Productueur default",
+    "Extrait": "extrait_default",
+    "Complet": "complet_dfefault",
+    "Image": "img_def"
   }
 ]

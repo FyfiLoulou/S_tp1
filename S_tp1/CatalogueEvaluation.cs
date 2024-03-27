@@ -25,14 +25,14 @@ namespace S_tp1
         /// <param name="eval">L'évaluation à ajouter</param>
         /// <remarks>
         /// Cette fonction ajoute une évaluation dans la liste d'évaluations et met à jour l'objet média
-        /// et l'objet utilisateur avec la nouvelle évaluation.
+        /// et l'objet userId avec la nouvelle évaluation.
         /// </remarks>
-        public void AjouterEvaluation(Evaluation eval)
+        /*public void AjouterEvaluation(Evaluation eval)
         {
-            eval.Media.AjouterEvaluation(eval);
-            eval.Utilisateur.AjouterEvaluation(eval);
+            eval.MediaId.AjouterEvaluation(eval);
+            eval.UserId.AjouterEvaluation(eval);
             listeEvaluations.Add(eval);
-        }
+        }*/
 
         /// <summary>
         /// Lit une liste d'évaluations d'un fichier JSON, try catch non inclus
