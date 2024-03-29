@@ -33,12 +33,12 @@ namespace S_tp1
         [JsonConstructor]
         public Utilisateur(String pseudo, String motDePasse, String nom, String prenom, Role role)
         {
-            id = $"{pseudo}_{nombreIncremente++}";
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Nom = nom;
             Prenom = prenom;
             Role = role;
+            this.id = $"{Pseudo}_{nombreIncremente++}";
         }
 
 
@@ -100,7 +100,7 @@ namespace S_tp1
          */
         public override string ToString()
         {
-            return $"Identifiant unique : {this.getId()}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}\n";
+            return $"Identifiant unique : {this.getId()}\nPseudonyme : {pseudo}\nMot de Passe : {motDePasse}\nNom : {nom} \nPrenom : {prenom}\nRôle : {role}";
         }
 
 

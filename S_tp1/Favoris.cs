@@ -13,6 +13,12 @@ namespace S_tp1 {
             MediaId = idMedia;
         }
 
+        public Favoris(Utilisateur user, Media media)
+        {
+            UserId = user.getId();
+            MediaId = media.getId();
+        }
+
         public string UserId
         {
             get { return userId; }

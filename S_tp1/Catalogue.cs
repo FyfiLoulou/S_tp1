@@ -101,7 +101,7 @@ namespace S_tp1
             string retVal = "";
             foreach (Media media in catalogue)
             {
-                retVal += catalogue.ToString()+"\n\n";
+                retVal += media.ToString()+"\n\n";
             }
             return retVal;
         }

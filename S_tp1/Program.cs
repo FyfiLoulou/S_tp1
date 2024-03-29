@@ -18,7 +18,7 @@ namespace S_tp1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("TP1 d'application web\n");
+            Console.WriteLine("---- TP1 d'application web ----");
 
 
         /*string pathDossierSeriala = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
@@ -200,75 +200,61 @@ namespace S_tp1
             CatalogueEvaluation catalogueEvaluation = new CatalogueEvaluation();
             CatalogueFavoris catalogueFavoris = new CatalogueFavoris();
 
-
             Media test = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jakson", "Path extrait", "Path full", "Path image");
             Media test2 = new Media("heart shaped box", Types.ROCK, 11032, 120, "Nirvana", "Nirvana", "Path extrait", "Path full", "Path image");
             Media test3 = new Media("Imagine", Types.CLASSIQUE, 10, 1120, "John Lennon", "John Lennon", "Path extrait", "Path full", "Path image");
             Media test4 = new Media("Smooth Criminal", Types.POP, 1001032, 10, "Micheal Jackson", "Micheal Jackson", "Path extrait", "Path full", "Path image");
 
-            test.DateRealisation = 2198702198021980321;
-            Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds());
-            Console.WriteLine(test.DateRealisation);
-            
-
             Utilisateur felix = new Utilisateur("FB", "abc123", "Blanchette", "Félix", Role.TECHNICIEN);
             Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maëk", Role.ADMIN);
             Utilisateur lcb = new Utilisateur("LCB", "abc123", "Biron", "Louis-charles", Role.UTILISATEUR);
-
-            //affichage utilisateurs
-            Console.WriteLine("=========================================================");
-            Console.WriteLine("Affichage des utilisateurs:\n\n");
-            Console.WriteLine(felix.ToString() + "\n\n" + maek.ToString() + "\n\n" + lcb.ToString());
-            Console.WriteLine("=========================================================\n");
-
 
             Evaluation ev1 = new Evaluation(maek, test2, 100);
             Evaluation ev2 = new Evaluation(felix, test, 11);
             Evaluation ev3 = new Evaluation(felix, test3, 121);
             Evaluation ev4 = new Evaluation(lcb, test, 120);
 
+            Favoris fav1 = new Favoris(lcb, test3);
+            Favoris fav2 = new Favoris(felix, test);
+
+            Console.WriteLine("Ajout des media dans catalogue...\n");
             catalogue.Ajouter(test);
             catalogue.Ajouter(test2);
             catalogue.Ajouter(test3);
 
-            Console.WriteLine("Tentative d'ajouter un mediaId qui est déja dans le catalogue...\n");
-            catalogue.Ajouter(test4);
-            Console.WriteLine();
-
-            Console.WriteLine("Ajout des utilisateurs das la liste des utilisateurs...\n");
-
+            Console.WriteLine("Ajout des utilisateurs dans catalogue...\n");
             catalogueUtilisateur.Ajouter(felix);
             catalogueUtilisateur.Ajouter(lcb);
             catalogueUtilisateur.Ajouter(maek);
-            Console.WriteLine();
 
-            Console.WriteLine("Ajout des evaluations dans la liste des evaluations...\n");
+            Console.WriteLine("Ajout des evaluations dans catalogue...\n");
+            catalogueEvaluation.Ajouter(ev1);
+            catalogueEvaluation.Ajouter(ev2);
+            catalogueEvaluation.Ajouter(ev3);
+            catalogueEvaluation.Ajouter(ev4);
 
-            catalogueEvaluation.AjouterEvaluation(ev1);
-            catalogueEvaluation.AjouterEvaluation(ev2);
-            catalogueEvaluation.AjouterEvaluation(ev3);
-            catalogueEvaluation.AjouterEvaluation(ev4);
-            Console.WriteLine();
+            Console.WriteLine("Ajout des evaluations dans catalogue...\n");
+            catalogueFavoris.Ajouter(fav1);
+            catalogueFavoris.Ajouter(fav2);
+
+            Console.WriteLine("---Affichage des catalogues: ---");
+            Console.WriteLine($"CatalogueMedia:\n {catalogue} \n");
+            Console.WriteLine($"CatalogueUtilisateurs:\n {catalogueUtilisateur} \n");
+            Console.WriteLine($"CatalogueEvaluations:\n {catalogueEvaluation} \n");
+            Console.WriteLine($"CatalogueFavoris:\n {catalogueFavoris} \n");
+            Console.WriteLine($"medias:{catalogue.GetCatalogue().Count}, users:{catalogueUtilisateur.GetCatalogue().Count}, evals:{catalogueEvaluation.GetCatalogue().Count}, favs:{catalogueFavoris.GetCatalogue().Count}");
 
             Console.WriteLine("sauvegarde/seréalisation...\n");
             catalogue.Sauvegarder(pathMedias, pathDossierSerial);
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
             catalogueEvaluation.Sauvegarder(pathEvaluations, pathDossierSerial);
-            Console.WriteLine();
+            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
 
-            Console.WriteLine("Affichage des catalogues/listes");
-            Console.WriteLine($"Catalogue mediaId:\n {catalogue} \n");
-            Console.WriteLine($"Catalogue utilisateurs:\n {catalogueUtilisateur} \n");
-            Console.WriteLine($"Catalogue evaluations:\n {catalogueEvaluation} \n");
-
-
-            Console.WriteLine("Suppression du catalogue mediaId...");
-
+            Console.WriteLine("Clear des catalogues...\n");
             catalogue.Supprimer();
-
-            Console.WriteLine($"Catalogue mediaId:\n {catalogue} \n");
-
-
+            catalogueUtilisateur.Supprimer();
+            catalogueEvaluation.Supprimer();
+            catalogueFavoris.Supprimer();
 
             Console.WriteLine("déseréalisation...\n");
             catalogue.Ajouter(pathMedias, pathDossierSerial);
@@ -276,11 +262,12 @@ namespace S_tp1
             catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
-            Console.WriteLine("Affichage apres déserialisation");
-            Console.WriteLine(catalogue.ToString());
-            Console.WriteLine(catalogueUtilisateur.ToString());
-            Console.WriteLine(catalogueEvaluation.ToString());
-            Console.WriteLine(catalogueFavoris.ToString());
+            Console.WriteLine("--- Affichage des catalogues apres déserialisation: ---");
+            Console.WriteLine($"CatalogueMedia:\n {catalogue} \n");
+            Console.WriteLine($"CatalogueUtilisateurs:\n {catalogueUtilisateur} \n");
+            Console.WriteLine($"CatalogueEvaluations:\n {catalogueEvaluation} \n");
+            Console.WriteLine($"CatalogueFavoris:\n {catalogueFavoris} \n");
+            Console.WriteLine($"medias:{catalogue.GetCatalogue().Count}, users:{catalogueUtilisateur.GetCatalogue().Count}, evals:{catalogueEvaluation.GetCatalogue().Count}, favs:{catalogueFavoris.GetCatalogue().Count}");
         }
     }
 }

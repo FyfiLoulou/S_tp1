@@ -1,21 +1,21 @@
 [
   {
-    "UserId": "ML_1",
+    "UserId": "pseudo_1",
     "MediaId": "heart shaped box_1",
     "Cote": 100
   },
   {
-    "UserId": "FB_0",
+    "UserId": "pseudo_0",
     "MediaId": "Smooth Criminal_0",
     "Cote": 11
   },
   {
-    "UserId": "FB_0",
+    "UserId": "pseudo_0",
     "MediaId": "Imagine_2",
     "Cote": 100
   },
   {
-    "UserId": "LCB_2",
+    "UserId": "pseudo_2",
     "MediaId": "Smooth Criminal_0",
     "Cote": 100
   }

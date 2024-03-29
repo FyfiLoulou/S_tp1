@@ -6,8 +6,6 @@ namespace S_tp1
     public class CatalogueEvaluation
     {
 
-        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
-
         private List<Evaluation> listeEvaluations;
 
         public CatalogueEvaluation()
@@ -26,13 +24,13 @@ namespace S_tp1
             return listeEvaluations.Remove(eval);
         }
 
-        public List<Evaluation> GetEvaluations() { return listeEvaluations; }
+        public List<Evaluation> GetCatalogue() { return listeEvaluations; }
 
         /// <summary>
         /// Ajoute une évaluation dans la liste d'évaluations
         /// </summary>
         /// <param name="eval">L'évaluation à ajouter</param>
-        public void AjouterEvaluation(Evaluation eval)
+        public void Ajouter(Evaluation eval)
         {
             listeEvaluations.Add(eval);
         }
@@ -67,7 +65,7 @@ namespace S_tp1
             {
                 listeEvaluations = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception e)
+            catch (Exception err)
             {
                 ok = false;
             }
@@ -106,7 +104,7 @@ namespace S_tp1
             string retVal = "";
             foreach (Evaluation eval in listeEvaluations)
             {
-                retVal += listeEvaluations.ToString() + "\n\n";
+                retVal += eval.ToString() + "\n\n";
             }
             return retVal;
         }

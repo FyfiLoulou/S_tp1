@@ -1,8 +1,8 @@
 [
   {
-    "Nom": null,
+    "Nom": "Smooth Criminal",
     "Type": 1,
-    "DateRealisation": 1,
+    "DateRealisation": 1001032,
     "Duree": 10,
     "Auteur": "Micheal Jackson",
     "Producteur": "Micheal Jakson",
@@ -11,7 +11,7 @@
     "Image": "img_def"
   },
   {
-    "Nom": null,
+    "Nom": "heart shaped box",
     "Type": 3,
     "DateRealisation": 11032,
     "Duree": 120,
@@ -22,23 +22,12 @@
     "Image": "img_def"
   },
   {
-    "Nom": null,
+    "Nom": "Imagine",
     "Type": 10,
     "DateRealisation": 10,
     "Duree": 1120,
     "Auteur": "John Lennon",
     "Producteur": "John Lennon",
-    "Extrait": "extrait_default",
-    "Complet": "complet_dfefault",
-    "Image": "img_def"
-  },
-  {
-    "Nom": null,
-    "Type": 1,
-    "DateRealisation": 1001032,
-    "Duree": 10,
-    "Auteur": "Micheal Jackson",
-    "Producteur": "Micheal Jackson",
     "Extrait": "extrait_default",
     "Complet": "complet_dfefault",
     "Image": "img_def"

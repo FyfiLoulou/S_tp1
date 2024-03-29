@@ -46,8 +46,7 @@ namespace S_tp1
         [JsonConstructor]
         public Media(string nom, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
-
-            this.id = $"{nom}_{nombreIncremente++}";
+            Nom = nom;
             Type = type; 
             DateRealisation = dateRealisation;
             Duree = duree;
@@ -56,6 +55,7 @@ namespace S_tp1
             Complet = complet;
             Extrait = extrait;
             Image = image;
+            this.id = $"{nom}_{nombreIncremente++}";
         }
 
 
@@ -168,7 +168,7 @@ namespace S_tp1
 
         public override string ToString()
         {
-            return $"id:{this.getId()}\n type:{this.Type}\n complet:{this.Complet}\n image:{this.Image}\n Name: {this.Nom}\n Cote: {/*this.GetCote()*/1}/100\n Date de realisation: {this.DateRealisation}\n Duree: {this.Duree}\n Auteur: {this.Auteur}\n Producteur: {this.Producteur}\n";
+            return $"id:{this.getId()}\n nom:{this.Nom}\n type:{this.Type}\n complet:{this.Complet}\n image:{this.Image}\n Name: {this.Nom}\n Cote: {/*this.GetCote()*/"TODO maybe"}/100\n Date de realisation: {this.DateRealisation}\n Duree: {this.Duree}\n Auteur: {this.Auteur}\n Producteur: {this.Producteur}";
         }
 
     }

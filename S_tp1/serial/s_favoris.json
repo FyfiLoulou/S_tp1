@@ -1,14 +1,10 @@
 [
   {
-    "UserId": "user2_1",
-    "MediaId": "m1_1"
+    "UserId": "pseudo_2",
+    "MediaId": "Imagine_2"
   },
   {
-    "UserId": "user2_2",
-    "MediaId": "m3_2"
-  },
-  {
-    "UserId": "user1_0",
-    "MediaId": "m1_0"
+    "UserId": "pseudo_0",
+    "MediaId": "Smooth Criminal_0"
   }
 ]

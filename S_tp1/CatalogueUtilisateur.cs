@@ -25,7 +25,7 @@ namespace S_tp1
         }
 
 
-        public List<Utilisateur> GetCatalogueUtilisateurs() { return listeUtilisateurs; }
+        public List<Utilisateur> GetCatalogue() { return listeUtilisateurs; }
 
         /// <summary>
         /// Lit un fichier JSON et retourne une liste d'objet userId
@@ -77,7 +77,6 @@ namespace S_tp1
             {
                 retVal += user.ToString() + "\n\n";
             }
-            Console.WriteLine("asdasdasdasdsa");
             return retVal;
         }
 

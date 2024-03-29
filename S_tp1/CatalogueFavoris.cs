@@ -60,7 +60,7 @@ namespace S_tp1
             string retVal = "";
             foreach (Favoris fav in listeFav)
             {
-                retVal += listeFav.ToString() + "\n\n";
+                retVal += fav.ToString() + "\n\n";
             }
             return retVal;
             //return listeFav.Select(x => x.ToString()).Aggregate((a, b) => a += b + "\n\n");
@@ -75,7 +75,7 @@ namespace S_tp1
 
         /// <summary>Permet d'obtenir la liste des favoris</summary>
         /// <returns>La liste des favoris</returns>
-        public List<Favoris> GetCatalogueFavoris() { return listeFav; }
+        public List<Favoris> GetCatalogue() { return listeFav; }
 
 
         public void Supprimer() {
