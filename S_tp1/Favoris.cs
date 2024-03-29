@@ -19,6 +19,11 @@ namespace S_tp1 {
             MediaId = media.getId();
         }
 
+        public Favoris() : this($"defautUser", "defautMedia")
+        {
+
+        }
+
         public string UserId
         {
             get { return userId; }

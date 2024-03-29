@@ -238,10 +238,10 @@ namespace S_tp1
             catalogueFavoris.Ajouter(fav2);
 
             Console.WriteLine("---Affichage des catalogues: ---");
-            Console.WriteLine($"CatalogueMedia:\n {catalogue} \n");
-            Console.WriteLine($"CatalogueUtilisateurs:\n {catalogueUtilisateur} \n");
-            Console.WriteLine($"CatalogueEvaluations:\n {catalogueEvaluation} \n");
-            Console.WriteLine($"CatalogueFavoris:\n {catalogueFavoris} \n");
+            Console.WriteLine($"CatalogueMedia:\n{catalogue}\n");
+            Console.WriteLine($"CatalogueUtilisateurs:\n{catalogueUtilisateur}\n");
+            Console.WriteLine($"CatalogueEvaluations:\n{catalogueEvaluation}\n");
+            Console.WriteLine($"CatalogueFavoris:\n{catalogueFavoris}\n");
             Console.WriteLine($"medias:{catalogue.GetCatalogue().Count}, users:{catalogueUtilisateur.GetCatalogue().Count}, evals:{catalogueEvaluation.GetCatalogue().Count}, favs:{catalogueFavoris.GetCatalogue().Count}");
 
             Console.WriteLine("sauvegarde/seréalisation...\n");
@@ -263,10 +263,10 @@ namespace S_tp1
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
             Console.WriteLine("--- Affichage des catalogues apres déserialisation: ---");
-            Console.WriteLine($"CatalogueMedia:\n {catalogue} \n");
-            Console.WriteLine($"CatalogueUtilisateurs:\n {catalogueUtilisateur} \n");
-            Console.WriteLine($"CatalogueEvaluations:\n {catalogueEvaluation} \n");
-            Console.WriteLine($"CatalogueFavoris:\n {catalogueFavoris} \n");
+            Console.WriteLine($"CatalogueMedia:\n{catalogue}\n");
+            Console.WriteLine($"CatalogueUtilisateurs:\n{catalogueUtilisateur}\n");
+            Console.WriteLine($"CatalogueEvaluations:\n{catalogueEvaluation}\n");
+            Console.WriteLine($"CatalogueFavoris:\n{catalogueFavoris}\n");
             Console.WriteLine($"medias:{catalogue.GetCatalogue().Count}, users:{catalogueUtilisateur.GetCatalogue().Count}, evals:{catalogueEvaluation.GetCatalogue().Count}, favs:{catalogueFavoris.GetCatalogue().Count}");
         }
     }

@@ -21,6 +21,11 @@ namespace S_tp1 {
             Cote = cote;
         }
 
+        public Evaluation() : this($"defautUser", "defautMedia", 1)
+        {
+
+        }
+
         public string UserId
         {
             get { return userId; }

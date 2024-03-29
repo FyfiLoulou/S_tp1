@@ -16,9 +16,7 @@ namespace S_tp1
 
         /// <summary>Lit un fichier JSON et retourne une liste d'objet userId</summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier à lire</param>
-        /// <returns>Une liste d'objet userId</returns>
-        /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
-        /// <exception cref="Exception"> Lancée en cas d'erreur inattendue </exception>
+        /// <returns>si la déserialisation à fonctionner</returns>
         public bool Ajouter(string nomFichierSauvegarde, string pathSource)
         {
             bool ok = true;
