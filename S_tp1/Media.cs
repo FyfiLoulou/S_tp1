@@ -55,7 +55,7 @@ namespace S_tp1
             Complet = complet;
             Extrait = extrait;
             Image = image;
-            this.id = $"{nom}_{nombreIncremente++}";
+            this.id = $"{Nom}_{nombreIncremente++}";
         }
 
 
@@ -96,10 +96,10 @@ namespace S_tp1
             return this.id;
         }
 
-        public string Nom// TODO VALIDATION 
+        public string Nom
         {
             get { return nom; }
-            set { this.nom = value; }
+            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z.0-9]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : "MEDIA_DEFAUT"; }
         }
         public Types Type
         {
