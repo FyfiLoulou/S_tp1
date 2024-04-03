@@ -8,7 +8,7 @@ namespace S_tp1
     public class Media
     {
         [JsonIgnore]
-        public const string ID_DEFAULT = "mediaId default";
+        public const string NOM_DEFAULT = "nom default";
         [JsonIgnore]
         public const Types TYPE_DEFAULT = Types.JAZZ;
         [JsonIgnore]
@@ -20,11 +20,11 @@ namespace S_tp1
         [JsonIgnore]
         public const string PRODUCTEUR_DEFAULT = "Productueur default";
         [JsonIgnore]
-        public const string EXTRAIT_DEFAULT = "extrait_default";
+        public const string EXTRAIT_DEFAULT = "ressources/extraits/default.mp3";
         [JsonIgnore]
-        public const string COMPLET_DEFAULT = "complet_dfefault";
+        public const string COMPLET_DEFAULT = "ressources/complets/default.mp3";
         [JsonIgnore]
-        public const string IMAGE_DEFAULT = "img_def";
+        public const string IMAGE_DEFAULT = "ressources/images/default.png";
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
@@ -64,7 +64,7 @@ namespace S_tp1
             this.Nom = nom;
         }
 
-        //{ID_DEFAULT}_{nombreIncremente}", 
+        //{NOM_DEFAULT}_{nombreIncremente}", 
         public Media() : this($"nom default", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
 
@@ -77,7 +77,7 @@ namespace S_tp1
             if (obj == null || !(obj is Media))
                 return false;
             else
-                return this.Nom == ((Media)obj).Nom;
+                return this.getId() == ((Media)obj).getId();
         }
 
         public override int GetHashCode()
@@ -99,7 +99,7 @@ namespace S_tp1
         public string Nom
         {
             get { return nom; }
-            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z.0-9]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : "MEDIA_DEFAUT"; }
+            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z._ 0-9]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
         }
         public Types Type
         {
@@ -136,19 +136,19 @@ namespace S_tp1
         public string Extrait
         {
             get { return extrait; }
-            set { this.extrait = value.IndexOf(".") >= 0 ? value : EXTRAIT_DEFAULT;}
+            set { this.extrait = value.IndexOf(".mp3") >= 0 ? value : EXTRAIT_DEFAULT;}
         }
 
         public string Complet
         {
             get { return complet; }
-            set {this.complet = value.IndexOf(".") >= 0 ? value : COMPLET_DEFAULT; }
+            set {this.complet = value.IndexOf(".mp3") >= 0 ? value : COMPLET_DEFAULT; }
         }
 
         public string Image
         {
             get { return image; }
-            set { this.image = value.IndexOf(".") >= 0 ? value : IMAGE_DEFAULT;}
+            set { this.image = value.IndexOf(".png") >= 0 ? value : IMAGE_DEFAULT;}
         }
 
 

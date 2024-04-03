@@ -6,13 +6,13 @@ namespace S_tp1
     public class Utilisateur
     {
         [JsonIgnore]
-        public const string PASSWORD_PAR_DEFAUT_PAS_BON = "FélixAimeLesPatatesPlainsFULL3";
+        public const string PASSWORD_PAR_DEFAUT_PAS_BON = "mot_de_passe_default";
         [JsonIgnore]
-        public const string PSEUDO_DEFAULT = "pseudo";
+        public const string PSEUDO_DEFAULT = "pseudoDefaut";
         [JsonIgnore]
-        public const string NOM_DEFAULT = "nom";
+        public const string NOM_DEFAULT = "nomDefaut";
         [JsonIgnore]
-        public const string PRENOM_DEFAULT = "prenom";
+        public const string PRENOM_DEFAULT = "prenomDefaut";
         [JsonIgnore]
         public const Role ROLE_DEFAULT = Role.UTILISATEUR;
 
@@ -64,7 +64,7 @@ namespace S_tp1
         {
             get { return pseudo; }
             // Pseudo doit contenir seulement des chiffres et des lettres et doit avoir une longueur minimale de 5 caractères et une longueur maximale de 50 caractère
-            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
+            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]+").IsMatch(value) && !new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
         }
 
         public string MotDePasse
@@ -79,13 +79,13 @@ namespace S_tp1
         public string Nom
         {
             get { return nom; }
-            set { nom = value.Length > 1 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) ? value : NOM_DEFAULT; }
+            set { nom = value.Length > 1 && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : NOM_DEFAULT; }
         }
 
         public string Prenom
         {
             get { return prenom; }
-            set { prenom = value.Length > 1 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PRENOM_DEFAULT; }
+            set { prenom = value.Length > 1 && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PRENOM_DEFAULT; }
         }
 
         public Role Role
