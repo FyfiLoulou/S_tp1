@@ -32,8 +32,9 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -43,41 +44,42 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="880.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <Avatar layoutX="590.0" layoutY="13.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <image>
-                  <Image url="@../images/accueilNonConnecté.jpg" />
+                  <Image url="@../images/user.png" />
+               </image>
+            </Avatar>
+            <Button layoutX="427.0" layoutY="16.0" mnemonicParsing="false" text="Déconnexion : Boby Joe" />
+            <ImageView fitHeight="54.0" fitWidth="61.0" layoutX="6.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="824.0" layoutY="677.0" mnemonicParsing="false" scaleX="2.5" scaleY="2.5" text="S'inscrire" />
-            <Button layoutX="353.0" layoutY="677.0" mnemonicParsing="false" scaleX="2.5" scaleY="2.5" text="Se connecter" />
-            <Text fill="WHITE" layoutX="415.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tubercule Tune">
+            <Text layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tubercule Tune">
                <font>
-                  <Font size="69.0" />
+                  <Font name="Felix Titling" size="25.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="515.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travail pratique 2">
+            <Text layoutX="215.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tous les médias">
                <font>
-                  <Font size="35.0" />
-               </font></Text>
-            <Text fill="WHITE" layoutX="566.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Musiques">
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="11.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes favoris(lien)">
                <font>
-                  <Font size="35.0" />
-               </font></Text>
-            <Text fill="WHITE" layoutX="163.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Services disponibles pour le moment dans votre application Web">
-               <font>
-                  <Font size="35.0" />
-               </font></Text>
-            <TextField layoutX="782.0" layoutY="372.0" promptText="Nom de famille" scaleX="2.5" scaleY="2.5" />
-            <TextField layoutX="323.0" layoutY="372.0" promptText="Identifiant_unique" scaleX="2.5" scaleY="2.5">
-               <font>
-                  <Font size="15.0" />
-               </font></TextField>
-            <TextField layoutX="782.0" layoutY="460.0" promptText="Pseudo" scaleX="2.5" scaleY="2.5" />
-            <TextField layoutX="323.0" layoutY="460.0" promptText="Mot de passe" scaleX="2.5" scaleY="2.5" />
-            <TextField layoutX="782.0" layoutY="542.0" promptText="Mot de passe" scaleX="2.5" scaleY="2.5" />
-            <TextField layoutX="782.0" layoutY="307.0" promptText="Prénom" scaleX="2.5" scaleY="2.5" />
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="239.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Logo musique] nom musique..." wrappingWidth="221.61865234375" />
+            <Text layoutX="239.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Logo musique] nom musique..." wrappingWidth="221.61865234375" />
+            <Text layoutX="239.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Logo musique] nom musique..." wrappingWidth="221.61865234375" />
+            <Text layoutX="239.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Logo musique] nom musique..." wrappingWidth="221.61865234375" />
+            <Text layoutX="239.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Logo musique] nom musique..." wrappingWidth="221.61865234375" />
          </children>
     </AnchorPane>
   </children>

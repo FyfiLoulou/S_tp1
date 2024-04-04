@@ -48,8 +48,8 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="880.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="304.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="332.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="242.0" layoutY="383.0" stroke="BLACK" strokeType="INSIDE" width="860.0" />
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="270.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
                <image>
                   <Image url="@../images/logo_musiques/crow%20song.jpg" />
                </image>
@@ -75,46 +75,51 @@
             </Text>
             <Button layoutX="484.0" layoutY="128.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Tous les médias" textFill="RED" />
             <Button layoutX="725.0" layoutY="128.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Mes favoris" textFill="RED" />
-            <Text layoutX="460.0" layoutY="444.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Crow song" />
-            <Text layoutX="668.0" layoutY="446.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Sanguinarius" />
-            <Text layoutX="949.0" layoutY="446.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:00" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="304.0" layoutY="505.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="332.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
+            <Text layoutX="398.0" layoutY="439.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Crow song" />
+            <Text layoutX="606.0" layoutY="441.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Sanguinarius" />
+            <Text layoutX="887.0" layoutY="441.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:00" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="242.0" layoutY="500.0" stroke="BLACK" strokeType="INSIDE" width="860.0" />
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="270.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
                <image>
                   <Image url="@../images/logo_musiques/megalodon.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="459.0" layoutY="562.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Megalodon" />
-            <Text layoutX="669.0" layoutY="562.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Jarvis9999" />
-            <Text layoutX="938.0" layoutY="562.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18:55" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="304.0" layoutY="624.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="334.0" layoutY="657.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
+            <Text layoutX="397.0" layoutY="557.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Megalodon" />
+            <Text layoutX="607.0" layoutY="557.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Jarvis9999" />
+            <Text layoutX="876.0" layoutY="557.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18:55" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="242.0" layoutY="619.0" stroke="BLACK" strokeType="INSIDE" width="860.0" />
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="272.0" layoutY="652.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
                <image>
                   <Image url="@../images/logo_musiques/shiver.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="440.0" layoutY="682.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Shiver" />
-            <Text layoutX="669.0" layoutY="679.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="False noise" />
-            <Text layoutX="949.0" layoutY="689.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:33" />
-            <ScrollBar layoutX="1041.0" layoutY="262.0" max="10.0" orientation="VERTICAL" prefHeight="608.0" prefWidth="16.0" value="3.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="304.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="304.0" layoutY="744.0" stroke="BLACK" strokeType="INSIDE" width="712.0" />
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="334.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
+            <Text layoutX="378.0" layoutY="677.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Shiver" />
+            <Text layoutX="607.0" layoutY="674.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="False noise" />
+            <Text layoutX="887.0" layoutY="684.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:33" />
+            <ScrollBar layoutX="1108.0" layoutY="264.0" max="7.0" orientation="VERTICAL" prefHeight="608.0" prefWidth="16.0" value="2.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="242.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="860.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffedd4" height="105.0" layoutX="242.0" layoutY="739.0" stroke="BLACK" strokeType="INSIDE" width="860.0" />
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="272.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
                <image>
                   <Image url="@../images/logo_musiques/pointX3.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="334.0" layoutY="777.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="272.0" layoutY="772.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0">
                <image>
                   <Image url="@../images/logo_musiques/You%20Will%20Find%20Your%20Way%20Home%20Safely.png" />
                </image>
             </ImageView>
-            <Text layoutX="436.0" layoutY="327.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="..." />
-            <Text layoutX="465.0" layoutY="799.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="You will find your way h..." wrappingWidth="78.0" />
-            <Text layoutX="668.0" layoutY="807.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Cacola" />
-            <Text layoutX="663.0" layoutY="333.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Cacola" />
-            <Text layoutX="942.0" layoutY="333.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20:00" />
-            <Text layoutX="941.0" layoutY="807.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21:47" />
+            <Text layoutX="374.0" layoutY="322.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="..." />
+            <Text layoutX="403.0" layoutY="794.0" scaleX="2.5" scaleY="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="You will find your way h..." wrappingWidth="78.0" />
+            <Text layoutX="606.0" layoutY="802.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Cacola" />
+            <Text layoutX="601.0" layoutY="328.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Cacola" />
+            <Text layoutX="880.0" layoutY="328.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20:00" />
+            <Text layoutX="879.0" layoutY="802.0" scaleX="2.0" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21:47" />
+            <Button layoutX="1006.0" layoutY="302.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Retirer" />
+            <Button layoutX="1006.0" layoutY="419.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Retirer" />
+            <Button layoutX="1006.0" layoutY="538.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Retirer" />
+            <Button layoutX="1006.0" layoutY="657.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Retirer" />
+            <Button layoutX="1006.0" layoutY="777.0" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Retirer" />
          </children>
     </AnchorPane>
   </children>
