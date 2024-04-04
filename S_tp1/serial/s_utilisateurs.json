@@ -1,26 +1,23 @@
 [
   {
-    "Id": "asdasda332_3",
-    "Pseudo": "asdasda332",
-    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
-    "Nom": "nom",
-    "Prenom": "prenom",
-    "Role": 0
-  },
-  {
-    "Id": "asdasda12_5",
-    "Pseudo": "asdasda12",
-    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
-    "Nom": "nom",
-    "Prenom": "prenom",
-    "Role": 0
-  },
-  {
-    "Id": "pseudo_1",
     "Pseudo": "pseudo",
     "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
-    "Nom": "nom",
-    "Prenom": "prenom",
+    "Nom": "Blanchette",
+    "Prenom": "Félix",
+    "Role": 1
+  },
+  {
+    "Pseudo": "pseudo",
+    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
+    "Nom": "Biron",
+    "Prenom": "Louis-charles",
     "Role": 0
+  },
+  {
+    "Pseudo": "pseudo",
+    "MotDePasse": "FélixAimeLesPatatesPlainsFULL3",
+    "Nom": "Lorman",
+    "Prenom": "Maëk",
+    "Role": 2
   }
 ]

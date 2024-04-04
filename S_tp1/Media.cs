@@ -8,7 +8,7 @@ namespace S_tp1
     public class Media
     {
         [JsonIgnore]
-        public const string ID_DEFAULT = "mediaId default";
+        public const string NOM_DEFAULT = "nom default";
         [JsonIgnore]
         public const Types TYPE_DEFAULT = Types.JAZZ;
         [JsonIgnore]
@@ -20,16 +20,18 @@ namespace S_tp1
         [JsonIgnore]
         public const string PRODUCTEUR_DEFAULT = "Productueur default";
         [JsonIgnore]
-        public const string EXTRAIT_DEFAULT = "extrait_default";
+        public const string EXTRAIT_DEFAULT = "ressources/extraits/default.mp3";
         [JsonIgnore]
-        public const string COMPLET_DEFAULT = "complet_dfefault";
+        public const string COMPLET_DEFAULT = "ressources/complets/default.mp3";
         [JsonIgnore]
-        public const string IMAGE_DEFAULT = "img_def";
+        public const string IMAGE_DEFAULT = "ressources/images/default.png";
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
+        [JsonIgnore]
         private string id;
+
         private string nom;
         private Types type;
         private long dateRealisation;
@@ -44,8 +46,7 @@ namespace S_tp1
         [JsonConstructor]
         public Media(string nom, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
-
-            this.id = new Regex("_[0-9]$").IsMatch(nom) ? nom : $"{nom}_{nombreIncremente++}";
+            Nom = nom;
             Type = type; 
             DateRealisation = dateRealisation;
             Duree = duree;
@@ -54,16 +55,16 @@ namespace S_tp1
             Complet = complet;
             Extrait = extrait;
             Image = image;
+            this.id = $"{Nom}_{nombreIncremente++}";
         }
 
 
         public Media(string nom) : this(nom, TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
-            this.id = $"{nom}_{nombreIncremente++}";
             this.Nom = nom;
         }
 
-        //{ID_DEFAULT}_{nombreIncremente}", 
+        //{NOM_DEFAULT}_{nombreIncremente}", 
         public Media() : this($"nom default", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
 
@@ -76,12 +77,12 @@ namespace S_tp1
             if (obj == null || !(obj is Media))
                 return false;
             else
-                return this.GetNom() == ((Media)obj).GetNom();
+                return this.getId() == ((Media)obj).getId();
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, this.GetNom());
+            return HashCode.Combine(this.getId(), this.Nom);
         }
 
         // redéfinition des opérateurs
@@ -90,16 +91,15 @@ namespace S_tp1
         public static bool operator !=(Media m1, Media m2) => !m1.Equals(m2);
 
         //getters setter
-        public string Id
+        public string getId()
         {
-            get { return id; }
-            set { }
+            return this.id;
         }
 
-        public string Nom// TODO VALIDATION 
+        public string Nom
         {
             get { return nom; }
-            set { this.nom = value; }
+            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z._ 0-9]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
         }
         public Types Type
         {
@@ -121,7 +121,6 @@ namespace S_tp1
             set { this.duree = value>0 ? value : DUREE_DEFAULT; }
         }
 
-
         public string Auteur
         {
             get { return auteur; }
@@ -137,21 +136,19 @@ namespace S_tp1
         public string Extrait
         {
             get { return extrait; }
-            set { this.extrait = value.IndexOf(".") >= 0 ? value : EXTRAIT_DEFAULT;}
+            set { this.extrait = value.IndexOf(".mp3") >= 0 ? value : EXTRAIT_DEFAULT;}
         }
 
         public string Complet
         {
             get { return complet; }
-            set {
-                Console.WriteLine(this); 
-                this.complet = value.IndexOf(".") >= 0 ? value : COMPLET_DEFAULT; }
+            set {this.complet = value.IndexOf(".mp3") >= 0 ? value : COMPLET_DEFAULT; }
         }
 
         public string Image
         {
             get { return image; }
-            set { this.image = value.IndexOf(".") >= 0 ? value : IMAGE_DEFAULT;}
+            set { this.image = value.IndexOf(".png") >= 0 ? value : IMAGE_DEFAULT;}
         }
 
 
@@ -168,11 +165,10 @@ namespace S_tp1
         /// Récupère le nom de l'objet média à partir de son identifiant unique
         /// </summary>
         /// <returns>Le nom de l'objet média extrait de son identifiant. Si l'identitfant n'est pas défini, retourne "Nom non défini"</returns>
-        public string GetNom() { return this.id?.Split("_")[0] ?? "'Nom non définit'"; }
 
         public override string ToString()
         {
-            return $"id: {this.Id}\n type:{this.Type}, complet:{this.extrait}, image:{this.Image},  Name: {this.GetNom()}\n Type: {this.type}\nCote: {/*this.GetCote()*/1}/100\n  Date de realisation: {this.dateRealisation}\n Duree: {this.duree}\n Auteur: {this.auteur}\n Producteur: {this.producteur}\n Path: {this.complet}\n";
+            return $"id:{this.getId()}\n nom:{this.Nom}\n type:{this.Type}\n complet:{this.Complet}\n image:{this.Image}\n Name: {this.Nom}\n Cote: {/*this.GetCote()*/"TODO maybe"}/100\n Date de realisation: {this.DateRealisation}\n Duree: {this.Duree}\n Auteur: {this.Auteur}\n Producteur: {this.Producteur}";
         }
 
     }

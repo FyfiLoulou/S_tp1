@@ -14,6 +14,18 @@ namespace S_tp1 {
             Cote = cote;
         }
 
+        public Evaluation(Utilisateur user, Media media, byte cote)
+        {
+            UserId = user.getId();
+            MediaId = media.getId();
+            Cote = cote;
+        }
+
+        public Evaluation() : this($"defautUser", "defautMedia", 1)
+        {
+
+        }
+
         public string UserId
         {
             get { return userId; }

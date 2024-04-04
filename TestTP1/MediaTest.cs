@@ -14,44 +14,35 @@ namespace TestTP1
 
         Catalogue catalogue;
         Media media1;
-        Media media2;
+        Media media11;
         Media media3;
+        Media mediaVide;
+        Media mediaConstructeur1;
 
+        [SetUp]
         public void Setup()
         {
             catalogue = new Catalogue();
+            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait.mp3", "complet.mp3", "image.png");
+            media11 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait.mp3", "complet.mp3", "image.png");
+            media3 = new Media("media3", Types.ROCK, 1, 1, "felix", "maek", "extrait.mp3", "complet.mp3", "image.png");
+            mediaVide = new Media();
+            mediaConstructeur1 = new Media("test");
         }
 
         [Test]
-        public void etantDonne2mediaPareils_quandEgalite_alorsMediaEgaux() {
-            // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-            media2 = new Media("media2", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-
-            // action
-            bool paspareil = media1 == media2;
-
-            // assertion
-            Assert.That(paspareil, Is.False);
-
+        public void égalité() {
+            Assert.That(media1 == media1, Is.True);
         }
 
         [Test]
-        public void etantDonne2mediaPasPareils_quandEgalite_alorsMediaNonEgaux()
+        public void pasÉgalité()
         {
-            // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-            media3 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-
-            // action
-            bool pareil = media1 == media3;
-
-            // assertion
-            Assert.That(pareil, Is.True);
+            Assert.That(media1 != media3, Is.True);
         }
 
         [Test]
-        public void etantDonneMedia_quandToString_alorsRetourneBonString()
+        public void toString()
         {
             // acteurs
             media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
@@ -61,99 +52,89 @@ namespace TestTP1
 
             // assertion
             Console.WriteLine(toStringVal);
+            Assert.That(toStringVal.GetTypeCode(), Is.EqualTo(TypeCode.String));
         }
 
         [Test]
-        public void etantDonneComplet_quandGetSetComplet_alorsRetourneBonComplet()
+        public void setNomBon()
         {
-            // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-
-            // action
-            media1.Complet = "completTest";
-            string completVal = media1.Complet;
+            //string old = media1.Nom;
+            media1.Nom = "mediaIdk";
+            string nev = media1.Nom;
 
             // assertion
-            Assert.That(completVal, Is.EqualTo("completTest"));
+            Assert.That(nev, Is.EqualTo("mediaIdk"));
         }
 
         [Test]
-        public void etantDonneDuree_quandGetSetDuree_alorsRetourneBonDuree()
+        public void setNomMauvais()
         {
-            // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
+            media1.Nom = "$%#?@%(*@!#&()&#!@)(*#?)";
+            string nev = media1.Nom;
 
-            // action
+            // assertion
+            Assert.That(nev, Is.EqualTo(Media.NOM_DEFAULT));
+        }
+
+        [Test]
+        public void setDureeBon()
+        {
             media1.Duree = 100;
-            int dureeVal = (int)media1.Duree;
+            int dureeVal = media1.Duree;
 
             // assertion
             Assert.That(dureeVal, Is.EqualTo(100));
         }
 
         [Test]
-        public void etantDonneConstructeurVide_quandCreerMediaVide_alorsRetourneMediaParDefaut()
+        public void setDureeMauvais()
         {
-            // acteurs
-            media1 = new Media();
-            List<bool> res = new List<bool>();
-
-            // action
-            res.Add(new Regex($"^{Media.ID_DEFAULT}_[0-9]+$").IsMatch(media1.Id));
-            res.Add(media1.Type == Media.TYPE_DEFAULT);
-            res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
-            res.Add(media1.Duree == Media.DUREE_DEFAULT);
-            res.Add(media1.Auteur == Media.AUTEUR_DEFAULT);
-            res.Add(media1.Producteur == Media.PRODUCTEUR_DEFAULT);
-            res.Add(media1.Extrait == Media.EXTRAIT_DEFAULT);
-            res.Add(media1.Complet == Media.COMPLET_DEFAULT);
-            res.Add(media1.Image == Media.IMAGE_DEFAULT);
+            media1.Duree = -100;
+            int dureeVal = media1.Duree;
 
             // assertion
-            Assert.That(res.All(x=>x==true), Is.True);
+            Assert.That(dureeVal, Is.EqualTo(Media.DUREE_DEFAULT));
         }
 
         [Test]
-        public void etantDonneConstructeurJusteIdentifiant_quandCreerMediaJusteIdentifiant_alorsRetourneMediaResteParDefaut()
+        public void ConstructeurVide()
         {
-            // acteurs
-            media1 = new Media("ID_TETS");
-            List<bool> res = new List<bool>();
-
-            // action
-            res.Add(media1.Type == Media.TYPE_DEFAULT);
-            res.Add(media1.DateRealisation == Media.DATE_DEFAULT);
-            res.Add(media1.Duree == Media.DUREE_DEFAULT);
-            res.Add(media1.Auteur == Media.AUTEUR_DEFAULT);
-            res.Add(media1.Producteur == Media.PRODUCTEUR_DEFAULT);
-            res.Add(media1.Extrait == Media.EXTRAIT_DEFAULT);
-            res.Add(media1.Complet == Media.COMPLET_DEFAULT);
-            res.Add(media1.Image == Media.IMAGE_DEFAULT);
-
-            // assertion
-            Assert.That(res.All(x => x == true), Is.True);
+            Assert.That(mediaVide.Nom, Is.EqualTo(Media.NOM_DEFAULT));
+            Assert.That(mediaVide.DateRealisation, Is.EqualTo(Media.DATE_DEFAULT));
+            Assert.That(mediaVide.Duree, Is.EqualTo(Media.DUREE_DEFAULT));
+            Assert.That(mediaVide.Auteur, Is.EqualTo(Media.AUTEUR_DEFAULT));
+            Assert.That(mediaVide.Producteur, Is.EqualTo(Media.PRODUCTEUR_DEFAULT));
+            Assert.That(mediaVide.Extrait, Is.EqualTo(Media.EXTRAIT_DEFAULT));
+            Assert.That(mediaVide.Complet, Is.EqualTo(Media.COMPLET_DEFAULT));
+            Assert.That(mediaVide.Image, Is.EqualTo(Media.IMAGE_DEFAULT));
         }
 
         [Test]
-        public void etantDonneConstructeurPlein_quandCreerMedia_alorsRetourneMediaPlein()
+        public void constructeurJusteIdentifiant()
         {
-            // acteurs
-            media1 = new Media("media1", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-            List<bool> res = new List<bool>();
+            Assert.That(mediaConstructeur1.Nom, Is.EqualTo("test"));
+            Assert.That(mediaConstructeur1.Type, Is.EqualTo(Media.TYPE_DEFAULT));
+            Assert.That(mediaConstructeur1.DateRealisation, Is.EqualTo(Media.DATE_DEFAULT)); 
+            Assert.That(mediaConstructeur1.Duree, Is.EqualTo(Media.DUREE_DEFAULT));
+            Assert.That(mediaConstructeur1.Auteur, Is.EqualTo(Media.AUTEUR_DEFAULT));
+            Assert.That(mediaConstructeur1.Producteur, Is.EqualTo(Media.PRODUCTEUR_DEFAULT));
+            Assert.That(mediaConstructeur1.Extrait, Is.EqualTo(Media.EXTRAIT_DEFAULT));
+            Assert.That(mediaConstructeur1.Complet, Is.EqualTo(Media.COMPLET_DEFAULT));
+            Assert.That(mediaConstructeur1.Image, Is.EqualTo(Media.IMAGE_DEFAULT));
+        }
 
-            // action
-            res.Add(!string.IsNullOrEmpty(media1.Id+"_0"));
-            res.Add(media1.Type != null);
-            res.Add(media1.DateRealisation != null);
-            res.Add(media1.Duree != null);
-            res.Add(!string.IsNullOrEmpty(media1.Auteur));
-            res.Add(!string.IsNullOrEmpty(media1.Producteur));
-            res.Add(!string.IsNullOrEmpty(media1.Extrait));
-            res.Add(!string.IsNullOrEmpty(media1.Complet));
-            res.Add(!string.IsNullOrEmpty(media1.Image));
-
-            // assertion
-            Assert.That(res.All(x => x == true), Is.True);
+        [Test]
+        public void constructeurPlein()
+        {
+            Assert.That(media1.Nom, Is.EqualTo("media1"));
+            Assert.That(media1.Type, Is.EqualTo(Types.ROCK));
+            Assert.That(media1.DateRealisation, Is.EqualTo(1));
+            Assert.That(media1.Duree, Is.EqualTo(1));
+            Assert.That(media1.Auteur, Is.EqualTo("felix"));
+            Assert.That(media1.Producteur, Is.EqualTo("maek"));
+            Assert.That(media1.Extrait, Is.EqualTo("extrait.mp3"));
+            Assert.That(media1.Complet, Is.EqualTo("complet.mp3"));
+            Assert.That(media1.Image, Is.EqualTo("image.png"));
         }
 
     }

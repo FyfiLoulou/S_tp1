@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace S_tp1
 {
     public class CatalogueEvaluation
     {
-
-        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
 
         private List<Evaluation> listeEvaluations;
 
@@ -13,37 +12,65 @@ namespace S_tp1
         {
             listeEvaluations = new List<Evaluation>();
         }
+
+
         /// <summary>
-        /// Retourne une liste de toutes les évaluations
+        /// Supprime le Evaluation en paramètre du catalogue
         /// </summary>
-        /// <returns>Une liste évaluation</returns>
-        public List<Evaluation> GetEvaluations() { return listeEvaluations; }
+        /// <param name="eval">L'objet Evaluation à supprimer</param>
+        /// <returns>True si le Evaluation a été supprimé, false si le Evaluation n'a pas été supprimé</returns>
+        public bool Supprimer(Evaluation eval)
+        {
+            return listeEvaluations.Remove(eval);
+        }
+
+        public List<Evaluation> GetCatalogue() { return listeEvaluations; }
 
         /// <summary>
         /// Ajoute une évaluation dans la liste d'évaluations
         /// </summary>
         /// <param name="eval">L'évaluation à ajouter</param>
-        /// <remarks>
-        /// Cette fonction ajoute une évaluation dans la liste d'évaluations et met à jour l'objet média
-        /// et l'objet userId avec la nouvelle évaluation.
-        /// </remarks>
-        /*public void AjouterEvaluation(Evaluation eval)
+        public void Ajouter(Evaluation eval)
         {
-            eval.MediaId.AjouterEvaluation(eval);
-            eval.UserId.AjouterEvaluation(eval);
             listeEvaluations.Add(eval);
-        }*/
+        }
+
+        /// <summary>
+        /// Supprime tous les evaluations du catalogue
+        /// </summary>
+        public void Supprimer()
+        {
+            listeEvaluations.Clear();
+        }
+
+        public List<Evaluation> GetEvalutations(Media media)
+        {
+            return listeEvaluations.Where(x => x.MediaId == media.getId()).ToList();
+        }
+
+        public List<Evaluation> GetEvalutations(Utilisateur user)
+        {
+            return listeEvaluations.Where(x => x.UserId == user.getId()).ToList();
+        }
 
         /// <summary>
         /// Lit une liste d'évaluations d'un fichier JSON, try catch non inclus
         /// </summary>
         /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
         /// <returns>Une liste d'évaluations</returns>
-        public List<Evaluation> Ajouter(string nomFichierSauvegarde)
+        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
         {
-            List<Evaluation> list = null;
-            listeEvaluations = list = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            return list;
+            bool ok = true;
+            try
+            {
+                listeEvaluations = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
+            }
+            catch (Exception err)
+            {
+                ok = false;
+            }
+
+            return ok;
         }
 
         /// <summary>
@@ -51,19 +78,33 @@ namespace S_tp1
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier de sauvegarde</param>
         /// <returns>True si le sauvegarde est réussi, false autrement</returns>
-        public bool Sauvegarder(string nomFichierSauvegarde)
+        public bool Sauvegarder(string nomFichierSauvegarde, string pathSource)
         {
             bool isSauvegarde = true;
-            File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
+            try
+            {
+                File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
+            }
+            catch (Exception err)
+            {
+                isSauvegarde = false;
+            }
+
             return isSauvegarde;
+        }
+
+        public byte getCote(Media media)
+        {
+            List<Evaluation> evals = this.GetEvalutations(media);
+            return evals.Count > 0 ? (byte)Math.Round((double)(evals.Select(x => x.Cote).Aggregate((a, b) => a += b) / evals.Count)) : (byte)0;
         }
 
         public override string ToString()
         {
             string retVal = "";
-            foreach (Evaluation evaluation in listeEvaluations)
+            foreach (Evaluation eval in listeEvaluations)
             {
-                retVal += $"{evaluation.ToString()} \n\n";
+                retVal += eval.ToString() + "\n\n";
             }
             return retVal;
         }

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using static S_tp1.Utilitaire;
 
 namespace S_tp1
 {
@@ -23,70 +22,38 @@ namespace S_tp1
         /// Ajoute un objet média dans le catalogue
         /// </summary>
         /// <param name="media">L'objet média à ajouter</param>
-        /// <returns>True si le média est ajouté au catalogue, false si le média existe déjà</returns>
-        public bool Ajouter(Media media)
+        public void Ajouter(Media media)
         {
-            
-            bool isAjouter = false;
-            if (!MediaExisteDansCatalogue(media))
-            {
-                catalogue.Add(media);
-                isAjouter = true;
-            }
-            
-            return isAjouter;
+            catalogue.Add(media);
         }
 
         /// <summary>
-        /// remplace un objet média déjà présent dans le catalogue par un nouvel objet média
+        /// remplace un média déjà présent dans le catalogue par un nouveau média, si le média a remplacer n'existe pas, ajoute le nouveau media quand même
         /// </summary>
         /// <param name="mediaToAdd">Le nouvel objet média à ajouter dans le catalogue</param>
         /// <param name="mediaToRemove">L'objet média à remplacer dans le catalogue</param>
-        /// <returns>True si l'objet média est remplacé par le nouvel objet média, false autrement</returns>
-        public bool Remplacer(Media mediaToAdd, Media mediaToRemove)
+        public void Remplacer(Media mediaToAdd, Media mediaToRemove)
         {
-            bool isRemplace = false;
-
-            // mediaToAdd n'est pas dans le catalogue et mediaToRemove y est
-            // on doit ajouter le nouvel objet média dans le catalogue et retirer le média à remplacer
-            if (!MediaExisteDansCatalogue(mediaToAdd) && MediaExisteDansCatalogue(mediaToRemove))
-            {
-                isRemplace = true;
-                this.Supprimer(mediaToRemove);
-                this.Ajouter(mediaToAdd);
-            }
-
-            return isRemplace;
+            catalogue.Remove(mediaToRemove); 
+            catalogue.Add(mediaToAdd);
         }
 
         /// <summary>
-        /// Supprime le mediaId passé en paramètre du catalogue
+        /// Supprime le Media en paramètre du catalogue
         /// </summary>
-        /// <param name="media">L'objet mediaId à supprimer</param>
-        /// <returns>True si le mediaId a été supprimé, false si le mediaId n'a pas été supprimé</returns>
+        /// <param name="media">L'objet Media à supprimer</param>
+        /// <returns>True si le Media a été supprimé, false si le Media n'a pas été supprimé</returns>
         public bool Supprimer(Media media)
         {
-            bool isSupprime = false;
-            if (MediaExisteDansCatalogue(media))
-            {
-                catalogue.Remove(media);
-                if (!MediaExisteDansCatalogue(media))
-                {
-                    isSupprime = true;
-                }
-            }
-            
-            return isSupprime;
+            return catalogue.Remove(media);
         }
 
         /// <summary>
         /// Supprime tous les médias du catalogue
         /// </summary>
-        /// <returns> True si le catalogue a bien été supprimé, false autrement</returns>
-        public bool Supprimer()
+        public void Supprimer()
         {
             catalogue.Clear();
-            return catalogue.Count() == 0;
         }
 
         /// <summary>
@@ -94,25 +61,17 @@ namespace S_tp1
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le chemin du fichier JSON</param>
         /// <returns>Le catalogue rempli d'objet média</returns>
-        public List<Media> Ajouter(string nomFichierSauvegarde, string path)
+        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
         {
-            List<Media> list = null;
-            try
-            {
-                catalogue = list = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{path}\{nomFichierSauvegarde}"));
+            bool ok = true;
+            try {
+                catalogue = JsonConvert.DeserializeObject<List<Media>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (FileNotFoundException err)
-            {
-                //Todo -> Qu'est ce qu'on fait avec ca
-                Console.WriteLine("Fichier existe pas: " + err.Message);
-            }
-            catch (Exception err)
-            {
-                //Todo -> Qu'est ce qu'on fait avec ca
-                Console.WriteLine("Erreur autre: " + err.Message);
+            catch (Exception e) {
+                ok = false;
             }
 
-            return list;
+            return ok;
         }
 
 
@@ -121,10 +80,17 @@ namespace S_tp1
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le nom du fichier à sauvegarder</param>
         /// <returns>True si la sauvegarde est réussi, false autrement</returns>
-        public bool Sauvegarder(string nomFichierSauvegarde, string path)
+        public bool Sauvegarder(string nomFichierSauvegarde, string pathSource)
         {
             bool isSauvegarde = true;
-            File.WriteAllText(@$"{path}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
+            try
+            {
+                File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(catalogue, Formatting.Indented));
+            }
+            catch (Exception err) {
+                isSauvegarde = false;
+            }
+            
             return isSauvegarde;
         }
 
@@ -132,44 +98,28 @@ namespace S_tp1
 
         public override string ToString()
         {
-            string retVal = "mediaId: ";
+            string retVal = "";
             foreach (Media media in catalogue)
             {
-                retVal += $"{media.ToString()} \n\n";
+                retVal += media.ToString()+"\n\n";
             }
             return retVal;
         }
 
 
-        // Méthodes ajoutées
+        public List<Media>? GetCatalogue() { return catalogue; }
 
-        /// <summary>
-        /// Todo -> Est-ce qu'on garde ?
-        /// Vérifie si le média passé en paramètre existe dans le catalogue
-        /// </summary>
-        /// <param name="media">Le média à chercher dans le catalogue</param>
-        /// <returns>True si le média existe, false s'il n'existe pas</returns>
-        public bool MediaExisteDansCatalogue(Media media)
-        {
-            return catalogue.Contains(media);
-        }
-
-        /// <summary>
-        /// permet l'accès au catalogue
-        /// </summary>
-        /// <returns>Le catalogue</returns>
-        public List<Media>? getCatalogue() { return catalogue; }
 
 
         /// <summary>
-        /// Todo -> Est-ce qu'on en vraiment besoin ?
         /// Récupère un média à partir de son identifiant
         /// </summary>
-        /// <param name="id">l'indentifiantMedia du MediaId à récuprérer</param>
+        /// <param name="id">l'indentifiantMedia du Media à récuprérer</param>
         /// <returns>Le média coresspondant à l'identififant spécifié</returns>
-        public Media GetMedia(string id)
-        {   
-            return catalogue.Where(m => m.Id == id).Count()>0 ? catalogue.Where(m => m.Id == id).First() : null;
+        public Media? GetMedia(string id)
+        {
+            List<Media> list = catalogue.Where(x => x.getId() == id).ToList();
+            return list.Count > 0 ? list[0] : null;
         }
 
     }

@@ -8,8 +8,6 @@ namespace S_tp1
     public class CatalogueUtilisateur
     {
 
-        private string PATH_SOURCE = @$"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\serial";
-
         private List<Utilisateur> listeUtilisateurs;
 
         public CatalogueUtilisateur()
@@ -18,19 +16,16 @@ namespace S_tp1
         }
 
         /// <summary>
-        /// Ajoute un nouvel userId dans la liste d'utilisateurs
+        /// Ajoute un nouvel utilisateur dans la liste d'utilisateurs
         /// </summary>
-        /// <param name="utilisateur">L'userId à ajouter</param>
-        public void AjouterListe(Utilisateur utilisateur)
+        /// <param name="utilisateur">L'utilisateur à ajouter</param>
+        public void Ajouter(Utilisateur utilisateur)
         {
             listeUtilisateurs.Add(utilisateur);
         }
 
-        /// <summary>
-        /// Retourne la liste des utilisateurs
-        /// </summary>
-        /// <returns>La liste des utilisateurs</returns>
-        public List<Utilisateur> GetUtilisateurs() { return listeUtilisateurs; }
+
+        public List<Utilisateur> GetCatalogue() { return listeUtilisateurs; }
 
         /// <summary>
         /// Lit un fichier JSON et retourne une liste d'objet userId
@@ -39,23 +34,19 @@ namespace S_tp1
         /// <returns>Une liste d'objet userId</returns>
         /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         /// <exception cref="Exception"> Lancée en cas d'erreur inattendue </exception>
-        public List<Utilisateur> Ajouter(string nomFichierSauvegarde)
+        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
         {
-            List<Utilisateur> list = null;
+            bool ok = true;
             try
             {
-                listeUtilisateurs = list = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}"));
-            }
-            catch (FileNotFoundException err)
-            {
-                Console.WriteLine("Fichier existe pas: " + err.Message);
+                listeUtilisateurs = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
             catch (Exception err)
             {
-                Console.WriteLine("Erreur autre: " + err.Message);
+                ok = false;
             }
 
-            return list;
+            return ok;
         }
 
         /// <summary>
@@ -65,20 +56,16 @@ namespace S_tp1
         /// <returns>True si la sauvegarde est réussi, false autrement</returns>
         /// <exception cref="">Lancée si le dossier de sauvegarde n'existe pas</exception>
         /// <exception cref="Exception"> Lancée en cas d'erreur inattendue</exception>
-        public bool Sauvegarder(string nomFichierSauvegarde)
+        public bool Sauvegarder(string nomFichierSauvegarde, string pathSource)
         {
             bool isSauvegarde = true;
             try
             {
-                File.WriteAllText(@$"{PATH_SOURCE}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeUtilisateurs, Formatting.Indented));
-            }
-            catch (DirectoryNotFoundException err)
-            {
-                Console.WriteLine("Dossier existe pas: " + err.Message);
+                File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeUtilisateurs, Formatting.Indented));
             }
             catch (Exception err)
             {
-                Console.WriteLine("Erreur autre: " + err.Message);
+                isSauvegarde = false;
             }
             return isSauvegarde;
         }
@@ -86,24 +73,36 @@ namespace S_tp1
         public override string ToString()
         {
             string retVal = "";
-            foreach (Utilisateur u in listeUtilisateurs)
+            foreach (Utilisateur user in listeUtilisateurs)
             {
-                retVal += $"{u.ToString()} \n\n";
+                retVal += user.ToString() + "\n\n";
             }
             return retVal;
         }
 
-        /// <summary>
-        /// Récupère un userId à partir de son id
-        /// </summary>
-        /// <param name="id">l'id (pseudo) de l'userId à récupérer</param>
-        /// <returns>L'userId correspondant à l'id spécifié</returns>
-        public Utilisateur GetUtilisateur(string id)
+        /// <summary>Retire un utilisateur du catalogue d'utilisateurs</summary>
+        /// <param name="user">L'utilisateur à retirer</param>
+        /// <returns>Vrai si l'utilisateur est bien retiré, faux autrement</returns>
+        public bool Supprimer(Utilisateur user)
         {
-            // Recherche de l'userId dans la liste des utilisateurs
-            // en fonction de son pseudo.
-            return listeUtilisateurs.Where(u => u.Id == id).Count()>0 ? listeUtilisateurs.Where(u => u.Id == id).First() : null;
+            return listeUtilisateurs.Remove(user);
         }
+
+        /// <summary>Retire tout les utilisateurs de la liste d'utilisateurs</summary>
+        public void Supprimer()
+        {
+            listeUtilisateurs.Clear();
+        }
+
+        /// <summary>Permet d'accèder à un utilisateur en connaissant son id</summary>
+        /// <param name="id">L'identifiant de l'utilisateur</param>
+        /// <returns>L'utilisateur spécifié en param ou null s'il n'existe pas</returns>
+        public Utilisateur? GetUtilisateur(string id)
+        {
+            List<Utilisateur> list = listeUtilisateurs.Where(x => x.getId() == id).ToList();
+            return list.Count > 0 ? list[0] : null;
+        }
+        
 
     }
 }

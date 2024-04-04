@@ -13,165 +13,116 @@ namespace TestTP1
         //Acteurs
         Catalogue catalogue;
         Media mediaTest;
-        Utilisateur johny = new Utilisateur("JohnyX", "abc123", "Test", "Johny", Role.UTILISATEUR);
-        Utilisateur lcb = new Utilisateur();
-        Utilisateur maek = new Utilisateur("ML", "abc123", "Lorman", "Maek", Role.UTILISATEUR);
-        Utilisateur felix = new Utilisateur("FB", "ofdh");
-        Evaluation evaluation;
+        Utilisateur user1;
+        Utilisateur user2;
+        Utilisateur userVide;
+        Utilisateur userConstructeur1;
 
         [SetUp]
         public void Setup()
         {
+            user1 = new Utilisateur("JohnyX1", "aBc123!", "Test", "Johny", Role.UTILISATEUR);
+            user2 = new Utilisateur("ML10", "aBc123%", "Lorman", "Maek", Role.ADMIN);
+            userVide = new Utilisateur();
+            userConstructeur1 = new Utilisateur("testa1", "Soleil0!");
             catalogue = new Catalogue();
             mediaTest = new Media("media", Types.ROCK, 1, 1, "felix", "maek", "extrait", "complet", "image");
-            //evaluation = new Evaluation(johny, mediaTest, 3);
-        }
-
-        //Utilisateurs=============================================================================
-        [Test]
-        public void EtantDonneConstructeurVide_quandCreerUtilisateur_AlorsUtilisateurParDefaut()
-        {
-            // acteurs
-            lcb = new Utilisateur();
-            List<bool> res = new List<bool>
-            {
-                // action
-                new Regex($"^{Utilisateur.PSEUDO_DEFAULT}_[0-9]+$").IsMatch(lcb.Id),
-                lcb.Role == Utilisateur.ROLE_DEFAULT,
-                lcb.MotDePasse == Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON,
-                lcb.Nom == Utilisateur.NOM_DEFAULT,
-                lcb.Prenom == Utilisateur.PRENOM_DEFAULT
-            };
-
-            // assertion
-            Assert.That(res.All(x => x == true), Is.True);
         }
 
         [Test]
-        public void etantDonneConstructeurAvecPseudoEtMotDePasseParam_quandCreerUtilisateur_AlorsUtilisateurPseudoMDP()
+        public void constructeurVide()
         {
-            //TODO: pseudo + mdp
-            maek = new Utilisateur("ML", "abc123");
-            List<bool> res = new List<bool>
-            {
-                new Regex($"^ML_[0-9]+$").IsMatch(maek.Id),
-                maek.Role == Utilisateur.ROLE_DEFAULT,
-                maek.MotDePasse == "abc123",
-                maek.Nom == Utilisateur.NOM_DEFAULT,
-                maek.Prenom == Utilisateur.PRENOM_DEFAULT
-            };
-
-
-        Assert.That(res.All(x => x == true), Is.True);
+            Assert.That(userVide.Pseudo, Is.EqualTo(Utilisateur.PSEUDO_DEFAULT));
+            Assert.That(userVide.MotDePasse, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+            Assert.That(userVide.Prenom, Is.EqualTo(Utilisateur.PRENOM_DEFAULT));
+            Assert.That(userVide.Nom, Is.EqualTo(Utilisateur.NOM_DEFAULT));
+            Assert.That(userVide.Role, Is.EqualTo(Utilisateur.ROLE_DEFAULT));
         }
 
         [Test]
-        public void EtantDonneCreerUtilisateurConstructeurFull_QuandConstructeurFull_AlorsCreerUtilisateurConstructeurFull()
+        public void constructeur_Pseudo_MotDePasse()
         {
-            //TODO: FULLO
-            felix = new Utilisateur("FB", "ofdh", "Blanchette", "Felix", Role.UTILISATEUR);
-            List<bool> res = new List<bool>
-            {
-                new Regex($"^FB_[0-9]+$").IsMatch(felix.Id),
-                felix.Role == Role.UTILISATEUR,
-                felix.MotDePasse == "ofdh",
-                felix.Nom == "Blanchette",
-                felix.Prenom == "Felix"
-            };
-
-            Assert.That(res.All(x => x == true), Is.True);
-        }
-
-        //TODO -> regex
-
-        public void EtantJTesteur_QuandsetIdentifiantUnique_AlorsGetRetourneTesteurAvecNum(String valeur, String resultat)
-        {
-            //Acteur
-            johny = new Utilisateur("JTesteur", "abc123", "Test", "Johny", Role.UTILISATEUR);
-            //Action
-            bool res = new Regex("^JTesteur_[0-9]$").IsMatch(johny.Id);
-            //Assertion
-            Assert.That(res, Is.True);
+            Assert.That(userConstructeur1.Pseudo, Is.EqualTo("testa1"));
+            Assert.That(userConstructeur1.MotDePasse, Is.EqualTo("Soleil0!"));
+            Assert.That(userConstructeur1.Prenom, Is.EqualTo(Utilisateur.PRENOM_DEFAULT));
+            Assert.That(userConstructeur1.Nom, Is.EqualTo(Utilisateur.NOM_DEFAULT));
+            Assert.That(userConstructeur1.Role, Is.EqualTo(Utilisateur.ROLE_DEFAULT));
         }
 
         [Test]
-        public void EtantDonneJohnyXCommePseudo_QuandGetPseudo_AlorsJohnyXCommePseudo()
+        public void constructeurFull()
         {
-            //Action
-            String resultat = johny.Pseudo;
-
-            //Assertion
-            Assert.That(resultat, Is.EqualTo("JohnyX"));
+            Assert.That(user1.Pseudo, Is.EqualTo("JohnyX1"));
+            Assert.That(user1.MotDePasse, Is.EqualTo("aBc123!"));
+            Assert.That(user1.Prenom, Is.EqualTo("Johny"));
+            Assert.That(user1.Nom, Is.EqualTo("Test"));
+            Assert.That(user1.Role, Is.EqualTo(Role.UTILISATEUR));
         }
 
         [Test]
-        public void EtantDonnePseudoDefaut_QuandSetPseudo_AlorsPseudoChanger()
+        public void setPseudoBon()
         {
-            //Action
-            johny.Pseudo = "TestUser";
-            String resultat = johny.Pseudo;
-
-            //Assertion
-            Assert.That(resultat, Is.EqualTo("TestUser"));
+            user2.Pseudo = "pseudoBon10";
+            Assert.That(user2.Pseudo, Is.EqualTo("pseudoBon10"));
         }
 
         [Test]
-        public void EtantDonneMotDePasse_QuandGetMotDePasse_AlorsMotDePasseRetourne()
+        public void setPseudoTorpCourt()
         {
-            //Action
-            johny.MotDePasse = "abc123$$$LOL";
-            String resultat = johny.MotDePasse;
-
-            //Assertion
-            Assert.That(resultat, Is.EqualTo("abc123$$$LOL"));
+            user2.Pseudo = "p";
+            Assert.That(user2.Pseudo, Is.EqualTo(Utilisateur.PSEUDO_DEFAULT));
         }
 
         [Test]
-        public void EtantDonneMotDePassePasBon_QuandSetMotDePasse_AlorsMotDePasseParDefaut()
+        public void setPseudoPasChiffre()
         {
-            //Action
-            johny.MotDePasse = "pasbon";
-            String resultat = johny.MotDePasse;
-
-            //Assertion
-            Assert.That(resultat, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+            user2.Pseudo = "pasdasdas";
+            Assert.That(user2.Pseudo, Is.EqualTo(Utilisateur.PSEUDO_DEFAULT));
         }
 
         [Test]
-        public void EtantDonneMotDePasseCorrect_QuandSetMotDePasse_AlorsMotDePasseChange()
+        public void setPseudoPasLettre()
         {
-            //Action
-            johny.MotDePasse = "cePassword3stb()n";
-            String resultat = johny.MotDePasse;
-
-            //Assertion
-            Assert.That(resultat, Is.EqualTo("cePassword3stb()n"));
+            user2.Pseudo = "123123";
+            Assert.That(user2.Pseudo, Is.EqualTo(Utilisateur.PSEUDO_DEFAULT));
         }
 
         [Test]
-        public void EtantEvaluationCount_QuandAjouterEvaluation_AlorsReturnEvaluationsListeCountPlus1()
+        public void setMotDePasseBon()
         {
-            //Action
-            //int nbEvalAv = johny.Evaluations.Count;
-            //johny.AjouterEvaluation(evaluation);
-            //int nbEvalAp = johny.Evaluations.Count;
-
-            //Assertion
-            //Assert.That(nbEvalAp, Is.EqualTo(nbEvalAv + 1));
-
+            user2.MotDePasse = "Abc12#";
+            Assert.That(user2.MotDePasse, Is.EqualTo("Abc12#"));
         }
 
         [Test]
-        public void EtantFavorisCount_QuandAjouterFavoris_AlorsReturnFavorisCountPlus1()
+        public void setMotDePasseTropCourt()
         {
-            //Action
-            //int nbFavAv = johny.Favoris.Count;
-            //johny.AjouterFavori(mediaTest);
-            //int nbFavAp = johny.Favoris.Count;
-
-            //Assertion
-            //Assert.That(nbFavAp, Is.EqualTo(nbFavAv + 1));
+            user2.MotDePasse = "a";
+            Assert.That(user2.MotDePasse, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
         }
+
+        [Test]
+        public void setMotDePassePasMaj()
+        {
+            user2.MotDePasse = "abc12#";
+            Assert.That(user2.MotDePasse, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+        }
+
+        [Test]
+        public void setMotDePassePasChiffre()
+        {
+            user2.MotDePasse = "abc#";
+            Assert.That(user2.MotDePasse, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+        }
+
+        [Test]
+        public void setMotDePassePasSymbol()
+        {
+            user2.MotDePasse = "abc12";
+            Assert.That(user2.MotDePasse, Is.EqualTo(Utilisateur.PASSWORD_PAR_DEFAUT_PAS_BON));
+        }
+
+
 
 
     }
